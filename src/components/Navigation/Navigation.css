@@ -1,0 +1,63 @@
+/* Navigation Component Styles */
+.navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navigation.scrolled {
+    padding: 0.75rem 2rem;
+    background: rgba(26, 31, 46, 0.95);
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navigation-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-logo img {
+    height: 60px;
+    width: auto;
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+.navigation.scrolled .navigation-logo img {
+    height: 45px;
+}
+
+.navigation-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navigation-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navigation-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navigation-links {
+        display: none;
+    }
+}
