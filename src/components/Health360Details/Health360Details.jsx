@@ -1,46 +1,45 @@
 import React from 'react';
 import './Health360Details.css';
-import LazyImage from '../LazyImage/LazyImage';
-
-// Import Patient Mobile screens
-import patientMobile1 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 2.png';
-import patientMobile2 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 3.png';
-import patientMobile3 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 4.png';
-import patientMobile4 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 6.png';
-import patientMobile5 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 10.png';
-import patientMobile6 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 20.png';
-import patientMobile7 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 21.png';
-import patientMobile8 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 22.png';
-import patientMobile9 from '../../assets/project-assets/Health 360/UI/Patient Mobile/iPhone 13 mini - 23.png';
-
-// Import Patient Web screens
-import patientWeb1 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light.png';
-import patientWeb2 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-1.png';
-import patientWeb3 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-2.png';
-import patientWeb4 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-3.png';
-import patientWeb5 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-4.png';
-import patientWeb6 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-5.png';
-import patientWeb7 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-6.png';
-import patientWeb8 from '../../assets/project-assets/Health 360/UI/Patient Web/1920w light-7.png';
-
-// Import Doctor Mobile screens
-import doctorMobile1 from '../../assets/project-assets/Health 360/UI/Doctor Mobile/iPhone 13 mini - 7.png';
-import doctorMobile2 from '../../assets/project-assets/Health 360/UI/Doctor Mobile/iPhone 13 mini - 11.png';
-import doctorMobile3 from '../../assets/project-assets/Health 360/UI/Doctor Mobile/iPhone 13 mini - 12.png';
-import doctorMobile4 from '../../assets/project-assets/Health 360/UI/Doctor Mobile/iPhone 13 mini - 14.png';
-
-// Import Doctor Web screens
-import doctorWeb1 from '../../assets/project-assets/Health 360/UI/Doctor Web/Img.png';
-import doctorWeb2 from '../../assets/project-assets/Health 360/UI/Doctor Web/Img 1.png';
-import doctorWeb3 from '../../assets/project-assets/Health 360/UI/Doctor Web/Img 2.png';
-import doctorWeb4 from '../../assets/project-assets/Health 360/UI/Doctor Web/Img 3.png';
-import doctorWeb5 from '../../assets/project-assets/Health 360/UI/Doctor Web/Img 4.png';
-import doctorWeb6 from '../../assets/project-assets/Health 360/UI/Doctor Web/Group 26.png';
 
 const Health360Details = () => {
     const handleBackClick = () => {
         window.history.back();
     };
+
+    // Image URLs - Patient Mobile screens
+    const patientMobile1 = 'https://i.ibb.co/QjpwVrWV/i-Phone-13-mini-2.png';
+    const patientMobile2 = 'https://i.ibb.co/1YTR7gfG/i-Phone-13-mini-3.png';
+    const patientMobile3 = 'https://i.ibb.co/27xLshQC/i-Phone-13-mini-4.png';
+    const patientMobile4 = 'https://i.ibb.co/bgqT84XZ/i-Phone-13-mini-6.png';
+    const patientMobile5 = 'https://i.ibb.co/ymnL5bJq/i-Phone-13-mini-10.png';
+    const patientMobile6 = 'https://i.ibb.co/YYJ59nc/i-Phone-13-mini-20.png';
+    const patientMobile7 = 'https://i.ibb.co/tSShvbd/i-Phone-13-mini-21.png';
+    const patientMobile8 = 'https://i.ibb.co/rK1W7tL0/i-Phone-13-mini-22.png';
+    const patientMobile9 = 'https://i.ibb.co/7xHXMv2f/i-Phone-13-mini-23.png';
+
+    // Image URLs - Patient Web screens
+    const patientWeb1 = 'https://i.ibb.co/997sjCbd/1920w-light.png';
+    const patientWeb2 = 'https://i.ibb.co/xKv0h64t/1920w-light-1.png';
+    const patientWeb3 = 'https://i.ibb.co/zVPxHnYg/1920w-light-2.png';
+    const patientWeb4 = 'https://i.ibb.co/np8j7h9/1920w-light-3.png';
+    const patientWeb5 = 'https://i.ibb.co/wFpRk8mG/1920w-light-4.png';
+    const patientWeb6 = 'https://i.ibb.co/PzFpgrpD/1920w-light-5.png';
+    const patientWeb7 = 'https://i.ibb.co/93wJhLq2/1920w-light-6.png';
+    const patientWeb8 = 'https://i.ibb.co/fVM91Ks4/1920w-light-7.png';
+
+    // Image URLs - Doctor Mobile screens
+    const doctorMobile1 = 'https://i.ibb.co/Xx6tfbjW/i-Phone-13-mini-7.png';
+    const doctorMobile2 = 'https://i.ibb.co/xqKMqhrN/i-Phone-13-mini-11.png';
+    const doctorMobile3 = 'https://i.ibb.co/9mGMwkFh/i-Phone-13-mini-12.png';
+    const doctorMobile4 = 'https://i.ibb.co/mV0kKPbB/i-Phone-13-mini-14.png';
+
+    // Image URLs - Doctor Web screens
+    const doctorWeb1 = 'https://i.ibb.co/ZpzFn81P/Img.png';
+    const doctorWeb2 = 'https://i.ibb.co/RG9rFXDW/Img-1.png';
+    const doctorWeb3 = 'https://i.ibb.co/ycdKvk5M/Img-2.png';
+    const doctorWeb4 = 'https://i.ibb.co/TJjhQzP/Img-3.png';
+    const doctorWeb5 = 'https://i.ibb.co/M536yV1Z/Img-4.png';
+    const doctorWeb6 = 'https://i.ibb.co/mrvhSK0v/Group-26.png';
 
     return (
         <div className="health360-details">
@@ -209,122 +208,7 @@ const Health360Details = () => {
                         </div>
                     </div>
 
-                    {/* 4. Patient Web Interface */}
-                    <div className="content-section">
-                        <h2 className="section-title">Patient <span>Web Interface</span></h2>
-                        <p className="section-description">
-                            The patient web portal provides a comprehensive dashboard for managing health information, appointments, and communication with healthcare providers. Designed with accessibility and ease of use in mind.
-                        </p>
-                        <div className="web-screens-grid">
-                            {[
-                                { img: patientWeb1, title: 'Patient Dashboard', desc: 'Overview of health status, upcoming appointments, and quick access to key features' },
-                                { img: patientWeb2, title: 'Appointment Booking', desc: 'Find and schedule appointments with available doctors based on specialty and availability' },
-                                { img: patientWeb3, title: 'Medical Records', desc: 'Access and manage complete medical history, lab results, and health documents' },
-                                { img: patientWeb4, title: 'Health Monitoring', desc: 'Track vital signs and health metrics with visual charts and trend analysis' },
-                                { img: patientWeb5, title: 'Doctor Profiles', desc: 'Browse detailed doctor profiles with specialties, availability, and patient reviews' },
-                                { img: patientWeb6, title: 'Prescription Management', desc: 'View current medications, dosage information, and request prescription refills' },
-                                { img: patientWeb7, title: 'Consultation History', desc: 'Review past consultations, diagnoses, and treatment plans from healthcare providers' },
-                                { img: patientWeb8, title: 'Settings & Profile', desc: 'Manage personal information, preferences, and notification settings' }
-                            ].map((screen, index) => (
-                                <div key={index} className="web-screen-card">
-                                    <div className="web-screen-image">
-                                        <LazyImage src={screen.img} alt={screen.title} className="screen-img" />
-                                    </div>
-                                    <div className="web-screen-content">
-                                        <h3 className="web-screen-title">{screen.title}</h3>
-                                        <p className="web-screen-description">{screen.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* 6. Patient Mobile Interface */}
-                    <div className="content-section">
-                        <h2 className="section-title">Patient <span>Mobile App</span></h2>
-                        <p className="section-description">
-                            The patient mobile app brings healthcare management to your fingertips with an intuitive, streamlined interface optimized for on-the-go access to health information and services.
-                        </p>
-                        <div className="mobile-screens-grid">
-                            {[
-                                { img: patientMobile1, title: 'Mobile Dashboard', desc: 'Quick access to health overview and important features' },
-                                { img: patientMobile2, title: 'Doctor Search', desc: 'Find and filter doctors by specialty and location' },
-                                { img: patientMobile3, title: 'Booking Flow', desc: 'Simple appointment scheduling with calendar integration' },
-                                { img: patientMobile4, title: 'Health Tracking', desc: 'Monitor daily health metrics and vital signs' },
-                                { img: patientMobile5, title: 'Notifications', desc: 'Stay updated with appointment reminders and health alerts' },
-                                { img: patientMobile6, title: 'Medical History', desc: 'Access past consultations and treatment records' },
-                                { img: patientMobile7, title: 'Prescriptions', desc: 'View medications and set reminder alerts' },
-                                { img: patientMobile8, title: 'Doctor Details', desc: 'Comprehensive doctor information and booking options' },
-                                { img: patientMobile9, title: 'Profile Settings', desc: 'Manage account preferences and personal information' }
-                            ].map((screen, index) => (
-                                <div key={index} className="mobile-screen-card">
-                                    <div className="mobile-screen-image">
-                                        <LazyImage src={screen.img} alt={screen.title} className="mobile-img" />
-                                    </div>
-                                    <div className="mobile-screen-content">
-                                        <h4 className="mobile-screen-title">{screen.title}</h4>
-                                        <p className="mobile-screen-description">{screen.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* 7. Doctor Web Interface */}
-                    <div className="content-section">
-                        <h2 className="section-title">Doctor <span>Web Dashboard</span></h2>
-                        <p className="section-description">
-                            The doctor's web dashboard provides comprehensive tools for patient management, medical records access, and practice administration with advanced analytics and reporting capabilities.
-                        </p>
-                        <div className="web-screens-grid">
-                            {[
-                                { img: doctorWeb1, title: 'Doctor Dashboard', desc: 'Overview of daily schedule, patient queue, and key statistics' },
-                                { img: doctorWeb2, title: 'Patient Management', desc: 'Access patient records, history, and manage ongoing treatments' },
-                                { img: doctorWeb3, title: 'Appointment Calendar', desc: 'Manage schedule, availability, and appointment confirmations' },
-                                { img: doctorWeb4, title: 'Medical Records Access', desc: 'Review comprehensive patient medical history and lab results' },
-                                { img: doctorWeb5, title: 'Analytics Dashboard', desc: 'Track patient outcomes, practice metrics, and performance indicators' },
-                                { img: doctorWeb6, title: 'Consultation Interface', desc: 'Conduct consultations with integrated patient information and tools' }
-                            ].map((screen, index) => (
-                                <div key={index} className="web-screen-card">
-                                    <div className="web-screen-image">
-                                        <LazyImage src={screen.img} alt={screen.title} className="screen-img" />
-                                    </div>
-                                    <div className="web-screen-content">
-                                        <h3 className="web-screen-title">{screen.title}</h3>
-                                        <p className="web-screen-description">{screen.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* 8. Doctor Mobile Interface */}
-                    <div className="content-section">
-                        <h2 className="section-title">Doctor <span>Mobile App</span></h2>
-                        <p className="section-description">
-                            The doctor's mobile app enables healthcare providers to manage patients and appointments on the go, with quick access to critical patient information and communication tools.
-                        </p>
-                        <div className="mobile-screens-grid">
-                            {[
-                                { img: doctorMobile1, title: 'Doctor Home', desc: 'Quick overview of appointments and patient alerts' },
-                                { img: doctorMobile2, title: 'Patient List', desc: 'Browse and search patient records on the go' },
-                                { img: doctorMobile3, title: 'Patient Details', desc: 'Access complete patient information and medical history' },
-                                { img: doctorMobile4, title: 'Schedule Management', desc: 'Manage appointments and availability settings' }
-                            ].map((screen, index) => (
-                                <div key={index} className="mobile-screen-card">
-                                    <div className="mobile-screen-image">
-                                        <LazyImage src={screen.img} alt={screen.title} className="mobile-img" />
-                                    </div>
-                                    <div className="mobile-screen-content">
-                                        <h4 className="mobile-screen-title">{screen.title}</h4>
-                                        <p className="mobile-screen-description">{screen.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* 9. Design System */}
+                    {/* 4. Design System */}
                     <div className="content-section">
                         <h2 className="section-title">Design <span>System</span></h2>
                         <p className="section-description">
@@ -400,7 +284,122 @@ const Health360Details = () => {
                         </div>
                     </div>
 
-                    {/* 10. Business Impact */}
+                    {/* 5. Patient Web Interface */}
+                    <div className="content-section">
+                        <h2 className="section-title">Patient <span>Web Interface</span></h2>
+                        <p className="section-description">
+                            The patient web portal provides a comprehensive dashboard for managing health information, appointments, and communication with healthcare providers. Designed with accessibility and ease of use in mind.
+                        </p>
+                        <div className="web-screens-grid">
+                            {[
+                                { img: patientWeb1, title: 'Patient Dashboard', desc: 'Overview of health status, upcoming appointments, and quick access to key features' },
+                                { img: patientWeb2, title: 'Appointment Booking', desc: 'Find and schedule appointments with available doctors based on specialty and availability' },
+                                { img: patientWeb3, title: 'Medical Records', desc: 'Access and manage complete medical history, lab results, and health documents' },
+                                { img: patientWeb4, title: 'Health Monitoring', desc: 'Track vital signs and health metrics with visual charts and trend analysis' },
+                                { img: patientWeb5, title: 'Doctor Profiles', desc: 'Browse detailed doctor profiles with specialties, availability, and patient reviews' },
+                                { img: patientWeb6, title: 'Prescription Management', desc: 'View current medications, dosage information, and request prescription refills' },
+                                { img: patientWeb7, title: 'Consultation History', desc: 'Review past consultations, diagnoses, and treatment plans from healthcare providers' },
+                                { img: patientWeb8, title: 'Settings & Profile', desc: 'Manage personal information, preferences, and notification settings' }
+                            ].map((screen, index) => (
+                                <div key={index} className="web-screen-card">
+                                    <div className="web-screen-image">
+                                        <img src={screen.img} alt={screen.title} className="screen-img" />
+                                    </div>
+                                    <div className="web-screen-content">
+                                        <h3 className="web-screen-title">{screen.title}</h3>
+                                        <p className="web-screen-description">{screen.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 6. Patient Mobile App */}
+                    <div className="content-section">
+                        <h2 className="section-title">Patient <span>Mobile App</span></h2>
+                        <p className="section-description">
+                            The patient mobile app brings healthcare management to your fingertips with an intuitive, streamlined interface optimized for on-the-go access to health information and services.
+                        </p>
+                        <div className="mobile-screens-grid">
+                            {[
+                                { img: patientMobile1, title: 'Mobile Dashboard', desc: 'Quick access to health overview and important features' },
+                                { img: patientMobile2, title: 'Doctor Search', desc: 'Find and filter doctors by specialty and location' },
+                                { img: patientMobile3, title: 'Booking Flow', desc: 'Simple appointment scheduling with calendar integration' },
+                                { img: patientMobile4, title: 'Health Tracking', desc: 'Monitor daily health metrics and vital signs' },
+                                { img: patientMobile5, title: 'Notifications', desc: 'Stay updated with appointment reminders and health alerts' },
+                                { img: patientMobile6, title: 'Medical History', desc: 'Access past consultations and treatment records' },
+                                { img: patientMobile7, title: 'Prescriptions', desc: 'View medications and set reminder alerts' },
+                                { img: patientMobile8, title: 'Doctor Details', desc: 'Comprehensive doctor information and booking options' },
+                                { img: patientMobile9, title: 'Profile Settings', desc: 'Manage account preferences and personal information' }
+                            ].map((screen, index) => (
+                                <div key={index} className="mobile-screen-card">
+                                    <div className="mobile-screen-image">
+                                        <img src={screen.img} alt={screen.title} className="mobile-img" />
+                                    </div>
+                                    <div className="mobile-screen-content">
+                                        <h4 className="mobile-screen-title">{screen.title}</h4>
+                                        <p className="mobile-screen-description">{screen.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 7. Doctor Web Dashboard */}
+                    <div className="content-section">
+                        <h2 className="section-title">Doctor <span>Web Dashboard</span></h2>
+                        <p className="section-description">
+                            The doctor's web dashboard provides comprehensive tools for patient management, medical records access, and practice administration with advanced analytics and reporting capabilities.
+                        </p>
+                        <div className="web-screens-grid">
+                            {[
+                                { img: doctorWeb1, title: 'Doctor Dashboard', desc: 'Overview of daily schedule, patient queue, and key statistics' },
+                                { img: doctorWeb2, title: 'Patient Management', desc: 'Access patient records, history, and manage ongoing treatments' },
+                                { img: doctorWeb3, title: 'Appointment Calendar', desc: 'Manage schedule, availability, and appointment confirmations' },
+                                { img: doctorWeb4, title: 'Medical Records Access', desc: 'Review comprehensive patient medical history and lab results' },
+                                { img: doctorWeb5, title: 'Analytics Dashboard', desc: 'Track patient outcomes, practice metrics, and performance indicators' },
+                                { img: doctorWeb6, title: 'Consultation Interface', desc: 'Conduct consultations with integrated patient information and tools' }
+                            ].map((screen, index) => (
+                                <div key={index} className="web-screen-card">
+                                    <div className="web-screen-image">
+                                        <img src={screen.img} alt={screen.title} className="screen-img" />
+                                    </div>
+                                    <div className="web-screen-content">
+                                        <h3 className="web-screen-title">{screen.title}</h3>
+                                        <p className="web-screen-description">{screen.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 8. Doctor Mobile App */}
+                    <div className="content-section">
+                        <h2 className="section-title">Doctor <span>Mobile App</span></h2>
+                        <p className="section-description">
+                            The doctor's mobile app enables healthcare providers to manage patients and appointments on the go, with quick access to critical patient information and communication tools.
+                        </p>
+                        <div className="mobile-screens-grid">
+                            {[
+                                { img: doctorMobile1, title: 'Doctor Home', desc: 'Quick overview of appointments and patient alerts' },
+                                { img: doctorMobile2, title: 'Patient List', desc: 'Browse and search patient records on the go' },
+                                { img: doctorMobile3, title: 'Patient Details', desc: 'Access complete patient information and medical history' },
+                                { img: doctorMobile4, title: 'Schedule Management', desc: 'Manage appointments and availability settings' }
+                            ].map((screen, index) => (
+                                <div key={index} className="mobile-screen-card">
+                                    <div className="mobile-screen-image">
+                                        <img src={screen.img} alt={screen.title} className="mobile-img" />
+                                    </div>
+                                    <div className="mobile-screen-content">
+                                        <h4 className="mobile-screen-title">{screen.title}</h4>
+                                        <p className="mobile-screen-description">{screen.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* 9. Business Impact */}
                     <div className="content-section">
                         <h2 className="section-title">Business <span>Impact</span></h2>
                         <div className="impact-stats">

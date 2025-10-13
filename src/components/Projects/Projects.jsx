@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Projects.css';
 import { PROJECTS } from '../../constants/projects';
-import LazyImage from '../LazyImage/LazyImage';
 
 const Projects = () => {
     const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Projects = () => {
                         <div key={project.id} className="projects-card">
                             <div className="projects-card-image">
                                 {project.coverImage ? (
-                                    <LazyImage src={project.coverImage} alt={`${project.title} Project`} className="project-cover-image" />
+                                    <img src={project.coverImage} alt={`${project.title} Project`} className="project-cover-image" />
                                 ) : (
                                     <i className={project.icon}></i>
                                 )}

@@ -1,63 +1,49 @@
 import React from 'react';
 import './ByetDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-
-// Import cover image
-import coverImage from '../../assets/project-assets/Byet/Cover.png';
-
-// Import design system components from Byet folder
-import component9 from '../../assets/project-assets/Byet/Component 9.png';
-import group1 from '../../assets/project-assets/Byet/Group 1.png';
-import frame69 from '../../assets/project-assets/Byet/Frame 69.png';
-import frame76 from '../../assets/project-assets/Byet/Frame 76.png';
-import frame77 from '../../assets/project-assets/Byet/Frame 77.png';
-import frame78 from '../../assets/project-assets/Byet/Frame 78.png';
-import frame79 from '../../assets/project-assets/Byet/Frame 79.png';
-
-// Import Web UI screens
-import webDesktop1 from '../../assets/project-assets/Byet/UI/Web/Desktop - 1.png';
-import webDesktop2 from '../../assets/project-assets/Byet/UI/Web/Desktop - 2.png';
-import webDesktop3 from '../../assets/project-assets/Byet/UI/Web/Desktop - 3.png';
-import webDesktop4 from '../../assets/project-assets/Byet/UI/Web/Desktop - 4.png';
-import webDesktop5 from '../../assets/project-assets/Byet/UI/Web/Desktop - 5.png';
-import webDesktop6 from '../../assets/project-assets/Byet/UI/Web/Desktop - 6.png';
-import webDesktop7 from '../../assets/project-assets/Byet/UI/Web/Desktop - 7.png';
-import webDesktop8 from '../../assets/project-assets/Byet/UI/Web/Desktop - 8.png';
-import webDesktop9 from '../../assets/project-assets/Byet/UI/Web/Desktop - 9.png';
-import webDesktop10 from '../../assets/project-assets/Byet/UI/Web/Desktop - 10.png';
-import webDesktop11 from '../../assets/project-assets/Byet/UI/Web/Desktop - 11.png';
-import webDesktop13 from '../../assets/project-assets/Byet/UI/Web/Desktop - 13.png';
-
-// Import Mobile UI screens
-import mobile37 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 37.png';
-import mobile39 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 39.png';
-import mobile40 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 40.png';
-import mobile41 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 41.png';
-import mobile42 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 42.png';
-import mobile43 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 43.png';
-import mobile44 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 44.png';
-import mobile45 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 45.png';
-import mobile46 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 46.png';
-import mobile47 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 47.png';
-import mobile48 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 48.png';
-import mobile49 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 49.png';
-import mobile50 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 50.png';
-import mobile54 from '../../assets/project-assets/Byet/UI/Mobile/iPhone 14 Plus - 54.png';
-
-// Import Web Responsive screens
-import responsive1 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 1.png';
-import responsive2 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 2.png';
-import responsive3 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 3.png';
-import responsive4 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 4.png';
-import responsive5 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 5.png';
-import responsive6 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 6.png';
-import responsive7 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 7.png';
-import responsive8 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 8.png';
-import responsive9 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 9.png';
-import responsive10 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 10.png';
-import responsive11 from '../../assets/project-assets/Byet/UI/Web-Responsive/iPhone 16 Pro Max - 11.png';
 
 const ByetDetails = () => {
+    // Image URLs
+    const coverImage = 'https://i.ibb.co/4Zv0shbh/Cover.png';
+
+    // Design system components
+    const group1 = 'https://i.ibb.co/KxmzXr10/Group-1.png';
+    const frame79 = 'https://i.ibb.co/nM43xknQ/Frame-79.png';
+    const frame78 = 'https://i.ibb.co/0yWn60Lr/Frame-78.png';
+    const frame77 = 'https://i.ibb.co/vCShZR8M/Frame-77.png';
+    const frame76 = 'https://i.ibb.co/VWKQKyyp/Frame-76.png';
+    const frame69 = 'https://i.ibb.co/V0tdWnHF/Frame-69.png';
+    const component9 = 'https://i.ibb.co/dJ36qLmg/Component-9.png';
+
+    // Mobile UI screens
+    const mobile37 = 'https://i.ibb.co/KcwSQJqW/i-Phone-14-Plus-37.png';
+    const mobile39 = 'https://i.ibb.co/0p08566v/i-Phone-14-Plus-39.png';
+    const mobile40 = 'https://i.ibb.co/sJF58FQD/i-Phone-14-Plus-40.png';
+    const mobile41 = 'https://i.ibb.co/rRY0GphL/i-Phone-14-Plus-41.png';
+    const mobile42 = 'https://i.ibb.co/ym5TNmbK/i-Phone-14-Plus-42.png';
+    const mobile43 = 'https://i.ibb.co/kg2D96Z4/i-Phone-14-Plus-43.png';
+    const mobile44 = 'https://i.ibb.co/Rk3sYm5s/i-Phone-14-Plus-44.png';
+    const mobile45 = 'https://i.ibb.co/htZ1dNq/i-Phone-14-Plus-45.png';
+    const mobile46 = 'https://i.ibb.co/LX83nsSc/i-Phone-14-Plus-46.png';
+    const mobile47 = 'https://i.ibb.co/dw6Zy0cQ/i-Phone-14-Plus-47.png';
+    const mobile48 = 'https://i.ibb.co/d4TtH0pq/i-Phone-14-Plus-48.png';
+    const mobile49 = 'https://i.ibb.co/5xhZWP3G/i-Phone-14-Plus-49.png';
+    const mobile50 = 'https://i.ibb.co/tp5yRZFS/i-Phone-14-Plus-50.png';
+    const mobile54 = 'https://i.ibb.co/JFvHq8Qx/i-Phone-14-Plus-54.png';
+
+    // Web Desktop screens
+    const webDesktop1 = 'https://i.ibb.co/3y33p7BM/Desktop-1.png';
+    const webDesktop2 = 'https://i.ibb.co/1tVQbv9S/Desktop-2.png';
+    const webDesktop3 = 'https://i.ibb.co/sdts8L3V/Desktop-3.png';
+    const webDesktop4 = 'https://i.ibb.co/yTryBTC/Desktop-4.png';
+    const webDesktop5 = 'https://i.ibb.co/DD9cKYVr/Desktop-5.png';
+    const webDesktop6 = 'https://i.ibb.co/pvXjyrtQ/Desktop-6.png';
+    const webDesktop7 = 'https://i.ibb.co/MxMvLSrn/Desktop-7.png';
+    const webDesktop8 = 'https://i.ibb.co/99hqK7Vg/Desktop-8.png';
+    const webDesktop9 = 'https://i.ibb.co/y99m9V4/Desktop-9.png';
+    const webDesktop10 = 'https://i.ibb.co/G3GrgJYg/Desktop-10.png';
+    const webDesktop11 = 'https://i.ibb.co/8gdSMHGs/Desktop-11.png';
+    const webDesktop13 = 'https://i.ibb.co/PGzzZFCZ/Desktop-13.png';
+
     const [selectedWebScreen, setSelectedWebScreen] = React.useState(webDesktop1);
 
     const handleBackClick = () => {
@@ -90,7 +76,7 @@ const ByetDetails = () => {
                 <div className="container">
                     {/* Cover Image */}
                     <div className="cover-image-section">
-                        <LazyImage src={coverImage} alt="Byet Platform Cover" className="cover-image" />
+                        <img src={coverImage} alt="Byet Platform Cover" className="cover-image" />
                     </div>
 
                     {/* 1. Project Overview and Details */}
@@ -276,7 +262,7 @@ const ByetDetails = () => {
                             <div className="components-showcase">
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={component9} alt="Byet Component System" />
+                                    <img src={component9} alt="Byet Component System" />
                                 </div>
                                 <h3 className="component-title">Component Library</h3>
                                 <p className="component-description">Modular UI components including buttons, cards, forms, and navigation elements.</p>
@@ -284,7 +270,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={group1} alt="Byet Component Group" />
+                                    <img src={group1} alt="Byet Component Group" />
                                 </div>
                                 <h3 className="component-title">Design Elements</h3>
                                 <p className="component-description">Consistent design patterns and reusable interface elements.</p>
@@ -292,7 +278,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={frame69} alt="Byet Frame Design" />
+                                    <img src={frame69} alt="Byet Frame Design" />
                                 </div>
                                 <h3 className="component-title">Layout Frames</h3>
                                 <p className="component-description">Responsive layout structures for different screen sizes.</p>
@@ -300,7 +286,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={frame76} alt="Byet Component Frame 76" />
+                                    <img src={frame76} alt="Byet Component Frame 76" />
                                 </div>
                                 <h3 className="component-title">Interactive Components</h3>
                                 <p className="component-description">Dynamic elements with hover states and animations.</p>
@@ -308,7 +294,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={frame77} alt="Byet Component Frame 77" />
+                                    <img src={frame77} alt="Byet Component Frame 77" />
                                 </div>
                                 <h3 className="component-title">Property Cards</h3>
                                 <p className="component-description">Specialized cards for displaying property information.</p>
@@ -316,7 +302,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={frame78} alt="Byet Component Frame 78" />
+                                    <img src={frame78} alt="Byet Component Frame 78" />
                                 </div>
                                 <h3 className="component-title">Form Elements</h3>
                                 <p className="component-description">Input fields, dropdowns, and form validation components.</p>
@@ -324,7 +310,7 @@ const ByetDetails = () => {
 
                             <div className="component-item">
                                 <div className="component-image">
-                                    <LazyImage src={frame79} alt="Byet Component Frame 79" />
+                                    <img src={frame79} alt="Byet Component Frame 79" />
                                 </div>
                                 <h3 className="component-title">Navigation Patterns</h3>
                                 <p className="component-description">Header, footer, and navigation menu components.</p>
@@ -343,11 +329,11 @@ const ByetDetails = () => {
                         <div className="ui-screens-subsection">
                             <div className="web-screens-gallery">
                                 <div className="main-web-screen">
-                                    <LazyImage src={selectedWebScreen} alt="Selected Web View" className="main-screen-img" />
+                                    <img src={selectedWebScreen} alt="Selected Web View" className="main-screen-img" />
                                 </div>
                                 <div className="web-thumbnails">
                                     {webScreens.map((screen, index) => (
-                                        <LazyImage
+                                        <img
                                             key={index}
                                             src={screen}
                                             alt={`Web View ${index + 1}`}
@@ -367,20 +353,20 @@ const ByetDetails = () => {
                             The mobile app brings property search on-the-go with optimized interface for quick browsing, notifications, and location-based features.
                         </p>
                         <div className="mobile-screens-grid">
-                            <LazyImage src={mobile37} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile39} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile40} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile41} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile42} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile43} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile44} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile45} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile46} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile47} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile48} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile49} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile50} alt="Mobile Screen" className="mobile-img" />
-                            <LazyImage src={mobile54} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile37} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile39} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile40} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile41} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile42} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile43} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile44} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile45} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile46} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile47} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile48} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile49} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile50} alt="Mobile Screen" className="mobile-img" />
+                            <img src={mobile54} alt="Mobile Screen" className="mobile-img" />
                         </div>
                     </div>
 

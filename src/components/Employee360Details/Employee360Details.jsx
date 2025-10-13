@@ -1,36 +1,32 @@
 import React from 'react';
 import './Employee360Details.css';
-import LazyImage from '../LazyImage/LazyImage';
-
-// Import cover image
-import coverImage from '../../assets/project-assets/Employee 360/Cover.png';
-
-// Import design system components
-import calendar from '../../assets/project-assets/Employee 360/Calendar.png';
-import frame488 from '../../assets/project-assets/Employee 360/Frame 488.png';
-
-// Import Mobile UI screens (Normal Users)
-import onboarding from '../../assets/project-assets/Employee 360/UI/Onboarding.png';
-import onboarding1 from '../../assets/project-assets/Employee 360/UI/Onboarding-1.png';
-import mobile1 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 1.png';
-import mobile5 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 5.png';
-import mobile6 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 6.png';
-import mobile7 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 7.png';
-import mobile8 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 8.png';
-import mobile9 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 9.png';
-import mobile10 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 10.png';
-import mobile11 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 11.png';
-import mobile12 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 12.png';
-import mobile13 from '../../assets/project-assets/Employee 360/UI/iPhone 13 mini - 13.png';
-
-// Import Dashboard screens (Admin)
-import dashboard1 from '../../assets/project-assets/Employee 360/Dashboard/Dashboard Screen.png';
-import dashboard2 from '../../assets/project-assets/Employee 360/Dashboard/Dashboard Screen-1.png';
-import dashboard3 from '../../assets/project-assets/Employee 360/Dashboard/Dashboard Screen-2.png';
-import dashboard4 from '../../assets/project-assets/Employee 360/Dashboard/Dashboard Screen-4.png';
-import dashboard5 from '../../assets/project-assets/Employee 360/Dashboard/Dashboard Screen-5.png';
 
 const Employee360Details = () => {
+    // Image URLs - Design system components
+    const calendar = 'https://i.ibb.co/pr3LMGJX/Calendar.png';
+    const frame488 = 'https://i.ibb.co/fVsSrXcp/Frame-488.png';
+
+    // Image URLs - Mobile UI screens
+    const onboarding = 'https://i.ibb.co/MkDrc4Nr/Onboarding.png';
+    const onboarding1 = 'https://i.ibb.co/Kx0qBQx6/Onboarding-1.png';
+    const mobile1 = 'https://i.ibb.co/G4k58zKK/i-Phone-13-mini-1.png';
+    const mobile5 = 'https://i.ibb.co/vFYCLv3/i-Phone-13-mini-5.png';
+    const mobile6 = 'https://i.ibb.co/TDfr0dst/i-Phone-13-mini-6.png';
+    const mobile7 = 'https://i.ibb.co/SX0D3kdq/i-Phone-13-mini-7.png';
+    const mobile8 = 'https://i.ibb.co/Qv45khSR/i-Phone-13-mini-8.png';
+    const mobile9 = 'https://i.ibb.co/35fSwy1W/i-Phone-13-mini-9.png';
+    const mobile10 = 'https://i.ibb.co/rf2QHN3M/i-Phone-13-mini-10.png';
+    const mobile11 = 'https://i.ibb.co/Kx5fdrTt/i-Phone-13-mini-11.png';
+    const mobile12 = 'https://i.ibb.co/FLJTCJxY/i-Phone-13-mini-12.png';
+    const mobile13 = 'https://i.ibb.co/KjwTDXgK/i-Phone-13-mini-13.png';
+
+    // Image URLs - Dashboard screens
+    const dashboard1 = 'https://i.ibb.co/s9jJ4YzR/Dashboard-Screen.png';
+    const dashboard2 = 'https://i.ibb.co/svHqjT6G/Dashboard-Screen-1.png';
+    const dashboard3 = 'https://i.ibb.co/7JmC8LCh/Dashboard-Screen-2.png';
+    const dashboard4 = 'https://i.ibb.co/svHqjT6G/Dashboard-Screen-1.png';
+    const dashboard5 = 'https://i.ibb.co/x8qwGRK3/Dashboard-Screen-5.png';
+
     const [selectedDashboard, setSelectedDashboard] = React.useState(dashboard1);
 
     const handleBackClick = () => {
@@ -236,7 +232,7 @@ const Employee360Details = () => {
                             <div className="components-showcase">
                                 <div className="component-item">
                                     <div className="component-image">
-                                        <LazyImage src={calendar} alt="Calendar Component" />
+                                        <img src={calendar} alt="Calendar Component" />
                                     </div>
                                     <h3 className="component-title">Calendar Component</h3>
                                     <p className="component-description">Interactive calendar for leave management, attendance tracking, and event scheduling with intuitive date selection.</p>
@@ -244,7 +240,7 @@ const Employee360Details = () => {
 
                                 <div className="component-item">
                                     <div className="component-image">
-                                        <LazyImage src={frame488} alt="UI Components" />
+                                        <img src={frame488} alt="UI Components" />
                                     </div>
                                     <h3 className="component-title">UI Component Library</h3>
                                     <p className="component-description">Comprehensive set of reusable components including cards, buttons, forms, and data visualization elements.</p>
@@ -260,18 +256,18 @@ const Employee360Details = () => {
                             The mobile app provides employees with easy access to their profiles, attendance, leave requests, and performance tracking on-the-go.
                         </p>
                         <div className="mobile-screens-grid">
-                            <LazyImage src={onboarding} alt="Mobile Onboarding" className="mobile-img" />
-                            <LazyImage src={onboarding1} alt="Mobile Onboarding Screen" className="mobile-img" />
-                            <LazyImage src={mobile1} alt="Mobile Screen 1" className="mobile-img" />
-                            <LazyImage src={mobile5} alt="Mobile Screen 5" className="mobile-img" />
-                            <LazyImage src={mobile6} alt="Mobile Screen 6" className="mobile-img" />
-                            <LazyImage src={mobile7} alt="Mobile Screen 7" className="mobile-img" />
-                            <LazyImage src={mobile8} alt="Mobile Screen 8" className="mobile-img" />
-                            <LazyImage src={mobile9} alt="Mobile Screen 9" className="mobile-img" />
-                            <LazyImage src={mobile10} alt="Mobile Screen 10" className="mobile-img" />
-                            <LazyImage src={mobile11} alt="Mobile Screen 11" className="mobile-img" />
-                            <LazyImage src={mobile12} alt="Mobile Screen 12" className="mobile-img" />
-                            <LazyImage src={mobile13} alt="Mobile Screen 13" className="mobile-img" />
+                            <img src={onboarding} alt="Mobile Onboarding" className="mobile-img" />
+                            <img src={onboarding1} alt="Mobile Onboarding Screen" className="mobile-img" />
+                            <img src={mobile1} alt="Mobile Screen 1" className="mobile-img" />
+                            <img src={mobile5} alt="Mobile Screen 5" className="mobile-img" />
+                            <img src={mobile6} alt="Mobile Screen 6" className="mobile-img" />
+                            <img src={mobile7} alt="Mobile Screen 7" className="mobile-img" />
+                            <img src={mobile8} alt="Mobile Screen 8" className="mobile-img" />
+                            <img src={mobile9} alt="Mobile Screen 9" className="mobile-img" />
+                            <img src={mobile10} alt="Mobile Screen 10" className="mobile-img" />
+                            <img src={mobile11} alt="Mobile Screen 11" className="mobile-img" />
+                            <img src={mobile12} alt="Mobile Screen 12" className="mobile-img" />
+                            <img src={mobile13} alt="Mobile Screen 13" className="mobile-img" />
                         </div>
                     </div>
 
@@ -285,11 +281,11 @@ const Employee360Details = () => {
                         <div className="ui-screens-subsection">
                             <div className="web-screens-gallery">
                                 <div className="main-web-screen">
-                                    <LazyImage src={selectedDashboard} alt="Selected Dashboard View" className="main-screen-img" />
+                                    <img src={selectedDashboard} alt="Selected Dashboard View" className="main-screen-img" />
                                 </div>
                                 <div className="web-thumbnails">
                                     {dashboardScreens.map((screen, index) => (
-                                        <LazyImage
+                                        <img
                                             key={index}
                                             src={screen}
                                             alt={`Dashboard View ${index + 1}`}

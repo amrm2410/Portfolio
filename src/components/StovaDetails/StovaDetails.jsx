@@ -1,6 +1,5 @@
 import React from 'react';
 import './StovaDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
 import stovaLandingPage from '../../assets/project-assets/Stova/UI/Stova landing page.png';
 import stovaWireframe from '../../assets/project-assets/Stova/wireframe/Stova Wireframe.png';
 
@@ -160,7 +159,7 @@ const StovaDetails = () => {
                         <div className="wireframe-section">
                             <div className="wireframe-container">
                                 <div className="wireframe-image-wrapper">
-                                    <LazyImage src={stovaWireframe} alt="Stova Website Wireframes" className="wireframe-img" />
+                                    <img src={stovaWireframe} alt="Stova Website Wireframes" className="wireframe-img" />
                                 </div>
                                 <div className="wireframe-details">
                                     <h3 className="wireframe-title">Design Process & Information Architecture</h3>
@@ -307,7 +306,7 @@ const StovaDetails = () => {
                                     </div>
                                 </div>
                                 <div className="ui-screen-image">
-                                    <LazyImage src={stovaLandingPage} alt="Stova Homepage - Full Design" className="screen-img" />
+                                    <img src={stovaLandingPage} alt="Stova Homepage - Full Design" className="screen-img" />
                                 </div>
                             </div>
                         </div>

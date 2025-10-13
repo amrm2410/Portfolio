@@ -49,7 +49,6 @@ const Contact = () => {
             setFormData({ name: '', phone: '', project: '' });
         } catch (error) {
             setSubmitStatus('error');
-            console.error('Error submitting form:', error);
         } finally {
             setIsSubmitting(false);
             // Reset status after 3 seconds

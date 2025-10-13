@@ -1,19 +1,20 @@
 import React from 'react';
 import './GatesAdminRequestDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-import dashboardImg1 from '../../assets/project-assets/Gates Admin Request/dashboard/Screenshot 2025-10-04 033331.png';
-import dashboardImg2 from '../../assets/project-assets/Gates Admin Request/dashboard/Screenshot 2025-10-04 033359.png';
-import dashboardImg3 from '../../assets/project-assets/Gates Admin Request/dashboard/Screenshot 2025-10-04 033419.png';
-import dashboardImg4 from '../../assets/project-assets/Gates Admin Request/dashboard/Screenshot 2025-10-04 033431.png';
-import dashboardImg5 from '../../assets/project-assets/Gates Admin Request/dashboard/Screenshot 2025-10-04 033442.png';
-import uiImg1 from '../../assets/project-assets/Gates Admin Request/UI/Screenshot 2025-10-04 032738.png';
-import uiImg2 from '../../assets/project-assets/Gates Admin Request/UI/Screenshot 2025-10-04 032802.png';
-import uiImg3 from '../../assets/project-assets/Gates Admin Request/UI/Screenshot 2025-10-04 032820.png';
 
 const GatesAdminRequestDetails = () => {
     const handleBackClick = () => {
         window.history.back();
     };
+
+    // Image URLs
+    const uiImg1 = 'https://i.ibb.co/bRWmD2HH/Screenshot-2025-10-04-032738.png';
+    const uiImg2 = 'https://i.ibb.co/nqqK16pv/Screenshot-2025-10-04-032802.png';
+    const uiImg3 = 'https://i.ibb.co/k2Mh291v/Screenshot-2025-10-04-032820.png';
+    const dashboardImg1 = 'https://i.ibb.co/b5Gj6JhT/Screenshot-2025-10-04-033331.png';
+    const dashboardImg2 = 'https://i.ibb.co/9mM1t9R1/Screenshot-2025-10-04-033359.png';
+    const dashboardImg3 = 'https://i.ibb.co/Ndy0JBrz/Screenshot-2025-10-04-033419.png';
+    const dashboardImg4 = 'https://i.ibb.co/gZTDby06/Screenshot-2025-10-04-033431.png';
+    const dashboardImg5 = 'https://i.ibb.co/fYV89Gp8/Screenshot-2025-10-04-033442.png';
 
     return (
         <div className="gates-admin-details">
@@ -176,16 +177,16 @@ const GatesAdminRequestDetails = () => {
                         </p>
                         <div className="ui-showcase">
                             <div className="ui-image-large">
-                                <LazyImage src={uiImg1} alt="Admin Panel Dashboard" />
+                                <img src={uiImg1} alt="Admin Panel Dashboard" />
                                 <p className="image-caption">Main Dashboard - Request Overview & Quick Stats</p>
                             </div>
                             <div className="ui-images-grid">
                                 <div className="ui-image">
-                                    <LazyImage src={uiImg2} alt="Request Management Interface" />
+                                    <img src={uiImg2} alt="Request Management Interface" />
                                     <p className="image-caption">Request Management</p>
                                 </div>
                                 <div className="ui-image">
-                                    <LazyImage src={uiImg3} alt="Inventory Tracking" />
+                                    <img src={uiImg3} alt="Inventory Tracking" />
                                     <p className="image-caption">Inventory Tracking</p>
                                 </div>
                             </div>
@@ -201,7 +202,7 @@ const GatesAdminRequestDetails = () => {
                         <div className="dashboard-showcase">
                             {[dashboardImg1, dashboardImg2, dashboardImg3, dashboardImg4, dashboardImg5].map((img, index) => (
                                 <div key={index} className="dashboard-image">
-                                    <LazyImage src={img} alt={`Power BI Dashboard ${index + 1}`} />
+                                    <img src={img} alt={`Power BI Dashboard ${index + 1}`} />
                                 </div>
                             ))}
                         </div>

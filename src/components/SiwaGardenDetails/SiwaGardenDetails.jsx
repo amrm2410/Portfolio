@@ -1,19 +1,22 @@
 import React from 'react';
 import './SiwaGardenDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-import component1 from '../../assets/project-assets/Siwa Garden/Component 1.png';
-import component2 from '../../assets/project-assets/Siwa Garden/Component 2.png';
-import component3 from '../../assets/project-assets/Siwa Garden/Component 3.png';
-import component16 from '../../assets/project-assets/Siwa Garden/Component 16.png';
-import macbook17 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 17.png';
-import macbook18 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 18.png';
-import macbook19 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 19.png';
-import macbook20 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 20.png';
-import macbook21 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 21.png';
-import macbook22 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 22.png';
-import macbook23 from '../../assets/project-assets/Siwa Garden/UI/MacBook Air - 23.png';
 
 const SiwaGardenDetails = () => {
+    // Image URLs - Design Components
+    const component1 = 'https://i.ibb.co/ds6xdMVS/Component-1.png';
+    const component2 = 'https://i.ibb.co/DZx7T4W/Component-2.png';
+    const component3 = 'https://i.ibb.co/hPcFL1v/Component-3.png';
+    const component16 = 'https://i.ibb.co/mCxj9n3X/Component-16.png';
+
+    // Image URLs - Web UI screens
+    const macbook17 = 'https://i.ibb.co/1fBcpNrD/Mac-Book-Air-17.png';
+    const macbook18 = 'https://i.ibb.co/Lz6xxcFx/Mac-Book-Air-18.png';
+    const macbook19 = 'https://i.ibb.co/pjhMMdxr/Mac-Book-Air-19.png';
+    const macbook20 = 'https://i.ibb.co/1t8BjNLn/Mac-Book-Air-20.png';
+    const macbook21 = 'https://i.ibb.co/S71yBGWn/Mac-Book-Air-21.png';
+    const macbook22 = 'https://i.ibb.co/nMtk61mh/Mac-Book-Air-22.png';
+    const macbook23 = 'https://i.ibb.co/YTXL7NJ3/Mac-Book-Air-23.png';
+
     const [selectedWebScreen, setSelectedWebScreen] = React.useState(macbook17);
 
     const handleBackClick = () => {
@@ -287,25 +290,25 @@ const SiwaGardenDetails = () => {
                             <div className="components-showcase">
                                 <div className="component-item">
                                     <div className="component-image-wrapper">
-                                        <LazyImage src={component1} alt="Component 1" className="component-img" />
+                                        <img src={component1} alt="Component 1" className="component-img" />
                                     </div>
                                 </div>
 
                                 <div className="component-item">
                                     <div className="component-image-wrapper">
-                                        <LazyImage src={component2} alt="Component 2" className="component-img" />
+                                        <img src={component2} alt="Component 2" className="component-img" />
                                     </div>
                                 </div>
 
                                 <div className="component-item">
                                     <div className="component-image-wrapper">
-                                        <LazyImage src={component3} alt="Component 3" className="component-img" />
+                                        <img src={component3} alt="Component 3" className="component-img" />
                                     </div>
                                 </div>
 
                                 <div className="component-item component-item-full">
                                     <div className="component-image-wrapper">
-                                        <LazyImage src={component16} alt="Component 16" className="component-img" />
+                                        <img src={component16} alt="Component 16" className="component-img" />
                                     </div>
                                 </div>
                             </div>
@@ -321,11 +324,11 @@ const SiwaGardenDetails = () => {
                             <h3 className="subsection-title">Web Application</h3>
                             <div className="web-screens-gallery">
                                 <div className="main-web-screen">
-                                    <LazyImage src={selectedWebScreen} alt="Selected Web View" className="main-screen-img" />
+                                    <img src={selectedWebScreen} alt="Selected Web View" className="main-screen-img" />
                                 </div>
                                 <div className="web-thumbnails">
                                     {webScreens.map((screen, index) => (
-                                        <LazyImage
+                                        <img
                                             key={index}
                                             src={screen}
                                             alt={`Web View ${index + 1}`}

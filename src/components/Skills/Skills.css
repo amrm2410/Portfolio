@@ -64,30 +64,18 @@
     margin-bottom: 1.5rem;
 }
 
-.tech-category-header i {
-    font-size: 1.25rem;
+.category-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .tech-category-header h3 {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0;
-}
-
-.design .tech-category-header {
-    color: #8b5cf6;
-}
-
-.programming .tech-category-header {
-    color: #3b82f6;
-}
-
-.development .tech-category-header {
-    color: #4ade80;
-}
-
-.business .tech-category-header {
-    color: #f59e0b;
+    color: var(--text-white);
 }
 
 .tech-skills {
@@ -100,9 +88,16 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--text-gray);
+    color: var(--text-white);
     font-size: 0.9rem;
     padding: 0.5rem 0;
+}
+
+.skill-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .skill-bullet {

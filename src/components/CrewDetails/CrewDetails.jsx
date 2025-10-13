@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import './CrewDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-
-// Import Information Architecture
-import iaImage from '../../assets/project-assets/Crew Website/IA.png';
-
-// Import UI screens
-import desktop3 from '../../assets/project-assets/Crew Website/UI/Desktop - 3.png';
-import desktop42 from '../../assets/project-assets/Crew Website/UI/Desktop - 42.png';
-import desktop43 from '../../assets/project-assets/Crew Website/UI/Desktop - 43.png';
-import desktop44 from '../../assets/project-assets/Crew Website/UI/Desktop - 44.png';
-import desktop45 from '../../assets/project-assets/Crew Website/UI/Desktop - 45.png';
-import desktop46 from '../../assets/project-assets/Crew Website/UI/Desktop - 46.png';
-import desktop47 from '../../assets/project-assets/Crew Website/UI/Desktop - 47.png';
-import desktop48 from '../../assets/project-assets/Crew Website/UI/Desktop - 48.png';
-import desktop49 from '../../assets/project-assets/Crew Website/UI/Desktop - 49.png';
-import desktop50 from '../../assets/project-assets/Crew Website/UI/Desktop - 50.png';
-import desktop51 from '../../assets/project-assets/Crew Website/UI/Desktop - 51.png';
-import desktop52 from '../../assets/project-assets/Crew Website/UI/Desktop - 52.png';
-import desktop53 from '../../assets/project-assets/Crew Website/UI/Desktop - 53.png';
-import desktop54 from '../../assets/project-assets/Crew Website/UI/Desktop - 54.png';
-import desktop55 from '../../assets/project-assets/Crew Website/UI/Desktop - 55.png';
-import desktop56 from '../../assets/project-assets/Crew Website/UI/Desktop - 56.png';
-import desktop57 from '../../assets/project-assets/Crew Website/UI/Desktop - 57.png';
-import desktop58 from '../../assets/project-assets/Crew Website/UI/Desktop - 58.png';
-import desktop59 from '../../assets/project-assets/Crew Website/UI/Desktop - 59.png';
-import desktop60 from '../../assets/project-assets/Crew Website/UI/Desktop - 60.png';
-import desktop61 from '../../assets/project-assets/Crew Website/UI/Desktop - 61.png';
-import desktop62 from '../../assets/project-assets/Crew Website/UI/Desktop - 62.png';
 
 const CrewDetails = () => {
+    // Image URLs - Information Architecture
+    const iaImage = 'https://i.ibb.co/F4GdxXb4/IA.png';
+
+    // Image URLs - UI screens
+    const desktop3 = 'https://i.ibb.co/zHm7hPpG/Desktop-3.png';
+    const desktop42 = 'https://i.ibb.co/wZhmzX34/Desktop-42.png';
+    const desktop43 = 'https://i.ibb.co/kVM9kLwZ/Desktop-43.png';
+    const desktop44 = 'https://i.ibb.co/Nd756nLD/Desktop-44.png';
+    const desktop45 = 'https://i.ibb.co/Y7WbP55y/Desktop-45.png';
+    const desktop46 = 'https://i.ibb.co/MxsN42rC/Desktop-46.png';
+    const desktop47 = 'https://i.ibb.co/b51STJdD/Desktop-47.png';
+    const desktop48 = 'https://i.ibb.co/k2VjHdbr/Desktop-48.png';
+    const desktop49 = 'https://i.ibb.co/SX55SRyk/Desktop-49.png';
+    const desktop50 = 'https://i.ibb.co/cKx62TYV/Desktop-50.png';
+    const desktop51 = 'https://i.ibb.co/DDvxGSTD/Desktop-51.png';
+    const desktop52 = 'https://i.ibb.co/PZ8hdxcB/Desktop-52.png';
+    const desktop53 = 'https://i.ibb.co/DHkkSMJG/Desktop-53.png';
+    const desktop54 = 'https://i.ibb.co/GQHR8n9v/Desktop-54.png';
+    const desktop55 = 'https://i.ibb.co/6RN7Gd92/Desktop-55.png';
+    const desktop56 = 'https://i.ibb.co/zW7CZfSy/Desktop-56.png';
+    const desktop57 = 'https://i.ibb.co/8gbNJQMD/Desktop-57.png';
+    const desktop58 = 'https://i.ibb.co/ymz2JzSF/Desktop-58.png';
+    const desktop59 = 'https://i.ibb.co/v4TKkgQ1/Desktop-59.png';
+    const desktop60 = 'https://i.ibb.co/ks2yZMXJ/Desktop-60.png';
+    const desktop61 = 'https://i.ibb.co/chNtbGVp/Desktop-61.png';
+    const desktop62 = 'https://i.ibb.co/3y1BH44Q/Desktop-62.png';
+
     const [selectedScreen, setSelectedScreen] = useState(desktop3);
 
     const handleBackClick = () => {
@@ -37,7 +36,7 @@ const CrewDetails = () => {
     };
 
     const allScreens = [
-        desktop3, desktop41, desktop42, desktop43, desktop44, desktop45, desktop46,
+        desktop3,  desktop42, desktop43, desktop44, desktop45, desktop46,
         desktop47, desktop48, desktop49, desktop50, desktop51, desktop52, desktop53,
         desktop54, desktop55, desktop56, desktop57, desktop58, desktop59, desktop60,
         desktop61, desktop62
@@ -198,7 +197,7 @@ const CrewDetails = () => {
                             A well-structured information architecture designed to guide users efficiently through Crew's services and solutions.
                         </p>
                         <div className="ia-section">
-                            <LazyImage src={iaImage} alt="Crew Website Information Architecture" className="ia-image" />
+                            <img src={iaImage} alt="Crew Website Information Architecture" className="ia-image" />
                         </div>
                     </div>
 
@@ -251,21 +250,20 @@ const CrewDetails = () => {
                         </div>
                     </div>
 
-                    {/* 6. Website Screens */}
+                    {/* 6. UI Screens */}
                     <div className="content-section">
-                        <h2 className="section-title">Website <span>Screens</span></h2>
-                        <p className="section-description">
-                            Comprehensive website design showcasing all pages and key features of the Crew consultancy platform.
-                        </p>
+                        <h2 className="section-title">UI <span>Screens</span></h2>
 
+                        {/* Website Screens */}
                         <div className="ui-screens-subsection">
+                            <h3 className="subsection-title">Web Application</h3>
                             <div className="web-screens-gallery">
                                 <div className="main-web-screen">
-                                    <LazyImage src={selectedScreen} alt="Selected Website View" className="main-screen-img" />
+                                    <img src={selectedScreen} alt="Selected Website View" className="main-screen-img" />
                                 </div>
                                 <div className="web-thumbnails">
                                     {allScreens.map((screen, index) => (
-                                        <LazyImage
+                                        <img
                                             key={index}
                                             src={screen}
                                             alt={`Website View ${index + 1}`}

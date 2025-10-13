@@ -22,6 +22,8 @@
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid rgba(74, 144, 255, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .projects-card:hover {
@@ -48,6 +50,9 @@
 
 .projects-card-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .projects-card-title {
@@ -81,7 +86,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 .projects-live-link {

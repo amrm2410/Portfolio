@@ -3,13 +3,13 @@ import { useParams, Navigate } from 'react-router-dom';
 import { getProjectBySlug } from '../constants/projects';
 
 // Import all detail components
-import StovaDetails from '../components/StovaDetails';
-import SiwaGardenDetails from '../components/SiwaGardenDetails';
-import BreadfastDetails from '../components/BreadfastDetails';
-import GatesAdminRequestDetails from '../components/GatesAdminRequestDetails';
-import EDestinationDetails from '../components/EDestinationDetails';
+import StovaDetails from '../components/StovaDetails/StovaDetails';
+import SiwaGardenDetails from '../components/SiwaGardenDetails/SiwaGardenDetails';
+import BreadfastDetails from '../components/BreadfastDetails/BreadfastDetails';
+import GatesAdminRequestDetails from '../components/GatesAdminRequestDetails/GatesAdminRequestDetails';
+import EDestinationDetails from '../components/EDestinationDetails/EDestinationDetails';
 import Health360Details from '../components/Health360Details/Health360Details';
-import ByetDetails from '../components/ByetDetails';
+import ByetDetails from '../components/ByetDetails/ByetDetails';
 import Employee360Details from '../components/Employee360Details/Employee360Details';
 import CrewDetails from '../components/CrewDetails/CrewDetails';
 

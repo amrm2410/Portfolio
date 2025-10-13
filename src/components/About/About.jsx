@@ -16,43 +16,41 @@ const About = () => {
                                 <div className="expertise-bullet"></div>
                                 <div className="expertise-details">
                                     <h4>UI/UX Design</h4>
-                                    <p>End-to-end web applications with modern frameworks</p>
+                                    <p>Designing intuitive and visually appealing digital experiences that combine usability, accessibility, and aesthetics.</p>
                                 </div>
                             </div>
                             <div className="expertise-item">
                                 <div className="expertise-bullet"></div>
                                 <div className="expertise-details">
                                     <h4>Front End Development</h4>
-                                    <p>Cross-platform mobile apps for iOS and Android</p>
+                                    <p>Building responsive, high-performance web applications using modern frameworks for seamless user experiences.</p>
                                 </div>
                             </div>
                             <div className="expertise-item">
                                 <div className="expertise-bullet"></div>
                                 <div className="expertise-details">
                                     <h4>E-commerce Solutions and No-Code Development</h4>
-                                    <p>Custom online stores and payment integrations</p>
+                                    <p>Creating custom online stores with secure payment integrations and efficient no-code solutions for rapid deployment.</p>
                                 </div>
                             </div>
                             <div className="expertise-item">
                                 <div className="expertise-bullet"></div>
                                 <div className="expertise-details">
                                     <h4>Data Analysis</h4>
-                                    <p>Custom online stores and payment integrations</p>
+                                    <p>Turning complex data into clear, actionable insights through visualization and analytical tools.</p>
                                 </div>
                             </div>
                             <div className="expertise-item">
                                 <div className="expertise-bullet"></div>
                                 <div className="expertise-details">
                                     <h4>Business Analysis</h4>
-                                    <p>Custom online stores and payment integrations</p>
+                                    <p>Evaluating business processes and requirements to deliver effective, goal-driven digital solutions.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="about-profile">
-                        <p className="profile-description">I'm a passionate full-stack developer with a love for creating elegant, efficient solutions to complex problems.</p>
-
                         <div className="about-stats-grid">
                             <div className="about-stat-item">
                                 <span className="about-stat-number">3+</span>

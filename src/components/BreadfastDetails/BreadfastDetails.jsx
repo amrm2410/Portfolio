@@ -1,22 +1,22 @@
 import React from 'react';
 import './BreadfastDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-import breadfastCover from '../../assets/project-assets/Breadfast/Breadfast Cover.png';
-import breadfastThumbnail from '../../assets/project-assets/Breadfast/Thumbnail.png';
-import breadfastImg1 from '../../assets/project-assets/Breadfast/Thumbnail-1.png';
-import breadfastImg2 from '../../assets/project-assets/Breadfast/Thumbnail-2.png';
-import breadfastImg3 from '../../assets/project-assets/Breadfast/Thumbnail-3.png';
-import breadfastImg4 from '../../assets/project-assets/Breadfast/Thumbnail-4.png';
-import breadfastImg5 from '../../assets/project-assets/Breadfast/Thumbnail-5.png';
-import breadfastImg6 from '../../assets/project-assets/Breadfast/Thumbnail-6.png';
-import breadfastImg7 from '../../assets/project-assets/Breadfast/Thumbnail-7.png';
-import breadfastImg8 from '../../assets/project-assets/Breadfast/Thumbnail-8.png';
-import breadfastImg9 from '../../assets/project-assets/Breadfast/Thumbnail-9.png';
 
 const BreadfastDetails = () => {
     const handleBackClick = () => {
         window.history.back();
     };
+
+    // Image URLs
+    const breadfastThumbnail = 'https://i.ibb.co/21wqRyY1/Thumbnail.png';
+    const breadfastImg1 = 'https://i.ibb.co/Kxs8PC0z/Thumbnail-1.png';
+    const breadfastImg2 = 'https://i.ibb.co/rKbq2qbt/Thumbnail-2.png';
+    const breadfastImg3 = 'https://i.ibb.co/7xYKtbSJ/Thumbnail-3.png';
+    const breadfastImg4 = 'https://i.ibb.co/dwMtMdhD/Thumbnail-4.png';
+    const breadfastImg5 = 'https://i.ibb.co/SDyg9fCD/Thumbnail-5.png';
+    const breadfastImg6 = 'https://i.ibb.co/zHNHJRpm/Thumbnail-6.png';
+    const breadfastImg7 = 'https://i.ibb.co/pjK1hf27/Thumbnail-7.png';
+    const breadfastImg8 = 'https://i.ibb.co/60CnCTTJ/Thumbnail-8.png';
+    const breadfastImg9 = 'https://i.ibb.co/4DD39bc/Thumbnail-9.png';
 
     return (
         <div className="breadfast-details">
@@ -364,34 +364,34 @@ const BreadfastDetails = () => {
                         <h2 className="section-title">Design <span>Showcase</span></h2>
                         <div className="design-images">
                             <div className="design-image">
-                                <LazyImage src={breadfastThumbnail} alt="Breadfast Design Thumbnail" />
+                                <img src={breadfastThumbnail} alt="Breadfast Design Thumbnail" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg1} alt="Breadfast Design 1" />
+                                <img src={breadfastImg1} alt="Breadfast Design 1" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg2} alt="Breadfast Design 2" />
+                                <img src={breadfastImg2} alt="Breadfast Design 2" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg3} alt="Breadfast Design 3" />
+                                <img src={breadfastImg3} alt="Breadfast Design 3" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg4} alt="Breadfast Design 4" />
+                                <img src={breadfastImg4} alt="Breadfast Design 4" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg5} alt="Breadfast Design 5" />
+                                <img src={breadfastImg5} alt="Breadfast Design 5" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg6} alt="Breadfast Design 6" />
+                                <img src={breadfastImg6} alt="Breadfast Design 6" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg7} alt="Breadfast Design 7" />
+                                <img src={breadfastImg7} alt="Breadfast Design 7" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg8} alt="Breadfast Design 8" />
+                                <img src={breadfastImg8} alt="Breadfast Design 8" />
                             </div>
                             <div className="design-image">
-                                <LazyImage src={breadfastImg9} alt="Breadfast Design 9" />
+                                <img src={breadfastImg9} alt="Breadfast Design 9" />
                             </div>
                         </div>
                     </div>
@@ -401,6 +401,7 @@ const BreadfastDetails = () => {
                         <h2 className="section-title">Interactive <span>Prototype</span></h2>
                         <div className="figma-embed">
                             <iframe
+                                title="Breadfast Interactive Prototype"
                                 style={{border: '1px solid rgba(0, 0, 0, 0.1)'}}
                                 width="100%"
                                 height="600"

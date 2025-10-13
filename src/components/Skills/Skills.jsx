@@ -15,14 +15,19 @@ const Skills = () => {
                     {SKILL_CATEGORIES.map(category => (
                         <div key={category.id} className={`tech-category ${category.id}`}>
                             <div className="tech-category-header">
-                                <i className={category.icon}></i>
                                 <h3>{category.title}</h3>
                             </div>
                             <div className="tech-skills">
                                 {category.skills.map((skill, index) => (
                                     <div key={index} className="tech-skill">
-                                        <div className="skill-bullet"></div>
-                                        <span>{skill}</span>
+                                        {skill.icon && (
+                                            <img
+                                                src={skill.icon}
+                                                alt={skill.name}
+                                                className="skill-icon"
+                                            />
+                                        )}
+                                        <span>{skill.name}</span>
                                     </div>
                                 ))}
                             </div>

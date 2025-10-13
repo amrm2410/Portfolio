@@ -1,7 +1,5 @@
 import React from 'react';
 import './EDestinationDetails.css';
-import LazyImage from '../LazyImage/LazyImage';
-import coverImage from '../../assets/project-assets/E-Destination/E-سكة.png';
 import slide1 from '../../assets/project-assets/E-Destination/Slide 16_9 - 2.png';
 import slide2 from '../../assets/project-assets/E-Destination/Slide 16_9 - 3.png';
 
@@ -403,10 +401,10 @@ const EDestinationDetails = () => {
                         </p>
                         <div className="design-showcase">
                             <div className="design-slide">
-                                <LazyImage src={slide1} alt="E-Destination App Design 1" />
+                                <img src={slide1} alt="E-Destination App Design 1" />
                             </div>
                             <div className="design-slide">
-                                <LazyImage src={slide2} alt="E-Destination App Design 2" />
+                                <img src={slide2} alt="E-Destination App Design 2" />
                             </div>
                         </div>
                     </div>
@@ -419,6 +417,7 @@ const EDestinationDetails = () => {
                         </p>
                         <div className="figma-embed">
                             <iframe
+                                title="E-Destination Interactive Prototype"
                                 style={{border: '1px solid rgba(0, 0, 0, 0.1)'}}
                                 width="100%"
                                 height="600"
