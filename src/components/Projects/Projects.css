@@ -56,7 +56,7 @@
 
 .projects-card-image {
     height: 200px;
-    background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,8 +98,8 @@
 }
 
 .projects-card-tag {
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent-blue);
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--accent-green);
     padding: 0.2rem 0.6rem;
     border-radius: 15px;
     font-size: 0.7rem;
