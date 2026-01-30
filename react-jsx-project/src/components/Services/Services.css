@@ -1,0 +1,182 @@
+/* Services Component Styles */
+.services {
+    padding: 5rem 2rem;
+    opacity: 1 !important;
+}
+
+.services-description {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.services-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(74, 144, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.services-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+}
+
+.services-card:hover::before {
+    opacity: 1;
+}
+
+.services-card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.services-card:hover .services-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.services-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.services-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.services-card-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.services-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+.services-price-note {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.services-card-description {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.services-book-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: inherit;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.services-book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.services-book-btn i {
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .services {
+        padding: 3rem 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .services-card {
+        padding: 1.5rem;
+    }
+
+    .services-card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .services-card-title {
+        font-size: 1.15rem;
+    }
+
+    .services-price {
+        font-size: 1.5rem;
+    }
+
+    .services-price-note {
+        font-size: 0.75rem;
+    }
+
+    .services-card-description {
+        font-size: 0.9rem;
+    }
+
+    .services-book-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
