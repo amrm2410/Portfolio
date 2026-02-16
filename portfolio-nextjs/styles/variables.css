@@ -1,0 +1,87 @@
+/* CSS Custom Properties (Variables) - Bento Light Theme */
+:root {
+    /* Background & Surface */
+    --bg-page: #f2f0ed;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fafafa;
+    --bg-dark: #1a1a2e;
+    --bg-dark-card: #16213e;
+
+    /* Text */
+    --text-primary: #1a1a2e;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --text-on-dark: #ffffff;
+    --text-on-dark-muted: rgba(255, 255, 255, 0.4);
+
+    /* Accents */
+    --accent-primary: #6366f1;
+    --accent-secondary: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-blue: #3b82f6;
+
+    /* Borders & Shadows */
+    --border-light: #e5e7eb;
+    --border-card: rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+    /* Layout */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 24px;
+    --container-max: 1200px;
+    --grid-gap: 20px;
+
+    /* Animations */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Legacy mappings for project detail pages */
+    --primary-bg: #f2f0ed;
+    --secondary-bg: #e8e6e3;
+    --card-bg: #ffffff;
+    --text-white: #1a1a2e;
+    --text-gray: #64748b;
+    --border-color: #e5e7eb;
+    --accent-purple: #6366f1;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    /* Background & Surface */
+    --bg-page: #0a0a0f;
+    --bg-card: #141420;
+    --bg-card-hover: #1a1a2e;
+    --bg-dark: #1a1a2e;
+    --bg-dark-card: #16213e;
+
+    /* Text */
+    --text-primary: #e8e8ed;
+    --text-secondary: #9ca3af;
+    --text-tertiary: #6b7280;
+    --text-on-dark: #ffffff;
+    --text-on-dark-muted: rgba(255, 255, 255, 0.4);
+
+    /* Borders & Shadows */
+    --border-light: #2a2a3a;
+    --border-card: rgba(255, 255, 255, 0.06);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+    /* Legacy mappings */
+    --primary-bg: #0a0a0f;
+    --secondary-bg: #141420;
+    --card-bg: #141420;
+    --text-white: #e8e8ed;
+    --text-gray: #9ca3af;
+    --border-color: #2a2a3a;
+    --accent-purple: #6366f1;
+}

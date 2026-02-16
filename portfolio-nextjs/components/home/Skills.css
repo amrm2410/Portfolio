@@ -1,0 +1,278 @@
+/* Skills Section - Two-column Layout */
+.skills-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--grid-gap);
+}
+
+.skills-card {
+    padding: 2rem;
+}
+
+.skills-category-group {
+    margin-bottom: 1.5rem;
+}
+
+.skills-category-group:last-child {
+    margin-bottom: 0;
+}
+
+.skills-category-label {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.75rem;
+}
+
+.skills-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: var(--bg-page);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-base);
+    cursor: default;
+}
+
+.skill-pill:hover {
+    background: var(--text-primary);
+    color: var(--text-on-dark);
+    border-color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.skill-pill-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.skill-pill:hover .skill-pill-icon {
+    filter: brightness(10);
+}
+
+/* Competencies Card */
+.competencies-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.competencies-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.competencies-header .skills-category-label {
+    margin-bottom: 0;
+}
+
+.competencies-source {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.competencies-source:hover {
+    color: var(--accent-primary);
+}
+
+.competencies-source i {
+    font-size: 0.6rem;
+}
+
+/* Competency Rows */
+.competencies-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.75rem;
+}
+
+.competency-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.competency-area {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.competency-bar-track {
+    height: 6px;
+    background: var(--bg-page);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.competency-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s var(--ease-out-expo);
+}
+
+.competency-bar-fill.level-independent {
+    background: #60a5fa;
+}
+
+.competency-bar-fill.level-senior {
+    background: #8b5cf6;
+}
+
+.competency-bar-fill.level-lead {
+    background: #f59e0b;
+}
+
+.competency-bar-fill.level-principal {
+    background: #10b981;
+}
+
+.competency-level {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.competency-level.level-independent {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.competency-level.level-senior {
+    color: #7c3aed;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.competency-level.level-lead {
+    color: #d97706;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.competency-level.level-principal {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Badges Section */
+.badges-section {
+    border-top: 1px solid var(--border-light);
+    padding-top: 1.25rem;
+}
+
+.badges-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--bg-page);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-base);
+}
+
+.badge-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+}
+
+.badge-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.badge-icon i {
+    font-size: 0.6rem;
+    color: white;
+}
+
+.badge-name {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .skills-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-card,
+    .competencies-card {
+        padding: 1.5rem;
+    }
+
+    .skill-pill {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .skill-pill-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .competency-row {
+        grid-template-columns: 90px 1fr auto;
+        gap: 0.5rem;
+    }
+
+    .competency-area {
+        font-size: 0.75rem;
+    }
+
+    .competency-level {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.4rem;
+    }
+
+    .badge-name {
+        font-size: 0.68rem;
+    }
+}

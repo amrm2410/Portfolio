@@ -1,0 +1,278 @@
+/* ================================================
+   Shared Project Detail Page Styles — Light Bento Theme
+   Overrides the dark-theme patterns in per-project CSS
+   ================================================ */
+
+/* ---- Page Background ---- */
+[class$="-details"]:has(.project-header) {
+    background: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ---- Project Header ---- */
+[class$="-details"]:has(.project-header) .project-header {
+    background: var(--bg-card) !important;
+    border-bottom: 1px solid var(--border-light);
+    padding: 5rem 0 3rem;
+}
+
+[class$="-details"]:has(.project-header) .project-title {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+    color: var(--text-primary) !important;
+    font-size: 2.8rem;
+}
+
+[class$="-details"]:has(.project-header) .project-subtitle {
+    color: var(--text-secondary) !important;
+    font-size: 1.15rem;
+}
+
+[class$="-details"]:has(.project-header) .project-tag {
+    background: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-light) !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    transition: all var(--transition-base);
+}
+
+[class$="-details"]:has(.project-header) .project-tag:hover {
+    background: var(--text-primary) !important;
+    color: var(--bg-card) !important;
+    border-color: var(--text-primary) !important;
+}
+
+/* ---- Section Titles ---- */
+[class$="-details"]:has(.project-header) .section-title {
+    color: var(--text-primary) !important;
+    font-size: 1.8rem;
+}
+
+[class$="-details"]:has(.project-header) .section-title span {
+    color: var(--accent-primary) !important;
+}
+
+/* ---- Cards (overview, feature, challenge, impact, etc.) ---- */
+[class$="-details"]:has(.project-header) .overview-content,
+[class$="-details"]:has(.project-header) .overview-stats,
+[class$="-details"]:has(.project-header) .feature-card,
+[class$="-details"]:has(.project-header) .challenge-card,
+[class$="-details"]:has(.project-header) .tech-item,
+[class$="-details"]:has(.project-header) .impact-stat,
+[class$="-details"]:has(.project-header) .impact-card,
+[class$="-details"]:has(.project-header) .ui-screen-card,
+[class$="-details"]:has(.project-header) .wireframe-container,
+[class$="-details"]:has(.project-header) .figma-embed,
+[class$="-details"]:has(.project-header) .design-system-section,
+[class$="-details"]:has(.project-header) .mission-box,
+[class$="-details"]:has(.project-header) .objective-item,
+[class$="-details"]:has(.project-header) .key-objective-card,
+[class$="-details"]:has(.project-header) .constraint-item,
+[class$="-details"]:has(.project-header) .process-content,
+[class$="-details"]:has(.project-header) .challenge-overview {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+[class$="-details"]:has(.project-header) .feature-card:hover,
+[class$="-details"]:has(.project-header) .tech-item:hover,
+[class$="-details"]:has(.project-header) .impact-stat:hover,
+[class$="-details"]:has(.project-header) .impact-card:hover,
+[class$="-details"]:has(.project-header) .ui-screen-card:hover,
+[class$="-details"]:has(.project-header) .objective-item:hover,
+[class$="-details"]:has(.project-header) .key-objective-card:hover,
+[class$="-details"]:has(.project-header) .design-image:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+/* ---- Challenge card left border ---- */
+[class$="-details"]:has(.project-header) .challenge-card {
+    border-left: 4px solid var(--accent-red) !important;
+}
+
+/* ---- Impact stat top border ---- */
+[class$="-details"]:has(.project-header) .impact-stat,
+[class$="-details"]:has(.project-header) .impact-card {
+    border-top: 4px solid var(--accent-green) !important;
+}
+
+/* ---- Text Colors ---- */
+[class$="-details"]:has(.project-header) .feature-title,
+[class$="-details"]:has(.project-header) .challenge-title,
+[class$="-details"]:has(.project-header) .stats-title,
+[class$="-details"]:has(.project-header) .stat-value,
+[class$="-details"]:has(.project-header) .tech-name,
+[class$="-details"]:has(.project-header) .ui-screen-title,
+[class$="-details"]:has(.project-header) .wireframe-title,
+[class$="-details"]:has(.project-header) .highlight-title,
+[class$="-details"]:has(.project-header) .design-system-subtitle,
+[class$="-details"]:has(.project-header) .weight-sample,
+[class$="-details"]:has(.project-header) .color-name-card,
+[class$="-details"]:has(.project-header) .mission-title,
+[class$="-details"]:has(.project-header) .objectives-title,
+[class$="-details"]:has(.project-header) h4 {
+    color: var(--text-primary) !important;
+}
+
+[class$="-details"]:has(.project-header) .overview-text,
+[class$="-details"]:has(.project-header) .feature-description,
+[class$="-details"]:has(.project-header) .challenge-description,
+[class$="-details"]:has(.project-header) .stat-label,
+[class$="-details"]:has(.project-header) .impact-label,
+[class$="-details"]:has(.project-header) .ui-screen-description,
+[class$="-details"]:has(.project-header) .wireframe-description,
+[class$="-details"]:has(.project-header) .highlight-desc,
+[class$="-details"]:has(.project-header) .design-system-text,
+[class$="-details"]:has(.project-header) .weight-label,
+[class$="-details"]:has(.project-header) .color-usage-card,
+[class$="-details"]:has(.project-header) .color-hex-card,
+[class$="-details"]:has(.project-header) .mission-text,
+[class$="-details"]:has(.project-header) .process-content p,
+[class$="-details"]:has(.project-header) .objective-content p,
+[class$="-details"]:has(.project-header) .key-objective-card p,
+[class$="-details"]:has(.project-header) .constraint-content p,
+[class$="-details"]:has(.project-header) .impact-card p,
+[class$="-details"]:has(.project-header) .challenge-intro {
+    color: var(--text-secondary) !important;
+}
+
+/* ---- Feature/Highlight Icons ---- */
+[class$="-details"]:has(.project-header) .feature-icon,
+[class$="-details"]:has(.project-header) .highlight-icon,
+[class$="-details"]:has(.project-header) .objective-icon,
+[class$="-details"]:has(.project-header) .key-objective-icon,
+[class$="-details"]:has(.project-header) .constraint-icon,
+[class$="-details"]:has(.project-header) .impact-icon {
+    background: rgba(99, 102, 241, 0.08) !important;
+    color: var(--accent-primary) !important;
+    border-radius: var(--radius-sm);
+}
+
+/* ---- Tags (feature tags inside cards) ---- */
+[class$="-details"]:has(.project-header) .ui-feature-tag {
+    background: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-light) !important;
+    font-weight: 500;
+}
+
+/* ---- Impact Numbers ---- */
+[class$="-details"]:has(.project-header) .impact-number {
+    color: var(--accent-green) !important;
+}
+
+/* ---- Challenge Number ---- */
+[class$="-details"]:has(.project-header) .challenge-number {
+    background: rgba(239, 68, 68, 0.08) !important;
+    color: var(--accent-red) !important;
+}
+
+/* ---- Mission Box ---- */
+[class$="-details"]:has(.project-header) .mission-box {
+    background: rgba(99, 102, 241, 0.04) !important;
+    border: 2px solid rgba(99, 102, 241, 0.15) !important;
+}
+
+[class$="-details"]:has(.project-header) .mission-title {
+    color: var(--accent-primary) !important;
+}
+
+[class$="-details"]:has(.project-header) .mission-text strong {
+    color: var(--accent-primary) !important;
+}
+
+/* ---- Challenge Intro ---- */
+[class$="-details"]:has(.project-header) .challenge-intro {
+    background: rgba(239, 68, 68, 0.04) !important;
+    border-left: 4px solid var(--accent-red) !important;
+}
+
+/* ---- Objectives Title ---- */
+[class$="-details"]:has(.project-header) .objectives-title {
+    border-left-color: var(--accent-primary) !important;
+}
+
+/* ---- Process Timeline ---- */
+[class$="-details"]:has(.project-header) .process-timeline::before {
+    background: linear-gradient(180deg, var(--accent-primary) 0%, rgba(99, 102, 241, 0.1) 100%) !important;
+}
+
+[class$="-details"]:has(.project-header) .process-number {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* ---- Wireframe Highlights ---- */
+[class$="-details"]:has(.project-header) .wireframe-highlight {
+    background: rgba(99, 102, 241, 0.04) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-sm);
+}
+
+/* ---- Design Images ---- */
+[class$="-details"]:has(.project-header) .design-image {
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ---- Weight Items ---- */
+[class$="-details"]:has(.project-header) .weight-item,
+[class$="-details"]:has(.project-header) .color-card {
+    background: var(--bg-page) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-sm);
+}
+
+/* ---- Wireframe Image Wrapper ---- */
+[class$="-details"]:has(.project-header) .wireframe-image-wrapper {
+    background: var(--bg-page) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* ---- Back Button (light theme) ---- */
+[class$="-details"]:has(.project-header) .back-button {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+}
+
+[class$="-details"]:has(.project-header) .back-button:hover {
+    background: var(--text-primary) !important;
+    color: var(--bg-card) !important;
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ---- Screen images ---- */
+[class$="-details"]:has(.project-header) .ui-screen-card {
+    overflow: hidden;
+}
+
+[class$="-details"]:has(.project-header) .ui-screen-card:hover {
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    [class$="-details"]:has(.project-header) .project-header {
+        padding: 4rem 0 2rem;
+    }
+
+    [class$="-details"]:has(.project-header) .project-title {
+        font-size: 2rem;
+    }
+}

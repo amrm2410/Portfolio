@@ -1,0 +1,43 @@
+/* Shared Bento Component Styles */
+
+.bento-grid {
+    display: grid;
+    gap: var(--grid-gap);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--grid-gap);
+}
+
+.bento-section {
+    padding: 1.5rem 0;
+}
+
+.bento-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.bento-section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.bento-section-count {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+/* Staggered entrance animation */
+.bento-animate {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+}
+
+.bento-animate.visible {
+    animation: bentoFadeIn 0.8s var(--ease-out-expo) forwards;
+}

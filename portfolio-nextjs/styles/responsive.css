@@ -1,0 +1,31 @@
+/* Responsive Design - Bento Grid Breakpoints */
+
+@media (max-width: 1024px) {
+    :root {
+        --grid-gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --grid-gap: 12px;
+        --radius-md: 16px;
+        --radius-lg: 20px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-buttons .btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --grid-gap: 10px;
+        --radius-md: 14px;
+    }
+}

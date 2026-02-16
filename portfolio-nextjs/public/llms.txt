@@ -1,0 +1,224 @@
+# Amr Abbas — Senior Product Designer
+
+> Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows. I turn complex operational processes into fast, low-error, scalable UX.
+
+## Contact
+
+- Website: https://amrabbas.com
+- Email: amrm241020@gmail.com
+- LinkedIn: https://www.linkedin.com/in/amrm-abbas/
+- Behance: https://www.behance.net/amrabbas2410
+- GitHub: https://github.com/amrm2410
+- Location: Egypt · Open to Remote
+
+## Professional Summary
+
+I'm a Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows — dashboards, reporting, approvals, and data-heavy tables. I turn complex operational processes into fast, low-error, scalable UX through strong problem framing, structured research, and tight collaboration with engineering.
+
+Experienced in shipping end-to-end product features, building design systems, and improving usability under real constraints — legacy systems, permissions, compliance, and data quality.
+
+Currently working as a Product Designer at Cedar Rose (business intelligence and risk management company based in Cyprus).
+
+## Core Strengths
+
+- **Enterprise UX**: Dashboards, reporting, tables/filters, complex forms, workflows, approvals, and roles/permissions.
+- **Product Delivery**: Problem framing, user flows, information architecture, prototyping, handoff specs, QA & iteration.
+- **Research & Validation**: UX audits, heuristic reviews, usability testing, and competitive analysis to drive decisions.
+- **Design Systems**: Reusable components, consistency, states (loading/empty/error), and scalable patterns.
+
+## Key Stats
+
+- 4+ years of experience
+- 25+ products shipped
+- 98% client satisfaction
+
+## Education
+
+- Master's in Professional Business Information Systems (PBIS) — in progress
+- B.Sc. in Business Information Systems — GPA: 3.85
+
+## Certifications
+
+- Advanced UX Design
+- Business Analysis
+
+## UX Competencies (via UX Breakfast)
+
+- Strategy: Senior
+- Research: Senior
+- Flows: Independent
+- UI & Accessibility: Senior
+- Design Systems: Senior
+- Collaboration: Lead
+- Delivery: Principal
+- Ethics & Practice: Principal
+
+### Earned Badges
+
+- System Sculptor
+- Team Influence Pro
+- Impact Engineer
+- Ethics Guardian
+- Senior Ship Captain
+
+## Skills & Tools
+
+### Design & Prototyping
+Figma, Sketch, Miro, ProtoPie, Notion
+
+### Analytics & Data
+SQL, Power BI, Tableau, Python, Pandas, NumPy
+
+### Working Knowledge
+HTML, CSS, React, Webflow, Framer
+
+### Delivery & Collaboration
+Jira, Trello, UML
+
+## Projects (25+)
+
+### 1. Risk Portfolio Overview
+Comprehensive risk assessment and portfolio management dashboard for Cedar Rose, featuring real-time risk monitoring and analytics.
+- Tags: Risk Management, Dashboard, Data Visualization, UI/UX Design
+- Case Study: https://amrabbas.com/projects/risk-portfolio
+- Detailed Case Study: https://amrabbas.com/case-studies/cedar-rose-risk-portfolio
+
+### 2. TELECO
+Telecommunications solutions and services platform providing comprehensive connectivity solutions.
+- Tags: Telecommunications, Network Solutions, Enterprise
+- Live: https://telco-eg.com/
+
+### 3. Syarah — Behind the Wheel of Trust
+Comprehensive UX case study for automotive marketplace platform.
+- Tags: UX Case Study, Automotive, User Research
+- Behance: https://www.behance.net/gallery/237435523/Behind-the-Wheel-of-Trust-Syarah-App-UX-Case-Study
+
+### 4. Gates Developments CRM & ERP
+Designed internal management systems to streamline operational workflows, resulting in 15% efficiency improvement.
+- Tags: CRM Design, ERP System, UX Research
+- Case Study: https://amrabbas.com/case-studies/gates-budgeting-system
+
+### 5. Ventura Trading
+Advanced trading platform with real-time market data, portfolio management, and sophisticated analytics tools.
+- Tags: Trading Platform, Financial Analytics, Portfolio Management
+- Details: https://amrabbas.com/projects/ventura-trading
+
+### 6. Swapop
+Social marketplace app for item swapping and trading with community features and secure transaction handling.
+- Tags: Social Commerce, Marketplace, Community Features
+
+### 7. Water World
+Water park and entertainment platform featuring attractions, ticketing, and visitor experience management.
+- Tags: Entertainment, Theme Park, Booking System, UI/UX Design
+- Live: https://wwegypt.com/
+
+### 8. Breadfast
+On-demand grocery delivery app providing fresh bread, groceries, and daily essentials with seamless ordering experience and quick delivery.
+- Tags: Grocery Delivery, Mobile App, Food Tech, UI/UX Design
+- Details: https://amrabbas.com/projects/breadfast
+
+### 9. Byet
+Modern real estate platform connecting buyers and sellers with advanced property search and management features.
+- Tags: Real Estate, Property Management, Search Platform
+- Details: https://amrabbas.com/projects/byet
+
+### 10. Health 360
+Holistic healthcare management system providing complete patient care solutions with integrated monitoring and reporting.
+- Tags: Healthcare, Patient Management, Medical Dashboard
+- Details: https://amrabbas.com/projects/health-360
+
+### 11. Employee 360
+Comprehensive employee management platform with 360-degree performance tracking, analytics, and engagement tools.
+- Tags: HR Management, Analytics, Performance Tracking
+- Details: https://amrabbas.com/projects/employee-360
+
+### 12. Gates Admin Request
+Stationary request solution to track and get insights about requests and stocks with comprehensive inventory management.
+- Tags: Request Management, Inventory Tracking, Analytics, Admin Dashboard
+- Details: https://amrabbas.com/projects/gates-admin-request
+
+### 13. Crew Website
+Business consultancy firm specializing in HR management solutions, personnel services, and government compliance for Egyptian corporations.
+- Tags: Business Consultancy, HR Solutions, Corporate Website, UI/UX Design
+- Details: https://amrabbas.com/projects/crew-website
+
+### 14. Siwa Garden
+Premium e-commerce platform specializing in authentic organic products from the Siwa Oasis featuring olive oils, dates, and natural products.
+- Tags: E-commerce, Organic Products, Olive Oil, UI/UX Design
+- Details: https://amrabbas.com/projects/siwa-garden
+
+### 15. Stova
+Premium furniture and interior design e-commerce platform featuring modern furniture solutions and personalized design services.
+- Tags: E-commerce, Interior Design, Furniture, UI/UX Design
+- Details: https://amrabbas.com/projects/stova
+
+### 16. E-Destination
+Mobile app for smart transportation route planning with intuitive user interface and seamless navigation.
+- Tags: Mobile Design, Navigation, Transport
+- Details: https://amrabbas.com/projects/e-destination
+
+### 17. Egypt Empire
+Comprehensive tourism management system with destination discovery, booking management, and travel planning tools.
+- Tags: Tourism, Travel Planning, Booking System
+- Live: https://egypt-empire.com/
+
+### 18. Nile Garden
+Food production company e-commerce platform specializing in olive oils, pickled vegetables, and premium olive products.
+- Tags: E-commerce, Food Industry, Olive Products, UI/UX Design
+- Live: https://www.nile-garden.com/
+
+### 19. Cupra Agency
+Automotive brand agency website showcasing vehicle lineup with immersive design and interactive configurator.
+- Tags: Automotive, Brand Agency, Interactive Design
+- Live: https://www.cupraagency.com
+
+### 20. ATMedicine
+Innovative medicine ATM concept with mobile application for code-based medication purchases and distribution.
+- Tags: Healthcare Innovation, Mobile App, Business Analysis
+- Behance: https://www.behance.net/gallery/171259005/ATMedicine-UIUX-Case-Study
+
+### 21. TechlandBS
+Business solutions technology platform providing enterprise-level software development and consulting services.
+- Tags: Enterprise Solutions, Business Software, Consulting
+- Live: https://www.techlandbs.com/
+
+## Case Studies
+
+### Cedar Rose Risk Portfolio Dashboard Redesign
+- Client: Cedar Rose
+- Role: Senior UI/UX Designer
+- Duration: 3 months
+- URL: https://amrabbas.com/case-studies/cedar-rose-risk-portfolio
+- Summary: Comprehensive redesign of Portfolio Overview dashboard for Cedar Rose, a leading business intelligence and risk management company in Cyprus. Addressed critical UX problems including risk trend visibility, confusing compliance alerts, and excessive navigation. Solution included KPI cards, risk trend charts, sector exposure visualization, top risers panel, and geographic risk map.
+
+### Gates Developments Budgeting System
+- Client: Gates Developments
+- Role: Lead UI/UX Designer
+- Duration: 4 months
+- URL: https://amrabbas.com/case-studies/gates-budgeting-system
+- Summary: Comprehensive budgeting and forecasting system with Power BI integration for Gates Developments. Replaced spreadsheet-based processes with an integrated solution combining a custom admin panel with Power BI analytics, resulting in 40% faster budget approval cycles and 85% reduction in forecasting errors.
+
+## Industries Served
+
+- B2B SaaS & Enterprise Software
+- Risk Management & Compliance
+- Real Estate & Property
+- Healthcare & Wellness
+- Financial Services & Trading
+- E-commerce & Retail
+- Tourism & Hospitality
+- Telecommunications
+- Food & Agriculture
+- Automotive
+- HR & Workforce Management
+
+## What I Can Help With
+
+- End-to-end product design for B2B SaaS platforms
+- Dashboard and data visualization design
+- Enterprise workflow optimization (CRM, ERP, admin panels)
+- Design system creation and maintenance
+- UX audits and redesigns
+- Mobile app design
+- E-commerce platform design
+- Prototyping and user testing
