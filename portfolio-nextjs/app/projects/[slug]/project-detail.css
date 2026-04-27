@@ -1,0 +1,245 @@
+/* Project Detail Page — Bento Card Layout */
+
+.project-detail {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 4rem;
+}
+
+/* Hero Section */
+.project-hero-section {
+  padding-top: 1.5rem;
+}
+
+.project-hero {
+  padding: 2.5rem;
+}
+
+.project-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  transition: color var(--transition-base);
+}
+
+.project-back-link:hover {
+  color: var(--accent-secondary);
+}
+
+.project-client-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-primary);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.project-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.project-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.project-meta-label {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+.project-meta-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.project-detail-tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Cover Image */
+.project-cover-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-cover-card img {
+  position: relative !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* Summary Card */
+.project-summary-card {
+  padding: 2.5rem;
+}
+
+/* Executive Summary */
+.executive-summary {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.executive-summary-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.executive-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.executive-summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.executive-summary-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+.executive-summary-value {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.executive-summary-outcome {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.executive-summary-outcome .executive-summary-label {
+  color: var(--accent-green);
+}
+
+.executive-summary-outcome .executive-summary-value {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+/* Content Card */
+.project-content-card {
+  padding: 3rem 2.5rem;
+}
+
+.project-content-card .mdx-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+/* Footer Actions */
+.project-footer-actions {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+/* Spacing between sections */
+.project-detail .bento-grid {
+  margin-bottom: var(--grid-gap);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-hero {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .project-description {
+    font-size: 1.1rem;
+  }
+
+  .project-cover-card {
+    height: auto;
+  }
+
+  .project-content-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-summary-card {
+    padding: 1.5rem;
+  }
+
+  .project-meta {
+    gap: 1rem;
+  }
+
+  .executive-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-hero {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.75rem;
+  }
+
+  .project-cover-card {
+    height: auto;
+  }
+
+  .project-content-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-summary-card {
+    padding: 1rem;
+  }
+}

@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PROJECTS } from '@/constants/projects';
+import { PROJECTS, FEATURED_SLUGS, PROJECT_CATEGORIES } from '@/constants/projects';
 import './Projects.css';
 
 const GRADIENTS = [
@@ -21,16 +22,40 @@ const getSizeClass = (index: number): string => {
 };
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const archiveProjects = PROJECTS.filter(p => !FEATURED_SLUGS.includes(p.slug));
+  const filteredProjects = activeCategory === 'All'
+    ? archiveProjects
+    : archiveProjects.filter(p => p.category === activeCategory);
+
+  const getCategoryCount = (category: string) =>
+    category === 'All'
+      ? archiveProjects.length
+      : archiveProjects.filter(p => p.category === category).length;
+
   return (
     <section id="projects" className="projects bento-section">
       <div className="bento-grid">
         <div className="bento-section-header" style={{ gridColumn: '1 / -1' }}>
-          <h2 className="bento-section-title">Selected Work</h2>
-          <span className="bento-section-count">{PROJECTS.length} projects</span>
+          <h2 className="bento-section-title">Project Archive</h2>
+          <span className="bento-section-count">{filteredProjects.length} projects</span>
+        </div>
+
+        <div className="project-filters">
+          {PROJECT_CATEGORIES.map((category) => (
+            <button
+              key={category}
+              className={`project-filter-pill${activeCategory === category ? ' active' : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+              <span className="project-filter-count">{getCategoryCount(category)}</span>
+            </button>
+          ))}
         </div>
 
         <div className="projects-bento-grid">
-          {PROJECTS.map((project, index) => {
+          {filteredProjects.map((project, index) => {
             const sizeClass = getSizeClass(index);
             const gradient = GRADIENTS[index % GRADIENTS.length];
             const className = `project-bento-card project-size-${sizeClass}`;
@@ -77,7 +102,7 @@ const Projects = () => {
               return (
                 <Link
                   key={project.id}
-                  href={`/case-studies/${project.slug}`}
+                  href={`/projects/${project.slug}`}
                   className={className}
                   style={{ background: gradient }}
                 >

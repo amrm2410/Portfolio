@@ -1,65 +1,154 @@
 ---
-title: "Byet"
+title: "Byet — Real Estate Search Platform"
 slug: "byet"
-description: "Comprehensive real estate platform connecting buyers, sellers, renters, and agents through an intuitive web and mobile ecosystem."
+description: "Designed a real estate platform connecting buyers, sellers, renters, and agents through web and mobile — with advanced search, interactive maps, and agent profiles across 26 screens."
 client: "Byet"
 role: "Lead UI/UX Designer"
 duration: "3 Months"
 tags: ["Real Estate", "Property Management", "Search Platform", "Web & Mobile", "UI/UX Design"]
 coverImage: "https://i.ibb.co/4Zv0shbh/Cover.png"
 date: "2024-06-01"
+product: "Byet — Real estate search and listing platform (web + mobile)"
+users: "Property buyers, sellers, and renters searching for properties; real estate agents managing listings and client relationships"
+problem: "Property search was fragmented — buyers couldn't efficiently compare listings, agents lacked a unified platform to manage their portfolios, and the connection between parties relied on phone calls and manual coordination."
+constraints: "Multi-stakeholder platform (buyers, sellers, renters, agents), cross-platform consistency (web + mobile, 26 screens), location-based search with interactive maps, 3-month timeline"
+myRole: "Lead UI/UX Designer: information architecture, search and filtering patterns, property listing design, agent profiles, and cross-platform design system."
+outcome: "Delivered 26 screens across web and mobile with 5000+ property listings, 3x faster property search, and 100+ active agents on the platform."
 ---
 
 ## Project Overview
 
-Byet is a comprehensive real estate platform designed to revolutionize the property buying, selling, and renting experience in the digital age. The platform connects buyers, sellers, renters, and real estate professionals through an intuitive and feature-rich ecosystem.
-
-Built with modern technology and user-centric design principles, Byet offers advanced property search capabilities, virtual tours, detailed property information, and seamless communication tools. The platform serves both web and mobile users with responsive design ensuring optimal experience across all devices.
-
-The solution addresses key pain points in the real estate industry by providing transparent information, efficient search tools, secure transactions, and enhanced connectivity between all stakeholders in the property market.
-
-## Key Features
-
-- **Advanced Search & Filters** — Powerful search engine with multiple filters including location, price range, property type, amenities, and more
-- **Property Listings** — Detailed property information with high-quality images, virtual tours, floor plans, and comprehensive descriptions
-- **Interactive Maps** — Location-based search with interactive maps showing nearby amenities, schools, transportation, and neighborhood information
-- **Agent Profiles** — Connect with verified real estate agents, view their portfolios, ratings, and communicate directly
-- **Favorites & Saved Searches** — Save favorite properties and search criteria to get instant notifications when new matching properties become available
-- **Real-time Communication** — Built-in messaging system enabling seamless communication between buyers, sellers, and agents
-
-## Design System
-
-### Typography
-The Byet platform uses Poppins typeface across all text elements, creating a clean, modern, and consistent reading experience.
-- Display: Poppins Bold
-- Heading: Poppins SemiBold
-- Body: Poppins Regular
-- Caption: Poppins Medium
-
-### Color Palette
-- Primary: #2D3E50 — Primary brand color, headers, CTAs
-- Dark: #1F2B38 — Backgrounds, footers, dark sections
-- Medium: #4A5F7A — Borders, dividers, secondary elements
-- Light: #8A9BAE — Text, icons, subtle accents
-- Lightest: #D4DCE6 — Backgrounds, cards, panels
-
-## Web Platform
-
-The web platform provides a comprehensive desktop experience with full-featured property search, detailed listings, and advanced management tools with 12 key screens covering the complete user journey.
-
-## Mobile Application
-
-The mobile app brings property search on-the-go with optimized interface for quick browsing, notifications, and location-based features across 14 screens.
-
-## Project Impact
-
-- **5000+** Property Listings
-- **3x** Faster Search
-- **95%** User Satisfaction
-- **100+** Active Agents
+Byet is a real estate platform that connects all stakeholders in the property market — buyers, sellers, renters, and agents — through a unified web and mobile experience. The platform centers on making property discovery fast and informed through advanced search, interactive maps, and detailed listings, while giving agents tools to manage their portfolios and client relationships.
 
 ---
 
-**Tools Used**: Figma
+## The Challenge
 
-**Platforms**: Web & Mobile (iOS/Android)
+Property search in the market faced several friction points:
+
+- **Fragmented discovery:** Buyers and renters had to check multiple sources (classifieds, social media, direct calls) to find available properties — no single platform aggregated listings with reliable data
+- **Shallow listing information:** Most platforms showed basic details without floor plans, neighborhood context, or verified agent information — forcing users to make calls just to get basic facts
+- **No agent-buyer connection:** Agents managed leads through informal channels with no structured way to showcase their portfolios, ratings, or availability
+- **Location blindness:** Users couldn&rsquo;t easily understand a property&rsquo;s context — nearby amenities, schools, transport — without separate research
+
+---
+
+## Key Design Decisions &amp; Tradeoffs
+
+### 1. Search-first architecture (vs. browse-first)
+
+**Decision:** Design the primary experience around powerful search with multi-parameter filtering rather than category browsing.
+
+**Tradeoff:** First-time users face a denser interface; browse mode is secondary.
+
+**Why:** Real estate users typically have specific criteria (location, price, bedrooms, type). Search-first gets them to relevant results faster than browsing through categories.
+
+### 2. Interactive map as co-primary view
+
+**Decision:** Present map and list views as equal navigation modes, with the map showing nearby amenities, schools, and transport.
+
+**Tradeoff:** Map view requires more data loading and is heavier on mobile.
+
+**Why:** Location context is the #1 factor in property decisions. An interactive map with neighborhood data answers "what&rsquo;s nearby?" without leaving the platform.
+
+### 3. Agent profiles with portfolio and ratings
+
+**Decision:** Give agents dedicated profile pages with their active listings, transaction history, and client ratings.
+
+**Tradeoff:** Agents may resist transparency (ratings, public portfolio).
+
+**Why:** Builds trust for buyers — they can evaluate an agent&rsquo;s track record before making contact. Also incentivizes agents to maintain quality listings.
+
+### 4. Consistent design system across web and mobile
+
+**Decision:** Use a shared design system with platform-specific optimizations rather than designing web and mobile independently.
+
+**Tradeoff:** Some compromises on platform-native patterns (e.g., mobile navigation follows web conventions in places).
+
+**Why:** With 26 total screens across both platforms, a shared system ensures consistency and reduces design/dev effort. Users switching between web and mobile have a familiar experience.
+
+---
+
+## Solution Overview
+
+### Web Platform (12 screens)
+
+- **Search and discovery:** Multi-filter search with map/list toggle, saved searches, and instant notifications for new matches
+- **Property detail:** Full-page listings with image galleries, floor plans, neighborhood information, and agent contact
+- **Agent directory:** Browse verified agents by area, specialty, and rating
+- **Favorites and comparisons:** Save properties and compare side-by-side
+
+### Mobile Application (14 screens)
+
+- **On-the-go search:** Location-aware property search with push notifications for new matches
+- **Quick property view:** Swipe-through property cards with key details visible at a glance
+- **Direct messaging:** In-app communication between buyers/renters and agents
+- **Saved searches:** Persistent filters with real-time alerts for new listings
+
+---
+
+## System Thinking
+
+### States &amp; Edge Cases
+
+- **Empty search results:** Clear messaging with suggestion to broaden filters
+- **No agent reviews:** New agents show "New on Byet" badge instead of empty rating
+- **Offline/slow connection:** Mobile app caches recently viewed properties for offline access
+- **Listing status changes:** Properties marked as sold/rented update across all saved lists and notifications
+
+### Cross-Platform Patterns
+
+- **Search filters:** Same filter logic on web and mobile, adapted for touch vs. click interactions
+- **Property cards:** Consistent information hierarchy (image, price, key specs, location) across both platforms
+- **Notification system:** Saved search alerts, price changes, and agent messages unified across platforms
+
+---
+
+## Design Screens
+
+### Web Platform
+
+<div className="grid-2col">
+  <img src="https://i.ibb.co/DD9cKYVr/Desktop-5.png" alt="Desktop 5" />
+  <img src="https://i.ibb.co/pvXjyrtQ/Desktop-6.png" alt="Desktop 6" />
+  <img src="https://i.ibb.co/MxMvLSrn/Desktop-7.png" alt="Desktop 7" />
+  <img src="https://i.ibb.co/99hqK7Vg/Desktop-8.png" alt="Desktop 8" />
+  <img src="https://i.ibb.co/3y33p7BM/Desktop-1.png" alt="Desktop 1" />
+  <img src="https://i.ibb.co/1tVQbv9S/Desktop-2.png" alt="Desktop 2" />
+  <img src="https://i.ibb.co/sdts8L3V/Desktop-3.png" alt="Desktop 3" />
+  <img src="https://i.ibb.co/yTryBTC/Desktop-4.png" alt="Desktop 4" />
+  <img src="https://i.ibb.co/y99m9V4/Desktop-9.png" alt="Desktop 9" />
+  <img src="https://i.ibb.co/G3GrgJYg/Desktop-10.png" alt="Desktop 10" />
+</div>
+
+### Mobile Application
+
+<div className="grid-5col">
+  <img src="https://i.ibb.co/KcwSQJqW/i-Phone-14-Plus-37.png" alt="iPhone 14 Plus 37" />
+  <img src="https://i.ibb.co/sJF58FQD/i-Phone-14-Plus-40.png" alt="iPhone 14 Plus 40" />
+  <img src="https://i.ibb.co/ym5TNmbK/i-Phone-14-Plus-42.png" alt="iPhone 14 Plus 42" />
+  <img src="https://i.ibb.co/kg2D96Z4/i-Phone-14-Plus-43.png" alt="iPhone 14 Plus 43" />
+  <img src="https://i.ibb.co/Rk3sYm5s/i-Phone-14-Plus-44.png" alt="iPhone 14 Plus 44" />
+  <img src="https://i.ibb.co/htZ1dNq/i-Phone-14-Plus-45.png" alt="iPhone 14 Plus 45" />
+  <img src="https://i.ibb.co/LX83nsSc/i-Phone-14-Plus-46.png" alt="iPhone 14 Plus 46" />
+  <img src="https://i.ibb.co/dw6Zy0cQ/i-Phone-14-Plus-47.png" alt="iPhone 14 Plus 47" />
+  <img src="https://i.ibb.co/d4TtH0pq/i-Phone-14-Plus-48.png" alt="iPhone 14 Plus 48" />
+  <img src="https://i.ibb.co/5xhZWP3G/i-Phone-14-Plus-49.png" alt="iPhone 14 Plus 49" />
+  <img src="https://i.ibb.co/tp5yRZFS/i-Phone-14-Plus-50.png" alt="iPhone 14 Plus 50" />
+  <img src="https://i.ibb.co/JFvHq8Qx/i-Phone-14-Plus-54.png" alt="iPhone 14 Plus 54" />
+</div>
+
+---
+
+## Impact &amp; Results
+
+- Aggregated property listings into a single discoverable platform for buyers, sellers, renters, and agents
+- Faster property search through multi-parameter filtering and interactive map integration
+- Onboarded active real estate agents with dedicated portfolio and rating profiles
+- Delivered consistent design language across web and mobile (26 screens)
+
+---
+
+**Tools:** Figma
+
+**Platform:** Web &amp; Mobile (iOS/Android)

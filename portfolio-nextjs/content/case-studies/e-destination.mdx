@@ -1,95 +1,108 @@
 ---
-title: "E-Destination"
+title: "E-Destination — Urban Navigation App"
 slug: "e-destination"
-description: "Smart transportation and route planning mobile app helping urban commuters discover transportation options, plan routes, and navigate the city efficiently."
+description: "Designed a mobile app for smart urban route planning and public transportation navigation in Cairo — helping commuters find optimal routes across buses, metro, and microbuses."
 client: "E-Destination"
 role: "UI/UX Designer"
 duration: "2 Months"
 tags: ["Mobile Design", "Navigation", "Transport", "Route Planning", "UI/UX Design"]
 coverImage: "/project-assets/E-Destination/E-سكة.png"
 date: "2024-01-01"
+product: "E-Destination — Mobile app for public transportation route planning and navigation"
+users: "Urban commuters in Cairo navigating public transportation (buses, metro, microbuses) to reach destinations efficiently"
+problem: "Commuters in Cairo struggled to find the best public transport routes — getting lost in unfamiliar areas, missing connections, and wasting time in traffic without reliable route guidance."
+constraints: "Multi-modal transport coverage (buses, metro, microbuses), real-time traffic considerations, iOS & Android, entertainment integration (music player), 2-month timeline"
+myRole: "UI/UX Designer: persona research, user story mapping, route planning UX, navigation design, and entertainment feature integration."
+outcome: "Delivered a mobile app that simplifies public transport navigation in Cairo — multi-route suggestions, real-time updates, and an integrated music player for a better commute experience."
 ---
 
-## Product Overview
+## Project Overview
 
-E-Destination is a mobile application that assists users in discovering potential transportation options and routes to their desired destinations. The app provides comprehensive navigation solutions for public transportation, helping users efficiently navigate the city while avoiding high traffic.
-
-Beyond basic navigation, E-Destination enhances the user experience by integrating entertainment services such as a music player, making commutes more enjoyable. The app offers intuitive route suggestions, real-time traffic updates, and multiple transportation options to ensure users reach their destinations on time.
-
-> **Mission**: To provide users with convenient access to transportation information and routes through our mobile app.
-
-> **Vision**: To become the go-to platform for individuals seeking efficient and reliable navigation solutions worldwide.
-
-## Problem Statement
-
-People have problems finding the best route and transportation to reach their desired destination and prevent high traffic. Urban commuters often face challenges with getting lost, missing connections, and experiencing high traffic congestion, leading to wasted time and frustration.
-
-## Business Goals
-
-1. **Enhance User Experience** — Offer intuitive route suggestions that make navigation simple and efficient for all users
-2. **Expand Coverage** — Include a wide range of destinations and transportation options across the city and beyond
-3. **Continuous Improvement** — Continuously improve app functionality based on user feedback and technological advancements
-4. **Entertainment Integration** — Enhance user experience by adding entertainment services like music player to the app
-
-## User Persona
-
-**Youssef Malek** — Busy Professional & Urban Explorer, 25, Male, Cairo, Egypt, Engineer, Single
-
-**Bio**: Youssef is a busy professional living in the city who relies on public transportation to get around. He enjoys exploring new places and trying different restaurants in his free time.
-
-**Goals**: To efficiently navigate the city using public transportation and discover new places easily.
-
-**Motivations**: Convenience and saving time, exploring the city, reducing carbon footprint.
-
-**Pain Points**: Getting lost in unfamiliar areas, missing connections, high traffic congestion.
-
-## User Story
-
-Ahmed is a fresh graduate navigating his first major job opportunity:
-
-1. **The Opportunity** — Ahmed receives a call from HR about a job interview at Smart Village next week
-2. **The Challenge** — Living in Nasr City, he has never been to Smart Village and no one knows the best route
-3. **The Discovery** — While browsing social media, he discovers E-Destination through an ad
-4. **The Exploration** — He downloads the app, finds multiple routes, and discovers the built-in music player
-5. **The Journey** — He uses the app during his trip, choosing the most suitable route while enjoying music
-6. **The Success** — Ahmed arrives on time, making a great first impression at his interview
-
-## Key Features
-
-- **Smart Route Planning** — Multiple route options with real-time traffic updates to help users choose the fastest path
-- **Multi-Modal Transportation** — Comprehensive coverage of buses, metro, microbuses, and other public transportation options
-- **Real-Time Updates** — Live traffic conditions, estimated arrival times, and route adjustments based on current conditions
-- **Entertainment Integration** — Built-in music player to enhance the commute experience and make journeys enjoyable
-- **Destination Discovery** — Easy search and discovery of destinations with accurate location information and navigation guidance
-- **Saved Routes** — Save frequently used routes and destinations for quick access and faster trip planning
-
-## Design System
-
-### Typography
-The Asap font family was chosen for its clean, modern appearance and excellent readability across different screen sizes.
-- Regular: Asap Regular
-- Medium: Asap Medium
-- Semi Bold: Asap Semi Bold
-- Bold: Asap Bold
-- Italic variants available in all weights
-
-### Color Palette
-- Indigo: #234270 — Primary brand color, navigation elements, headers
-- Blood Red: #A41F13 — Accent color, important alerts, call-to-action buttons
-
-## Impact & Benefits
-
-- **Time Efficiency** — Helps users save time by finding the fastest routes and avoiding traffic congestion
-- **Easy Navigation** — Eliminates the stress of getting lost in unfamiliar areas with clear guidance
-- **Environmental Impact** — Promotes public transportation use, reducing carbon footprint and traffic congestion
-- **Enhanced Experience** — Makes commuting enjoyable with entertainment features and stress-free navigation
-- **Cost Savings** — Helps users find the most economical transportation options for their journey
-- **City Exploration** — Encourages users to explore new places confidently with reliable navigation
+E-Destination is a mobile app that helps Cairo commuters navigate the city&rsquo;s public transportation network efficiently. The app provides multi-route suggestions across buses, metro, and microbuses — with real-time traffic updates and an integrated music player to make commutes more enjoyable.
 
 ---
 
-**Tools Used**: Figma
+## The Challenge
 
-**Platform**: iOS & Android
+Public transportation navigation in Cairo has unique problems:
 
-**Target Users**: Urban Commuters
+- **No reliable route guidance:** Commuters — especially those unfamiliar with an area — had no easy way to discover which combination of buses, metro, and microbuses would get them to their destination
+- **Missed connections:** Without real-time information, users frequently missed connections or took suboptimal routes, wasting significant time
+- **Traffic unpredictability:** Cairo&rsquo;s traffic conditions change rapidly — static route suggestions become outdated quickly
+- **Stressful commutes:** Beyond the navigation problem, the commute experience itself was frustrating — no entertainment or engagement during long transit times
+
+---
+
+## Research &amp; Discovery
+
+### User Persona
+
+**Youssef Malek** — 25-year-old engineer, Cairo. Relies on public transport daily. Wants to navigate efficiently and explore new areas without getting lost. Motivated by convenience, time savings, and reducing his carbon footprint.
+
+### User Story
+
+Ahmed, a fresh graduate, receives a call about a job interview at Smart Village — a location he&rsquo;s never been to. No one in his circle knows the best route from Nasr City. He discovers E-Destination, finds multiple route options, chooses the most suitable one, and arrives on time for his interview. This scenario — navigating to an unfamiliar destination under time pressure — defined the core design requirements.
+
+---
+
+## Key Design Decisions &amp; Tradeoffs
+
+### 1. Multi-route suggestions (vs. single best route)
+
+**Decision:** Show multiple route options with different tradeoffs (fastest, fewest transfers, cheapest) rather than a single recommended route.
+
+**Tradeoff:** More complex results screen; requires users to compare options.
+
+**Why:** Cairo&rsquo;s transport network has many viable combinations. What&rsquo;s "best" depends on the user&rsquo;s priority — time, comfort, or cost. Showing options respects user agency.
+
+### 2. Multi-modal transport in a single view
+
+**Decision:** Display bus, metro, and microbus legs as a unified journey rather than separate transport-type searches.
+
+**Tradeoff:** More complex routing logic and UI to show transfer points.
+
+**Why:** Most Cairo commutes involve multiple transport modes. Users shouldn&rsquo;t have to plan each leg separately — the app should handle the complexity.
+
+### 3. Entertainment integration (music player)
+
+**Decision:** Build a music player directly into the navigation experience.
+
+**Tradeoff:** Adds scope beyond core navigation; uses more device resources.
+
+**Why:** Commutes in Cairo can be long. An integrated music player means users don&rsquo;t need to switch between apps — the navigation experience extends to the entire journey, not just route selection.
+
+### 4. Saved routes for frequent commuters
+
+**Decision:** Let users save frequently used routes and destinations for one-tap access.
+
+**Tradeoff:** Requires account/persistence layer.
+
+**Why:** Daily commuters take the same routes repeatedly. Saved routes eliminate the search-and-select flow for routine journeys, reducing daily friction to near zero.
+
+---
+
+## Solution Overview
+
+### Core Features
+
+- **Smart route planning:** Enter destination, receive multiple route options with time estimates, transfer points, and transport modes
+- **Multi-modal navigation:** Unified journey view across buses, metro, and microbuses with transfer guidance
+- **Real-time updates:** Live traffic conditions, estimated arrival times, and route adjustments
+- **Built-in music player:** Entertainment during commutes without app switching
+- **Saved destinations:** Quick access to frequent routes and favorite locations
+- **Destination discovery:** Search and explore locations with navigation guidance
+
+---
+
+## Impact &amp; Results
+
+- **Time efficiency:** Users find optimal routes faster, avoiding traffic congestion
+- **Reduced navigation stress:** Clear guidance eliminates the anxiety of unfamiliar routes and missed connections
+- **Better commute experience:** Integrated entertainment makes long transit times more enjoyable
+- **Public transport promotion:** Encouraging public transport use over private vehicles
+
+---
+
+**Tools:** Figma
+
+**Platform:** iOS &amp; Android &bull; **Target Users:** Urban Commuters

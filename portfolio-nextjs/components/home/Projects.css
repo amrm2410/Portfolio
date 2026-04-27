@@ -1,5 +1,57 @@
 /* Projects Section - Bento Masonry Grid */
 
+/* Filter Pills */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-filter-pill {
+    padding: 0.45rem 1.1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 9999px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.project-filter-pill:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.project-filter-pill.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: #fff;
+}
+
+.project-filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    padding: 0 0.3rem;
+    margin-left: 0.4rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: var(--border-light);
+    color: var(--text-secondary);
+}
+
+.project-filter-pill.active .project-filter-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
 .projects-bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

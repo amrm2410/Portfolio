@@ -13,6 +13,9 @@ const About = () => {
           <div className="bento-card about-bio">
             <span className="about-card-emoji">&#x1F9D1;&#x200D;&#x1F4BB;</span>
             <h3 className="bio-title">Who I Am</h3>
+            <p className="bio-specialization">
+              Specializing in: Dashboards, data-heavy tables, approval workflows, form systems, and design systems for enterprise SaaS.
+            </p>
             <p className="bio-text">
               I&apos;m a Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows &mdash; dashboards, reporting, approvals, and data-heavy tables.
             </p>
@@ -69,6 +72,13 @@ const About = () => {
                 <div className="expertise-details">
                   <h4>Design Systems</h4>
                   <p>Reusable components, consistency, states (loading/empty/error), and scalable patterns.</p>
+                </div>
+              </div>
+              <div className="expertise-item">
+                <div className="expertise-bullet"></div>
+                <div className="expertise-details">
+                  <h4>How I Work</h4>
+                  <p>Tight loops with engineering, async documentation, Figma-to-code handoff specs, and iterative QA reviews.</p>
                 </div>
               </div>
             </div>

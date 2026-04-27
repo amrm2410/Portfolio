@@ -14,6 +14,13 @@ export interface CaseStudyFrontmatter {
   tags: string[];
   coverImage?: string;
   date: string;
+  // Executive summary fields (optional)
+  product?: string;
+  users?: string;
+  problem?: string;
+  constraints?: string;
+  myRole?: string;
+  outcome?: string;
 }
 
 export interface CaseStudy {

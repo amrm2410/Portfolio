@@ -1,4 +1,4 @@
-import { Navigation, Hero, About, Skills, Projects, Contact, Footer } from '@/components';
+import { Navigation, Hero, FeaturedWork, About, Skills, Projects, Contact, Footer } from '@/components';
 import ScrollAnimations from '@/components/common/ScrollAnimations';
 import ParticlesBackground from '@/components/common/ParticlesBackground';
 
@@ -8,6 +8,7 @@ export default function HomePage() {
       <ParticlesBackground />
       <Navigation />
       <Hero />
+      <FeaturedWork />
       <About />
       <Skills />
       <Projects />

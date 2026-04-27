@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://amrabbas.com';
   const caseStudies = getAllCaseStudies();
 
-  const caseStudyUrls = caseStudies.map((study) => ({
-    url: `${baseUrl}/case-studies/${study.slug}`,
+  const projectUrls = caseStudies.map((study) => ({
+    url: `${baseUrl}/projects/${study.slug}`,
     lastModified: new Date(study.frontmatter.date),
     changeFrequency: 'monthly' as const,
     priority: 0.9,
@@ -22,11 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/case-studies`,
+      url: `${baseUrl}/enterprise-patterns`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
-    ...caseStudyUrls,
+    ...projectUrls,
   ];
 }

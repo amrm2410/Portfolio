@@ -1,0 +1,126 @@
+/* Theme-aware MDX content styles */
+.mdx-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.mdx-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 0.5rem;
+}
+
+.mdx-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.mdx-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.mdx-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.mdx-content blockquote {
+  border-left: 4px solid var(--accent-blue);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-tertiary);
+  background: var(--bg-card-hover);
+  border-radius: 4px;
+}
+
+.mdx-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mdx-content a {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+.mdx-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.mdx-content .grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content .grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content .grid-5col {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content .grid-2col img,
+.mdx-content .grid-3col img,
+.mdx-content .grid-5col img {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .mdx-content .grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mdx-content .grid-5col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .mdx-content .grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .mdx-content .grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mdx-content .grid-5col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.mdx-content hr {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid var(--border-light);
+}

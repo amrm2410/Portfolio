@@ -1,0 +1,96 @@
+---
+title: "Cedar Rose — CRiS Ecosystem Product Design (Overview)"
+slug: "cris-ecosystem"
+description: "Product design ownership across a multi-product risk intelligence ecosystem — internal research operations, QA governance, client monitoring, and report products — with a spotlight on one cross-product flow I owned end-to-end."
+client: "Cedar Rose"
+role: "Product Designer (Enterprise / B2B SaaS) — Cross-product ownership"
+duration: "Ongoing"
+tags: ["Enterprise Workflows", "Multi-product Ecosystem", "QA Governance", "Risk Intelligence", "Cross-product Design"]
+coverImage: null
+date: "2025-02-01"
+---
+
+## Spotlight: &ldquo;Call / Interview Details&rdquo; (Cross-product Workflow)
+
+### Why this flow matters
+
+To improve traceability and quality of investigations, we introduced a structured &ldquo;Call / Interview Details&rdquo; flow that standardizes what information is captured, how &ldquo;obtained data&rdquo; is tracked, and how validated data appears consistently across products.
+
+### Where it appears (4 products)
+
+1. **CRiS Backoffice (internal):** researchers add call/interview details and captured data fields
+2. **QA Platform:** reviewers assess completeness and quality before the report can be finalized
+3. **CRiS Intel (client-facing):** consolidated validated information becomes visible to clients
+4. **Credit Report output:** generated report reflects the same structured dataset
+
+### What I owned
+
+- Defined the **field structure** and grouping for call/interview data
+- Designed the **multi-entry UI pattern** for adding several records efficiently
+- Mapped how consolidated data should **surface consistently** in client-facing views and report outputs
+- Specified **states + edge cases** (draft vs saved, missing info, QA rejection, permissions, partial data)
+
+---
+
+## Interactive Prototype
+
+Embedded prototype (alternate UI kit) used to validate the workflow, states, and cross-product data flow. Final implementation aligns with Cedar Rose design system.
+
+<div style={{position:'relative',width:'100%',paddingTop:'62.5%',border:'1px solid rgba(0,0,0,0.08)',borderRadius:'12px',overflow:'hidden',background:'#fff'}}>
+  <iframe
+    src="https://icon-hint-magic.lovable.app"
+    title="Cedar Rose Flow Prototype (Lovable)"
+    style={{position:'absolute',inset:0,width:'100%',height:'100%',border:0}}
+    loading="lazy"
+    referrerPolicy="no-referrer"
+    allow="fullscreen; clipboard-read; clipboard-write"
+  ></iframe>
+</div>
+---
+
+## Key Product Decision: Batch Saving for Scalability
+
+### The problem
+
+Researchers often add multiple rows/entries in one session. Saving each row immediately creates unnecessary requests and increases operational load &mdash; especially when users edit multiple times.
+
+### The approach
+
+We designed a **draft &rarr; batch save** flow:
+
+- Multiple entries are kept in a **draft state** while the user is working
+- On **Save**, all entries are submitted as **one batch transaction**
+- If a single saved row is edited later, we update only that row (targeted update)
+
+### Why it&rsquo;s scalable
+
+- Reduces request volume and backend load
+- Supports future automation where external sources may add data that requires auditing/validation
+- Prevents repeating validation work per row and keeps the system efficient
+
+---
+
+## System Thinking
+
+### States &amp; edge cases
+
+- Draft vs saved data handling
+- Loading/empty/error states for table + forms
+- Permission behavior (who can add/edit vs view)
+- QA rejection loops and required fixes before finalization
+- Partial data handling and safe fallbacks
+
+### Shared patterns reused across products
+
+- Tables: sorting, inline filters, pagination, bulk actions
+- Forms: validation, conditional fields, error prevention
+- Notifications: status changes, QA flags, and workflow alerts
+
+---
+
+## Outcomes
+
+- Improved cross-product consistency (same field semantics across internal, QA, client, and report outputs)
+- Reduced user friction with structured multi-entry capture + clear draft/save model
+- Reduced unnecessary request volume via batch save behavior (scalable foundation)
+- Strengthened QA governance by ensuring data quality checks occur before final report completion

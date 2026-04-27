@@ -28,6 +28,15 @@
     margin-bottom: 1.25rem;
 }
 
+.bio-specialization {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
 .bio-text {
     color: var(--text-secondary);
     font-size: 0.9rem;

@@ -1,90 +1,143 @@
 ---
-title: "Health 360"
+title: "Health 360 — Dual-Interface Healthcare Platform"
 slug: "health-360"
-description: "Holistic healthcare management system with dual interfaces for patients and doctors, featuring integrated monitoring, appointment scheduling, and comprehensive reporting."
+description: "Designed a healthcare management platform with four distinct interfaces — patient web & mobile, doctor web & mobile — balancing medical data complexity with accessible UX across 23+ screens."
 client: "Health 360"
 role: "Lead UI/UX Designer"
 duration: "3 Months"
 tags: ["Healthcare", "Patient Management", "Medical Dashboard", "UI/UX Design", "Web & Mobile App"]
 coverImage: "https://i.ibb.co/397gwZS6/Health-360-cover.png"
 date: "2024-04-01"
+product: "Health 360 — Healthcare management platform (patient + doctor interfaces, web + mobile)"
+users: "Patients managing their health records and appointments; doctors managing patients, schedules, and medical records"
+problem: "Patients and doctors needed separate but connected interfaces — patients required accessible health data presentation while doctors needed comprehensive clinical tools, all within a consistent cross-platform experience."
+constraints: "HIPAA compliance requirements, complex medical data visualization, four distinct interfaces (patient web/mobile + doctor web/mobile), cross-platform feature parity, team of 5 members"
+myRole: "Lead UI/UX Designer: information architecture for dual user types, interaction design across 4 interfaces, health data visualization patterns, and design system leadership."
+outcome: "Delivered 23+ screens across 4 interfaces with consistent design language — patient portal simplifies health data access while doctor dashboard provides comprehensive clinical tools."
 ---
 
 ## Project Overview
 
-Health 360 is a comprehensive healthcare management system designed to revolutionize patient care and medical practice management. The platform provides complete solutions for both patients and healthcare providers, featuring integrated monitoring, appointment scheduling, and comprehensive reporting capabilities.
-
-Built with a patient-first approach, Health 360 offers seamless experiences across web and mobile platforms for both patients and doctors. The system enables real-time health monitoring, secure medical records management, telemedicine consultations, and intelligent analytics for improved healthcare outcomes.
-
-The dual-interface design ensures that both patients and healthcare providers have tailored experiences with features specific to their needs, while maintaining seamless data integration and communication between all stakeholders.
-
-## Project Challenges
-
-### Dual User Experience
-Creating two distinct yet cohesive user experiences for patients and doctors, each with different needs, workflows, and information hierarchies while maintaining design consistency across the platform.
-
-### Medical Data Complexity
-Presenting complex medical data, health records, and diagnostic information in an accessible, understandable format for patients while providing comprehensive details for medical professionals.
-
-### Privacy & Security
-Ensuring HIPAA compliance and implementing robust security measures while maintaining an intuitive user experience and seamless data flow between patients and healthcare providers.
-
-### Cross-Platform Consistency
-Maintaining feature parity and design consistency across web and mobile platforms while optimizing for each platform's unique interaction patterns and capabilities.
-
-## Key Features
-
-- **Patient Portal** — Comprehensive patient dashboard with health records, appointment management, medication tracking, and direct communication with healthcare providers
-- **Doctor Dashboard** — Advanced medical dashboard for doctors with patient management, appointment scheduling, medical records access, and prescription management tools
-- **Appointment System** — Intelligent appointment scheduling with automated reminders, calendar integration, and real-time availability management
-- **Health Monitoring** — Real-time health metrics tracking with visual charts, trend analysis, and automated alerts for abnormal readings
-- **Telemedicine** — Integrated video consultation capabilities enabling remote patient consultations with secure, HIPAA-compliant communication channels
-- **Prescription Management** — Digital prescription system with medication reminders, dosage tracking, refill requests, and pharmacy integration
-- **Medical Records** — Secure electronic health records system with document uploads, lab results, imaging reports, and complete medical history tracking
-- **Analytics & Reporting** — Comprehensive analytics dashboard with health trends, treatment outcomes, and business intelligence for healthcare providers
-
-## Design System
-
-### Typography
-The Poppins and Inter font families were chosen for their professional appearance and excellent readability across medical interfaces.
-- Display: Poppins Bold
-- Heading: Poppins SemiBold
-- Body: Inter Regular
-- Caption: Inter Medium
-
-### Color Palette
-- Primary Teal: #0C7570 — Primary brand color, navigation, headers
-- Light Mint: #BFEBE5 — Secondary accent, backgrounds, highlights
-- Success Green: #27AE60 — Success states, confirmations, healthy indicators
-- Alert Red: #E74C3C — Errors, critical alerts, urgent notifications
-
-## Patient Web Interface
-
-The patient web portal provides a comprehensive dashboard for managing health information, appointments, and communication with healthcare providers. 8 key screens covering patient dashboard, appointment booking, medical records, health monitoring, doctor profiles, prescription management, consultation history, and settings.
-
-## Patient Mobile App
-
-The patient mobile app brings healthcare management to your fingertips with an intuitive, streamlined interface optimized for on-the-go access. 9 screens covering mobile dashboard, doctor search, booking flow, health tracking, notifications, medical history, prescriptions, doctor details, and profile settings.
-
-## Doctor Web Dashboard
-
-The doctor's web dashboard provides comprehensive tools for patient management, medical records access, and practice administration with advanced analytics and reporting capabilities. 6 key screens covering doctor dashboard, patient management, appointment calendar, medical records access, analytics dashboard, and consultation interface.
-
-## Doctor Mobile App
-
-The doctor's mobile app enables healthcare providers to manage patients and appointments on the go, with quick access to critical patient information and communication tools.
-
-## Business Impact
-
-- **10K+** Active Patients
-- **500+** Healthcare Providers
-- **50K+** Appointments Managed
-- **95%** User Satisfaction
+Health 360 is a healthcare management platform serving two distinct user groups — patients and doctors — each with their own web and mobile interfaces. The core design challenge was creating four connected experiences that feel cohesive while serving fundamentally different needs: patients need clarity and accessibility; doctors need density and clinical precision.
 
 ---
 
-**Tools Used**: Figma
+## The Challenge
 
-**Platforms**: Web & Mobile (iOS/Android)
+Designing for healthcare introduces unique constraints:
 
-**Team Size**: 5 Members
+- **Dual information hierarchy:** The same medical data (lab results, vitals, history) must be presented differently — simplified for patients, detailed for clinicians
+- **Four interfaces, one system:** Patient web, patient mobile, doctor web, doctor mobile — each optimized for its context but sharing consistent data and design language
+- **Medical data complexity:** Health metrics, trends, and diagnostic information must be accurate and understandable without overwhelming non-medical users
+- **Privacy-first design:** HIPAA compliance means security considerations affect every interaction — data access, sharing, and communication flows
+- **Cross-platform parity:** Features must work reliably across web and mobile without losing functionality or creating inconsistent experiences
+
+---
+
+## Key Design Decisions &amp; Tradeoffs
+
+### 1. Separate dashboards per user type (vs. role-based single app)
+
+**Decision:** Design distinct dashboard layouts for patients and doctors with different information hierarchies.
+
+**Tradeoff:** More design and development effort (4 interfaces instead of 1 adaptive layout).
+
+**Why:** Patient and doctor mental models are fundamentally different — patients think in appointments and medications; doctors think in patient queues and clinical data. A single adaptive layout would compromise both experiences.
+
+### 2. Progressive disclosure for medical data
+
+**Decision:** Show patients high-level health summaries with drill-down to details; show doctors comprehensive data upfront.
+
+**Tradeoff:** Patients may need extra taps to reach full details.
+
+**Why:** Medical data can cause anxiety when presented without context. Patients see trends and key indicators first, with full records accessible on demand. Doctors need immediate access to clinical details for decision-making.
+
+### 3. Unified appointment system across interfaces
+
+**Decision:** One booking and scheduling engine shared between patient and doctor interfaces.
+
+**Tradeoff:** Required careful state management — a booking from the patient side must instantly reflect on the doctor&rsquo;s calendar.
+
+**Why:** Prevents double-bookings and ensures real-time availability is always accurate across all four interfaces.
+
+### 4. Mobile-optimized health monitoring (vs. web-first)
+
+**Decision:** Prioritize health tracking features (vitals, medication reminders, alerts) on mobile interfaces.
+
+**Tradeoff:** Mobile apps have more health-tracking depth than web; web focuses on records and management.
+
+**Why:** Health monitoring is inherently on-the-go — patients check vitals and take medications throughout the day, not at a desktop.
+
+---
+
+## Solution Overview
+
+### Patient Interfaces (Web + Mobile)
+
+- **Dashboard:** Health summary with upcoming appointments, active medications, and recent lab results
+- **Appointment booking:** Search doctors, view availability, book with automated reminders
+- **Health monitoring:** Visual charts for vitals tracking, trend analysis, and automated alerts for abnormal readings
+- **Medical records:** Secure access to lab results, imaging reports, prescriptions, and complete medical history
+- **Communication:** Direct messaging with healthcare providers and telemedicine consultation access
+
+### Doctor Interfaces (Web + Mobile)
+
+- **Dashboard:** Patient queue, today&rsquo;s schedule, pending tasks, and critical alerts
+- **Patient management:** Comprehensive patient profiles with medical history, ongoing treatments, and notes
+- **Appointment calendar:** Schedule management with availability settings and patient context
+- **Consultation tools:** In-app video consultations with access to patient records during the session
+- **Analytics:** Practice metrics, treatment outcomes, and patient engagement insights
+
+---
+
+## System Thinking
+
+### States &amp; Edge Cases
+
+- **Empty states:** New patients with no medical history; doctors with no patients yet
+- **Loading:** Skeleton screens for health data and medical records while fetching
+- **Error handling:** Graceful fallbacks when health monitoring devices disconnect or data sync fails
+- **Permission behavior:** Patients see only their own data; doctors access patient records based on active care relationships
+- **Offline support:** Mobile apps handle intermittent connectivity for medication reminders and basic health logging
+
+### Shared Patterns Across Interfaces
+
+- **Appointment flow:** Consistent booking, confirmation, and reminder patterns across patient and doctor views
+- **Notification system:** Priority-based alerts (critical health alerts &gt; appointment reminders &gt; general updates)
+- **Data visualization:** Consistent chart and trend styles adapted for patient clarity vs. doctor precision
+
+---
+
+## Design Screens
+
+### Web Dashboard
+
+<div className="grid-2col">
+ <img src="https://i.ibb.co/ZpzFn81P/Img.png" alt="Health 360 Mobile 1" />
+  <img src="https://i.ibb.co/RG9rFXDW/Img-1.png" alt="Health 360 Mobile 2" />
+  <img src="https://i.ibb.co/ycdKvk5M/Img-2.png" alt="Health 360 Mobile 3" />
+  <img src="https://i.ibb.co/TJjhQzP/Img-3.png" alt="Health 360 Mobile 4" />
+  <img src="https://i.ibb.co/M536yV1Z/Img-4.png" alt="Health 360 Mobile 5" />
+  <img src="https://i.ibb.co/mrvhSK0v/Group-26.png" alt="Health 360 Mobile 6" />
+</div>
+
+### Mobile App
+
+<div className="grid-5col">
+  <img src="https://i.ibb.co/QjpwVrWV/i-Phone-13-mini-2.png" alt="Health 360 Mobile 7" />
+  <img src="https://i.ibb.co/1YTR7gfG/i-Phone-13-mini-3.png" alt="Health 360 Mobile 8" />
+  <img src="https://i.ibb.co/Xx6tfbjW/i-Phone-13-mini-7.png" alt="Health 360 Mobile 11" />
+  <img src="https://i.ibb.co/ymnL5bJq/i-Phone-13-mini-10.png" alt="Health 360 Mobile 12" />
+  <img src="https://i.ibb.co/xqKMqhrN/i-Phone-13-mini-11.png" alt="Health 360 Mobile 13" />
+  <img src="https://i.ibb.co/9mGMwkFh/i-Phone-13-mini-12.png" alt="Health 360 Mobile 14" />
+  <img src="https://i.ibb.co/mV0kKPbB/i-Phone-13-mini-14.png" alt="Health 360 Mobile 15" />
+  <img src="https://i.ibb.co/YYJ59nc/i-Phone-13-mini-20.png" alt="Health 360 Mobile 16" />
+  <img src="https://i.ibb.co/rK1W7tL0/i-Phone-13-mini-22.png" alt="Health 360 Mobile 18" />
+  <img src="https://i.ibb.co/7xHXMv2f/i-Phone-13-mini-23.png" alt="Health 360 Mobile 19" />
+</div>
+
+---
+
+**Tools:** Figma
+
+**Platform:** Web &amp; Mobile (iOS/Android) &bull; **Team Size:** 5 Members

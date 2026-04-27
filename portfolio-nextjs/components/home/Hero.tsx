@@ -33,7 +33,7 @@ const Hero = () => {
                 <i className="fas fa-download"></i>
                 Download CV
               </a>
-              <a href="#contact" className="btn btn-outline" onClick={(e) => handleSmoothScroll(e, '#contact')}>
+<a href="#contact" className="btn btn-outline" onClick={(e) => handleSmoothScroll(e, '#contact')}>
                 <i className="fas fa-rocket"></i>
                 Start Project
               </a>

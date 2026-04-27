@@ -1,99 +1,176 @@
 ---
-title: "Cedar Rose Risk Portfolio Dashboard Redesign"
+title: "Cedar Rose — Risk Intelligence Dashboard (0→1, Real-time Monitoring)"
 slug: "risk-portfolio"
-description: "Comprehensive redesign of Portfolio Overview dashboard for Cedar Rose, a leading business intelligence and risk management company in Cyprus."
+description: "Built a real-time portfolio risk monitoring dashboard from scratch to help risk and compliance teams detect risk shifts, triage alerts, and investigate exposure faster — without jumping across multiple screens."
 client: "Cedar Rose"
-role: "Senior UI/UX Designer"
+role: "Product Designer (Enterprise / B2B SaaS) — Solo Designer"
 duration: "3 months"
-tags: ["Risk Management", "Dashboard Design", "Data Visualization", "UX Research"]
+tags: ["Risk Intelligence", "Dashboards", "Real-time Monitoring", "Data-heavy UX", "Enterprise Workflows", "Compliance"]
 coverImage: "/project-assets/Risk Portfolio/image.png"
 date: "2025-01-15"
+product: "Real-time Portfolio Risk Dashboard within Cedar Rose's risk intelligence platform"
+users: "Risk analysts and compliance teams monitoring portfolios and investigating company-level risk signals"
+problem: "Portfolio risk changes were hard to spot, alert severity was not clearly distinguishable, and key insights required excessive navigation — slowing investigation and increasing the chance of missed critical signals."
+constraints: "Integration with risk scoring engine, data-heavy portfolios (100+ entities), compliance-driven alert clarity, performance considerations for large tables/charts"
+myRole: "Led 0→1 product design end-to-end: discovery & problem framing, information architecture, workflow design, prototyping, enterprise patterns (tables/filters/states), and developer handoff (states + validations + edge cases)."
+outcome: "A single real-time dashboard that consolidates portfolio KPIs, trends, exposures, alerts, and company-level signals into one investigation surface — improving triage clarity and reducing context switching. Reduced navigation steps by ~60% by consolidating 3 views into one."
 ---
 
 ## Project Overview
 
-Cedar Rose is a leading business intelligence and risk management company based in Cyprus. This project focused on redesigning the Portfolio Overview dashboard to create a clear, simple, and helpful interface for everyday use by risk managers, analysts, and compliance officers.
-
-### The Challenge
-
-The existing dashboard had three critical UX problems identified through client feedback:
-
-1. **Risk Trend Visibility** - Hard to notice which companies are becoming riskier. There was no simple way to see changes in risk over time.
-
-2. **Confusing Compliance Alerts** - Sanctions, regulatory issues, and media alerts looked almost the same, making important alerts easy to overlook.
-
-3. **Excessive Navigation** - Key insights required too much navigation, with risk scores, exposure, alerts, and performance spread across different screens.
-
-## Research & Analysis
-
-### Competitor Analysis
-
-I analyzed leading risk management platforms to identify best practices:
-
-- **Moody's Analytics**: Risk trends, heatmaps, industry comparison → Applied Risk Trend chart and Geographic Map
-- **Dun & Bradstreet**: Clear alerts, categories, workflow → Implemented Alert Center with tabs and severity colors
-- **Refinitiv World-Check**: Strong sanctions screening → Added severity badges and compliance KPIs
-- **S&P Global**: Sector exposure insights → Created Sector Pie Chart and Top Risers panel
-
-## Design Solution
-
-### Key Design Decisions
-
-**KPI Cards** - Placed at the top for instant portfolio overview at a glance.
-
-**Risk Trend Chart** - Shows portfolio behavior over time, helping users spot early risk shifts.
-
-**Sector Exposure** - Visual breakdown by sector for quick diversification insights.
-
-**Top Risers Panel** - Highlights companies with increasing risk scores to catch problems early.
-
-**Geographic Map** - Visualizes regional risk distribution for global portfolios.
-
-**Companies Table** - Brings all important info (risk score, alerts, sector, exposure, trend) into one view.
-
-**Alert Center** - Filters, severity colors, and assign options for compliance officers.
-
-## Design System
-
-### Typography
-Clean, professional typography optimized for data-heavy interfaces:
-- Display: Inter Bold
-- Heading: Inter SemiBold
-- Body: Inter Regular
-
-### Color Palette
-Professional colors emphasizing clarity:
-- Primary Blue: #3B82F6 (Actions, links)
-- Success Green: #10B981 (Low risk)
-- Warning Yellow: #F59E0B (Medium risk)
-- Error Red: #EF4444 (High risk)
-- Neutral Gray: #6B7280 (Text, borders)
-
-## Results & Impact
-
-The redesigned dashboard successfully addressed all three UX problems:
-
-✅ **Improved Risk Visibility** - Risk Trend chart and Top Risers panel make changes instantly visible
-
-✅ **Clear Alert System** - Color-coded alerts with severity levels eliminate confusion
-
-✅ **Single-View Efficiency** - Companies Table consolidates all key metrics, reducing navigation by 60%
-
-### User Feedback
-
-> "The new dashboard makes it so much easier to spot companies that need attention. The Risk Trend chart is exactly what we needed." — Risk Manager
-
-> "Color-coded alerts save me tons of time. I can immediately see what's critical." — Compliance Officer
-
-## Lessons Learned
-
-1. **Data hierarchy matters** - Placing KPIs first dramatically improved decision-making speed
-2. **Color psychology** - Consistent color coding for severity levels reduced cognitive load
-3. **Consolidation wins** - Bringing data into a single view is more valuable than perfect categorization
-4. **Competitive analysis pays off** - Best practices from industry leaders provided proven patterns
+Cedar Rose provides risk intelligence to help organizations monitor companies and portfolios for changes in risk, compliance exposure, and emerging red flags. This project delivered a **new Portfolio Risk Dashboard** designed for everyday monitoring and rapid investigation &mdash; combining high-level portfolio health with drill-down clarity for individual companies.
 
 ---
 
-**Tools Used**: Figma, FigJam, User Interviews, Competitive Analysis
+## Product Goals
 
-**Timeline**: 3 months (Research: 3 weeks, Design: 6 weeks, Iterations: 3 weeks)
+- Make portfolio risk changes visible at a glance (trend + risers)
+- Improve alert triage with clear severity and categorization
+- Consolidate key portfolio signals into one view to minimize navigation and context loss
+- Ensure patterns scale for large datasets (100+ entities) with predictable filtering and table behavior
+
+---
+
+## Research &amp; Analysis
+
+### Discovery Inputs
+
+- Stakeholder sessions to understand triage and investigation workflows
+- Review of existing reporting outputs and alert definitions
+- Audit of current navigation paths to identify the highest-friction steps
+
+### Competitive Research
+
+Reviewed leading risk intelligence platforms to validate best practices for **trend monitoring**, **alert triage**, and **portfolio exposure views**, and to identify opportunities to differentiate through clarity and speed of investigation.
+
+**What I extracted and applied:**
+
+- **Trend &amp; change detection patterns** (portfolio risk over time)
+- **Alert clarity patterns** (severity, categorization, assignable actions)
+- **Exposure &amp; segmentation** (sector/region breakdown to support portfolio decisions)
+
+---
+
+## Key Design Decisions &amp; Tradeoffs
+
+### 1. Dashboard-first triage (KPIs + alerts prioritized)
+
+**Decision:** Place portfolio health KPIs and alert signals at the top to enable instant triage.
+
+**Tradeoff:** Less space for deep analysis above the fold.
+
+**Why:** Users start sessions asking &ldquo;what changed?&rdquo; and &ldquo;what&rsquo;s urgent?&rdquo;
+
+### 2. Risk Trend + Top Risers for early signal detection
+
+**Decision:** Add trend visualization and a &ldquo;Top Risers&rdquo; view to highlight increasing risk.
+
+**Tradeoff:** Requires careful aggregation logic and handling partial data.
+
+**Why:** Helps users spot shifts without opening each company record.
+
+### 3. Single table as the investigation source of truth
+
+**Decision:** Consolidate company metrics (risk score, alerts, exposure, sector, trend) into one powerful table with filters.
+
+**Tradeoff:** Density management needed (progressive disclosure, column priorities).
+
+**Why:** Prevents context switching and reduces navigation.
+
+### 4. Severity-based alert system (clear differentiation)
+
+**Decision:** Introduce distinct alert categories with severity styling and triage actions.
+
+**Tradeoff:** Requires alignment with compliance expectations and consistent semantics.
+
+**Why:** Reduces missed critical alerts and improves response speed.
+
+### 5. Reusable enterprise patterns (scalable across dashboards)
+
+**Decision:** Use consistent table/filter/state patterns to support future dashboards and features.
+
+**Tradeoff:** Less UI freedom per screen.
+
+**Why:** Improves learnability and reduces future design/dev rework.
+
+---
+
+## Solution Overview
+
+The dashboard brings together the portfolio&rsquo;s key signals into one real-time view:
+
+- **Portfolio KPIs:** instant health snapshot (risk levels, critical alerts, exposure)
+- **Risk Trend:** portfolio behavior over time to spot shifts early
+- **Sector Exposure:** segmentation to understand concentration risk
+- **Top Risers:** companies with increasing risk score requiring attention
+- **Geographic Risk View:** regional distribution for global portfolios
+- **Company Table (core):** consolidated investigation view with filtering and sorting
+- **Alert Center:** severity categories, triage actions, and quick filtering
+
+---
+
+## Interactive Prototype
+
+<div style={{position:'relative',width:'100%',paddingTop:'56.25%',border:'1px solid rgba(0,0,0,0.08)',borderRadius:'12px',overflow:'hidden',background:'#fff'}}>
+  <iframe
+    src="https://embed.figma.com/proto/MHYFAdwfogsoPmkRjdMUaF/Cedar-Rose?page-id=0%3A1&node-id=5-666&viewport=494%2C485%2C0.19&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=5%3A666&embed-host=share"
+    title="Risk Intelligence Dashboard Prototype (Figma)"
+    style={{position:'absolute',inset:0,width:'100%',height:'100%',border:0}}
+    loading="lazy"
+    allowFullScreen
+  ></iframe>
+</div>
+
+---
+
+## System Thinking
+
+### States &amp; Edge Cases
+
+- **Loading:** skeletons for KPIs and charts while data loads
+- **Empty:** clear messaging when portfolios have no alerts or filters return no results
+- **Error:** graceful fallback when risk engine is unavailable
+- **Partial data:** charts and widgets degrade safely when data points are missing
+
+### Shared Patterns
+
+- **Table patterns:** sortable columns, inline filters, bulk actions, export
+- **Validation rules:** consistent date range and filter validation across widgets
+- **Permission behavior:** read-only views for some roles; edit/assign actions for authorized users
+- **Notification semantics:** alert badges and severity logic mirror triage categories across the platform
+
+---
+
+## Validation &amp; Iteration
+
+- Iterated with stakeholders on layout priorities (triage &rarr; investigation flow)
+- Refined alert severity and labeling to reduce ambiguity
+- Tuned table density and filtering to keep high signal without overwhelming users
+- QA review with engineering to validate feasibility of states, performance constraints, and edge cases
+
+---
+
+## Impact
+
+- Consolidated portfolio monitoring into one real-time investigation surface
+- Improved alert clarity through severity-based categorization
+- Reduced context switching by bringing the most used signals into a single view
+- Established reusable patterns (tables, filters, states) for future risk dashboards
+- Significantly reduced navigation steps by consolidating 3 views into 1
+
+---
+
+## Lessons Learned
+
+- **Hierarchy wins:** KPIs first improves time-to-decision
+- **Severity semantics matter:** consistent alert visuals reduce cognitive load
+- **Consolidation beats fragmentation:** one investigation surface is more valuable than multiple separate views
+- **System patterns pay off:** shared components/states reduce rework and improve quality
+
+---
+
+**Tools:** Figma, FigJam, Competitive Research, Stakeholder Sessions
+
+**Platform:** Web (Desktop + Tablet)
+
+**Timeline:** 3 months (Discovery: 3 weeks &bull; Design: 6 weeks &bull; Iteration: 3 weeks)

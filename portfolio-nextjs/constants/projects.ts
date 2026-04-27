@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
+  category: string;
   hasDetails: boolean;
   coverImage: string | null;
   link?: string;
@@ -12,17 +13,22 @@ export interface Project {
   comingSoon?: boolean;
 }
 
+export const FEATURED_SLUGS = ['cedar-rose', 'gates-crm-erp'];
+
+export const PROJECT_CATEGORIES = ['All', 'Enterprise', 'UX Case Study', 'Landing Page', 'E-commerce', 'Mobile Apps', 'Websites'];
+
 export const PROJECTS: Project[] = [
   // Featured Projects
   {
     id: 1,
-    slug: 'risk-portfolio',
+    slug: 'cedar-rose',
     icon: 'fas fa-shield-alt',
-    title: 'Risk Portfolio Overview',
-    description: 'Comprehensive risk assessment and portfolio management dashboard for Cedar Rose, featuring real-time risk monitoring and analytics.',
-    tags: ['Risk Management', 'Dashboard', 'Data Visualization', 'UI/UX Design'],
+    title: 'Cedar Rose — Product Design',
+    description: 'Product design ownership across Cedar Rose\'s risk intelligence ecosystem — from 0→1 dashboard design to cross-product workflow ownership.',
+    tags: ['Risk Intelligence', 'Multi-product Ecosystem', 'Enterprise Workflows', 'Real-time Monitoring'],
+    category: 'Enterprise',
     hasDetails: true,
-    coverImage: '/project-assets/Risk Portfolio/image.png'
+    coverImage: '/project-assets/Cedar Rose/cedar-rose-logo.png'
   },
   {
     id: 2,
@@ -31,6 +37,7 @@ export const PROJECTS: Project[] = [
     title: 'TELECO',
     description: 'Telecommunications solutions and services platform providing comprehensive connectivity solutions.',
     tags: ['Telecommunications', 'Network Solutions', 'Enterprise'],
+    category: 'Landing Page',
     hasDetails: false,
     coverImage: 'https://i.ibb.co/rK1vGMgR/Screenshot-2025-11-27-153244.png',
     link: 'https://telco-eg.com/'
@@ -42,22 +49,23 @@ export const PROJECTS: Project[] = [
     title: 'Syarah',
     description: 'Behind the Wheel of Trust - Comprehensive UX case study for automotive marketplace platform.',
     tags: ['UX Case Study', 'Automotive', 'User Research'],
+    category: 'UX Case Study',
     hasDetails: false,
     coverImage: 'https://i.ibb.co/5xjh1p3V/Screenshot-2025-11-27-153745.png',
     projectLink: 'https://www.behance.net/gallery/237435523/Behind-the-Wheel-of-Trust-Syarah-App-UX-Case-Study'
   },
 
-  // Coming Soon Projects
+  // Featured Projects (continued)
   {
     id: 4,
     slug: 'gates-crm-erp',
     icon: 'fas fa-chart-line',
-    title: 'Gates Developments CRM & ERP',
-    description: 'Designed internal management systems to streamline operational workflows, resulting in 15% efficiency improvement.',
-    tags: ['CRM Design', 'ERP System', 'UX Research'],
-    hasDetails: false,
-    coverImage: '/project-assets/Gates Developments CRM & ERP/Cover.png',
-    comingSoon: true
+    title: 'Gates Benchmark CRM & ERP',
+    description: 'Unified CRM+ERP platform for real estate — Sales, Customer Care, Legal, Finance/Treasury, and Procurement with SLA-driven workflows and Arabic RTL support.',
+    tags: ['CRM Design', 'ERP System', 'Enterprise UX', 'Workflows', 'RTL Support'],
+    category: 'Enterprise',
+    hasDetails: true,
+    coverImage: '/project-assets/Gates Developments CRM & ERP/Cover.png'
   },
   {
     id: 5,
@@ -66,6 +74,7 @@ export const PROJECTS: Project[] = [
     title: 'Ventura Trading',
     description: 'Advanced trading platform with real-time market data, portfolio management, and sophisticated analytics tools.',
     tags: ['Trading Platform', 'Financial Analytics', 'Portfolio Management'],
+    category: 'Landing Page',
     hasDetails: true,
     coverImage: '/project-assets/Ventura Trading/Cover.png'
   },
@@ -76,6 +85,7 @@ export const PROJECTS: Project[] = [
     title: 'Swapop',
     description: 'Social marketplace app for item swapping and trading with community features and secure transaction handling. Published on App Store & Google Play.',
     tags: ['Social Commerce', 'Marketplace', 'App Store', 'Google Play'],
+    category: 'E-commerce',
     hasDetails: false,
     coverImage: '/project-assets/Swapop/image.png'
   },
@@ -86,6 +96,7 @@ export const PROJECTS: Project[] = [
     title: 'Water World',
     description: 'Water park and entertainment platform featuring attractions, ticketing, and visitor experience management.',
     tags: ['Entertainment', 'Theme Park', 'Booking System', 'UI/UX Design'],
+    category: 'Websites',
     hasDetails: false,
     coverImage: '/project-assets/Water World/image.png',
     link: 'https://wwegypt.com/'
@@ -99,6 +110,7 @@ export const PROJECTS: Project[] = [
     title: 'Breadfast',
     description: 'On-demand grocery delivery app providing fresh bread, groceries, and daily essentials with seamless ordering experience and quick delivery.',
     tags: ['Grocery Delivery', 'Mobile App', 'Food Tech', 'UI/UX Design'],
+    category: 'UX Case Study',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/d044m1Hr/Breadfast-Cover.png'
   },
@@ -109,6 +121,7 @@ export const PROJECTS: Project[] = [
     title: 'Byet',
     description: 'Modern real estate platform connecting buyers and sellers with advanced property search and management features.',
     tags: ['Real Estate', 'Property Management', 'Search Platform'],
+    category: 'Enterprise',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/4Zv0shbh/Cover.png'
   },
@@ -119,6 +132,7 @@ export const PROJECTS: Project[] = [
     title: 'Health 360',
     description: 'Holistic healthcare management system providing complete patient care solutions with integrated monitoring and reporting.',
     tags: ['Healthcare', 'Patient Management', 'Medical Dashboard'],
+    category: 'Enterprise',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/397gwZS6/Health-360-cover.png'
   },
@@ -129,6 +143,7 @@ export const PROJECTS: Project[] = [
     title: 'Employee 360',
     description: 'Comprehensive employee management platform with 360-degree performance tracking, analytics, and engagement tools.',
     tags: ['HR Management', 'Analytics', 'Performance Tracking'],
+    category: 'Enterprise',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/FLVtH9q1/Cover.png'
   },
@@ -139,6 +154,7 @@ export const PROJECTS: Project[] = [
     title: 'Gates Admin Request',
     description: 'Stationary request solution to track and get insights about requests and stocks with comprehensive inventory management.',
     tags: ['Request Management', 'Inventory Tracking', 'Analytics', 'Admin Dashboard'],
+    category: 'Enterprise',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/bRWmD2HH/Screenshot-2025-10-04-032738.png'
   },
@@ -149,8 +165,10 @@ export const PROJECTS: Project[] = [
     title: 'Crew Website',
     description: 'Business consultancy firm specializing in HR management solutions, personnel services, and government compliance for Egyptian corporations.',
     tags: ['Business Consultancy', 'HR Solutions', 'Corporate Website', 'UI/UX Design'],
-    hasDetails: true,
-    coverImage: 'https://i.ibb.co/zHm7hPpG/Desktop-3.png'
+    category: 'Websites',
+    hasDetails: false,
+    coverImage: '/project-assets/image.png',
+    link: 'https://crew-hr.com/'
   },
   {
     id: 14,
@@ -159,6 +177,7 @@ export const PROJECTS: Project[] = [
     title: 'Siwa Garden',
     description: 'Premium e-commerce platform specializing in authentic organic products from the Siwa Oasis featuring olive oils, dates, and natural products.',
     tags: ['E-commerce', 'Organic Products', 'Olive Oil', 'UI/UX Design'],
+    category: 'Websites',
     hasDetails: true,
     coverImage: 'https://i.ibb.co/vvqrB24g/Siwa-Garden-Cover.png'
   },
@@ -169,6 +188,7 @@ export const PROJECTS: Project[] = [
     title: 'Stova',
     description: 'Premium furniture and interior design e-commerce platform featuring modern furniture solutions and personalized design services.',
     tags: ['E-commerce', 'Interior Design', 'Furniture', 'UI/UX Design'],
+    category: 'E-commerce',
     hasDetails: true,
     coverImage: '/project-assets/Stova/Stova Cover.png'
   },
@@ -179,6 +199,7 @@ export const PROJECTS: Project[] = [
     title: 'E-Destination',
     description: 'Designed a mobile app for smart transportation route planning with intuitive user interface and seamless navigation.',
     tags: ['Mobile Design', 'Navigation', 'Transport'],
+    category: 'Mobile Apps',
     hasDetails: true,
     coverImage: '/project-assets/E-Destination/E-سكة.png'
   },
@@ -191,6 +212,7 @@ export const PROJECTS: Project[] = [
     title: 'Egypt Empire',
     description: 'Comprehensive tourism management system with destination discovery, booking management, and travel planning tools.',
     tags: ['Tourism', 'Travel Planning', 'Booking System'],
+    category: 'Websites',
     hasDetails: false,
     coverImage: '/project-assets/Egypt Empire/Egypt Empire Cover.png',
     link: 'https://egypt-empire.com/'
@@ -202,6 +224,7 @@ export const PROJECTS: Project[] = [
     title: 'Nile Garden',
     description: 'Food production company e-commerce platform specializing in olive oils, pickled vegetables, and premium olive products with comprehensive product showcase.',
     tags: ['E-commerce', 'Food Industry', 'Olive Products', 'UI/UX Design'],
+    category: 'E-commerce',
     hasDetails: false,
     coverImage: '/project-assets/Nile Garden/Nile Garden Cover.png',
     link: 'https://www.nile-garden.com/'
@@ -213,6 +236,7 @@ export const PROJECTS: Project[] = [
     title: 'Cupra Agency',
     description: 'Automotive brand agency website showcasing vehicle lineup with immersive design and interactive configurator.',
     tags: ['Automotive', 'Brand Agency', 'Interactive Design'],
+    category: 'Websites',
     hasDetails: false,
     coverImage: '/project-assets/Cupra Agency/Cupra Cover.png',
     link: 'https://www.cupraagency.com'
@@ -226,6 +250,7 @@ export const PROJECTS: Project[] = [
     title: 'ATMedicine',
     description: 'Designed innovative medicine ATM concept with mobile application for code-based medication purchases and distribution.',
     tags: ['Healthcare Innovation', 'Mobile App', 'Business Analysis'],
+    category: 'Mobile Apps',
     hasDetails: false,
     coverImage: 'https://i.ibb.co/vxmPWJHj/Screenshot-2025-11-27-153938.png',
     projectLink: 'https://www.behance.net/gallery/171259005/ATMedicine-UIUX-Case-Study'
@@ -237,6 +262,7 @@ export const PROJECTS: Project[] = [
     title: 'TechlandBS',
     description: 'Business solutions technology platform providing enterprise-level software development and consulting services.',
     tags: ['Enterprise Solutions', 'Business Software', 'Consulting'],
+    category: 'Websites',
     hasDetails: false,
     coverImage: 'https://i.ibb.co/wrsdh7c5/Screenshot-2025-11-27-153358.png',
     link: 'https://www.techlandbs.com/'

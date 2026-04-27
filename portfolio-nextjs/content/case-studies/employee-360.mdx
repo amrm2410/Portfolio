@@ -1,64 +1,150 @@
 ---
-title: "Employee 360"
+title: "Employee 360 — HR Management Platform"
 slug: "employee-360"
-description: "Comprehensive employee management platform with 360-degree performance tracking, attendance management, and workforce analytics across mobile and web."
+description: "Designed a dual-interface HR management platform — employee mobile app for daily self-service and an admin web dashboard for workforce analytics and management."
 client: "Employee 360"
 role: "UI/UX Designer"
 duration: "2 Months"
 tags: ["HR Management", "Analytics", "Performance Tracking", "Mobile & Web", "UI/UX Design"]
 coverImage: "https://i.ibb.co/FLVtH9q1/Cover.png"
 date: "2024-03-01"
+product: "Employee 360 — HR management platform (employee mobile app + admin web dashboard)"
+users: "Employees managing attendance, leave, and performance; HR admins overseeing workforce analytics and approvals"
+problem: "HR processes (attendance, leave requests, performance reviews) were fragmented across manual tools — employees lacked self-service access and HR teams lacked real-time visibility into workforce data."
+constraints: "Dual-interface design (mobile + web), real-time data sync between employee actions and admin views, 2-month timeline"
+myRole: "UI/UX Designer: information architecture for dual user types, mobile app design (12 screens), admin dashboard design (5 views), and interaction patterns."
+outcome: "Delivered a connected employee-admin experience — 40% faster HR processing, 85% employee engagement, and 60% time saved on routine HR workflows."
 ---
 
 ## Project Overview
 
-Employee 360 is a comprehensive human resources management platform designed to streamline employee management, performance tracking, and workforce analytics. The platform provides a complete 360-degree view of employee engagement, productivity, and organizational development.
-
-Built with modern HR best practices in mind, Employee 360 offers powerful tools for attendance tracking, performance reviews, goal management, and real-time analytics. The dual-interface system serves both employees through an intuitive mobile application and HR administrators through a robust web dashboard.
-
-The solution addresses critical HR challenges by providing transparent performance metrics, efficient workflow management, data-driven insights, and enhanced communication between employees and management teams.
-
-## Key Features
-
-- **Attendance Management** — Smart attendance tracking with check-in/out, leave requests, and real-time attendance analytics
-- **Performance Analytics** — Comprehensive performance metrics, KPI tracking, and data-driven insights for employee evaluation
-- **Goal Management** — Set, track, and achieve individual and team goals with progress monitoring and milestone celebrations
-- **Employee Profiles** — Detailed employee profiles with skills, certifications, work history, and performance records
-- **Leave Management** — Simplified leave requests, approvals, and tracking with automated balance calculations and calendar integration
-- **Real-time Notifications** — Instant notifications for important updates, approvals, deadlines, and team communications
-
-## Design System
-
-### Typography
-Employee 360 uses a modern sans-serif typeface for clarity and readability across all platform interfaces.
-- Display: Inter Bold
-- Heading: Inter SemiBold
-- Body: Inter Regular
-- Caption: Inter Medium
-
-### Color Palette
-- Primary Cyan: #00BCD4 — Primary brand color, CTAs, highlights
-- Medium Teal: #6DA5B0 — Accents, secondary actions
-- Light Blue: #A8CFD8 — Backgrounds, subtle accents
-- Pale Blue: #C4DCE1 — Cards, panels, light backgrounds
-
-## Mobile Application
-
-The mobile app provides employees with easy access to their profiles, attendance, leave requests, and performance tracking on-the-go. 12 screens covering onboarding, dashboard, attendance, leave management, performance tracking, and more.
-
-## Admin Dashboard
-
-The web dashboard empowers HR teams and managers with comprehensive tools for employee management, analytics, and organizational oversight. 5 key dashboard views covering employee overview, analytics, attendance management, leave tracking, and performance reviews.
-
-## Project Impact
-
-- **40%** Faster HR Processing
-- **85%** Employee Engagement
-- **60%** Time Saved
-- **95%** User Satisfaction
+Employee 360 is a dual-interface HR platform that gives employees self-service access to their daily HR needs (attendance, leave, performance) through a mobile app, while providing HR administrators with a web dashboard for workforce management, analytics, and approvals. The core design goal was connecting these two interfaces so employee actions flow seamlessly into admin workflows.
 
 ---
 
-**Tools Used**: Figma
+## The Challenge
 
-**Platforms**: Mobile & Web Dashboard
+Before Employee 360, HR processes were fragmented:
+
+- **No employee self-service:** Attendance, leave requests, and performance data required manual coordination with HR — employees had no direct access to their own records
+- **Delayed approvals:** Leave requests and performance reviews moved through informal channels (email, paper), causing delays and lost context
+- **No real-time workforce visibility:** HR teams relied on spreadsheets and manual reports — no live view of attendance patterns, leave balances, or performance trends
+- **Disconnected tools:** Different processes lived in different systems with no unified view of employee engagement or productivity
+
+---
+
+## Key Design Decisions &amp; Tradeoffs
+
+### 1. Mobile-first for employees, web-first for admins
+
+**Decision:** Employees interact primarily through a mobile app; HR admins work through a web dashboard.
+
+**Tradeoff:** Two separate interfaces to design and maintain instead of one responsive platform.
+
+**Why:** Employees need quick daily interactions (check-in, leave request) that fit a mobile context. HR admins need data-dense views (tables, charts, approval queues) that work better on desktop.
+
+### 2. Real-time attendance with check-in/out pattern
+
+**Decision:** Design attendance as an active check-in/check-out action rather than passive tracking.
+
+**Tradeoff:** Requires employees to remember to check in/out daily.
+
+**Why:** Active check-in gives employees agency and awareness of their attendance record, while providing HR with accurate, employee-confirmed data rather than estimated times.
+
+### 3. Unified approval workflow (leave + performance)
+
+**Decision:** Standardize the approval pattern across leave requests and performance reviews — same status model, same notification flow.
+
+**Tradeoff:** Less flexibility for custom workflows per HR process.
+
+**Why:** Consistent patterns reduce learning curve for both employees (submitting) and managers (approving). One mental model for "request &rarr; review &rarr; approved/rejected."
+
+### 4. Dashboard-first admin experience
+
+**Decision:** Admin dashboard leads with aggregate KPIs (attendance rate, pending approvals, engagement metrics) before drill-down.
+
+**Tradeoff:** Individual employee details require an extra click.
+
+**Why:** HR managers start their day asking "what needs attention?" — aggregate data with anomaly highlighting surfaces urgent items faster than browsing individual records.
+
+---
+
+## Solution Overview
+
+### Employee Mobile App (12 screens)
+
+- **Dashboard:** Today&rsquo;s attendance status, upcoming leave, active goals, and notifications
+- **Attendance:** Check-in/check-out with daily and monthly history view
+- **Leave management:** Request submission, balance tracking, approval status, and calendar view
+- **Performance tracking:** Personal KPIs, goal progress, and review history
+- **Profile:** Skills, certifications, work history, and personal information
+
+### Admin Web Dashboard (5 key views)
+
+- **Employee overview:** Workforce directory with quick access to individual profiles and status
+- **Analytics dashboard:** Aggregate KPIs — attendance rates, leave patterns, performance distribution, and engagement trends
+- **Attendance management:** Real-time attendance monitoring with anomaly detection and reports
+- **Leave tracking:** Approval queue, team calendar, and balance management
+- **Performance reviews:** Review cycles, goal tracking, and comparative analytics
+
+---
+
+## System Thinking
+
+### States &amp; Edge Cases
+
+- **Attendance edge cases:** Missed check-out, late check-in, weekend/holiday handling, and retroactive corrections
+- **Leave conflicts:** Overlapping requests within a team, zero-balance requests, and manager absence during approval
+- **Loading/empty states:** New employees with no history; departments with no pending actions
+- **Permission behavior:** Employees see only their own data; managers see their team; HR admins see the full organization
+
+### Connected Data Flow
+
+- Employee check-in on mobile &rarr; instant reflection on admin attendance dashboard
+- Leave request submitted &rarr; manager notification &rarr; approval &rarr; balance auto-updated
+- Performance goals set by admin &rarr; visible on employee mobile with progress tracking
+
+---
+
+## Design Screens
+
+### Admin Dashboard
+
+<div className="grid-2col">
+  <img src="https://i.ibb.co/svHqjT6G/Dashboard-Screen-1.png" alt="Dashboard Screen 1" />
+  <img src="https://i.ibb.co/s9jJ4YzR/Dashboard-Screen.png" alt="Dashboard Screen" />
+  <img src="https://i.ibb.co/7JmC8LCh/Dashboard-Screen-2.png" alt="Dashboard Screen 2" />
+  <img src="https://i.ibb.co/x8qwGRK3/Dashboard-Screen-5.png" alt="Dashboard Screen 5" />
+  </div>
+
+### Mobile App
+
+<div className="grid-5col">
+  <img src="https://i.ibb.co/MkDrc4Nr/Onboarding.png" alt="Onboarding" />
+  <img src="https://i.ibb.co/Kx0qBQx6/Onboarding-1.png" alt="Onboarding 1" />
+  <img src="https://i.ibb.co/G4k58zKK/i-Phone-13-mini-1.png" alt="iPhone 13 mini 1" />
+  <img src="https://i.ibb.co/vFYCLv3/i-Phone-13-mini-5.png" alt="iPhone 13 mini 5" />
+  <img src="https://i.ibb.co/TDfr0dst/i-Phone-13-mini-6.png" alt="iPhone 13 mini 6" />
+  <img src="https://i.ibb.co/SX0D3kdq/i-Phone-13-mini-7.png" alt="iPhone 13 mini 7" />
+  <img src="https://i.ibb.co/Qv45khSR/i-Phone-13-mini-8.png" alt="iPhone 13 mini 8" />
+  <img src="https://i.ibb.co/35fSwy1W/i-Phone-13-mini-9.png" alt="iPhone 13 mini 9" />
+  <img src="https://i.ibb.co/rf2QHN3M/i-Phone-13-mini-10.png" alt="iPhone 13 mini 10" />
+  <img src="https://i.ibb.co/Kx5fdrTt/i-Phone-13-mini-11.png" alt="iPhone 13 mini 11" />
+  <img src="https://i.ibb.co/FLJTCJxY/i-Phone-13-mini-12.png" alt="iPhone 13 mini 12" />
+  <img src="https://i.ibb.co/KjwTDXgK/i-Phone-13-mini-13.png" alt="iPhone 13 mini 13" />
+</div>
+
+---
+
+## Impact &amp; Results
+
+- Faster HR processing through automated workflows and employee self-service
+- Improved employee engagement with accessible mobile experience
+- Significant time saved on routine HR tasks (attendance tracking, leave approvals)
+- High user satisfaction across both employee and admin interfaces
+
+---
+
+**Tools:** Figma
+
+**Platform:** Mobile (Employee App) &amp; Web (Admin Dashboard)
