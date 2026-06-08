@@ -18,7 +18,7 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   function handleLogout() {
-    localStorage.removeItem('admin_token');
+    localStorage.removeItem('access_token');
     window.location.href = '/admin/login';
   }
 

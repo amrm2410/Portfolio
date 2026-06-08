@@ -18,7 +18,7 @@ export default function LoginPage() {
     setError('');
     try {
       const { data } = await api.post<{ accessToken: string }>('/admin/login', { email, password });
-      localStorage.setItem('admin_token', data.accessToken);
+      localStorage.setItem('access_token', data.accessToken);
       router.replace('/admin/dashboard');
     } catch {
       setError('Invalid credentials.');

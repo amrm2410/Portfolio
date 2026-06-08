@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useAuthStore } from '@/store/auth'
 import { cn } from '@/lib/utils'
@@ -63,9 +64,19 @@ export default function Sidebar() {
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-700 text-xs font-semibold uppercase">
-            {user?.name?.charAt(0) ?? '?'}
-          </div>
+          {user?.avatarUrl ? (
+            <Image
+              src={user.avatarUrl}
+              alt={user.name}
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          ) : (
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-700 text-xs font-semibold uppercase">
+              {user?.name?.charAt(0) ?? '?'}
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <p className="truncate text-sm font-medium text-gray-900">{user?.name ?? 'Loading...'}</p>
             <p className="text-xs text-gray-500">Level {user?.level ?? 1}</p>

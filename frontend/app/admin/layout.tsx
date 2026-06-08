@@ -16,7 +16,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       setChecking(false);
       return;
     }
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('access_token');
     if (!token) {
       router.replace('/admin/login');
     } else {
