@@ -11,8 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.Instant;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -96,6 +98,49 @@ public class AuthService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new AuthException("User not found"));
         return toProfile(user);
+    }
+
+    // ── Google OAuth ──
+
+    @Transactional
+    @SuppressWarnings("unchecked")
+    public AuthResult googleAuth(GoogleAuthRequest request, String ipAddress, String deviceInfo) {
+        String url = "https://oauth2.googleapis.com/tokeninfo?id_token=" + request.getGoogleToken();
+        RestTemplate rest = new RestTemplate();
+        Map<String, Object> tokenInfo;
+        try {
+            tokenInfo = rest.getForObject(url, Map.class);
+        } catch (Exception e) {
+            throw new AuthException("Invalid Google token");
+        }
+
+        if (tokenInfo == null || !request.getEmail().equals(tokenInfo.get("email"))) {
+            throw new AuthException("Token email mismatch");
+        }
+
+        User user = userRepository.findByEmail(request.getEmail())
+            .orElseGet(() -> {
+                User newUser = User.builder()
+                    .email(request.getEmail())
+                    .avatarUrl(request.getAvatarUrl())
+                    .username(generateUsername(request.getEmail()))
+                    .role(Role.USER)
+                    .enabled(true)
+                    .password(passwordEncoder.encode(UUID.randomUUID().toString()))
+                    .build();
+                return userRepository.save(newUser);
+            });
+
+        return createSession(user, ipAddress, deviceInfo);
+    }
+
+    private String generateUsername(String email) {
+        String base = email.split("@")[0].replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String candidate = base + (int) (Math.random() * 9000 + 1000);
+        while (userRepository.existsByUsername(candidate)) {
+            candidate = base + (int) (Math.random() * 9000 + 1000);
+        }
+        return candidate;
     }
 
     // ── helpers ──

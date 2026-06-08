@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080/api/v1'
+'use client'
+
+import { signIn } from 'next-auth/react'
 
 interface Props {
   action: 'sign in' | 'sign up'
@@ -6,10 +8,10 @@ interface Props {
 
 export default function GoogleButton({ action }: Props) {
   return (
-    <a href={`${API_URL}/auth/google`} style={btn}>
+    <button type="button" onClick={() => signIn('google', { callbackUrl: '/dashboard' })} style={btn}>
       <GoogleIcon />
       Continue with Google
-    </a>
+    </button>
   )
 }
 
