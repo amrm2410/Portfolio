@@ -6,7 +6,7 @@ import { z } from 'zod'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import api from '@/lib/axios'
+import api, { setAccessToken } from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
 import type { AuthResponse, LoginRequest } from '@/types'
 
@@ -19,7 +19,7 @@ type FormValues = z.infer<typeof schema>
 export default function LoginForm() {
   const router  = useRouter()
   const params  = useSearchParams()
-  const { setUser, setToken } = useAuthStore()
+  const { setUser } = useAuthStore()
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -29,8 +29,7 @@ export default function LoginForm() {
     mutationFn: (data: LoginRequest) =>
       api.post<AuthResponse>('/auth/login', data).then(r => r.data),
     onSuccess: ({ accessToken, user }) => {
-      localStorage.setItem('access_token', accessToken)
-      setToken(accessToken)
+      setAccessToken(accessToken)
       setUser(user)
       router.push(params.get('next') ?? '/dashboard')
     },

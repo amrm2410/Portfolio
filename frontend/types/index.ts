@@ -60,8 +60,8 @@ export interface SocialLinkRow {
 
 // ─── Auth ───────────────────────────────────────────────
 export interface LoginRequest { email: string; password: string }
-export interface RegisterRequest { name: string; email: string; password: string }
-export interface AuthResponse { accessToken: string; user: import('@/store/auth').User }
+export interface RegisterRequest { username: string; email: string; password: string }
+export interface AuthResponse { accessToken: string; expiresIn: number; user: import('@/store/auth').User }
 
 // ─── Courses ────────────────────────────────────────────
 export type CourseLevel = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'

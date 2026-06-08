@@ -96,7 +96,7 @@ public class AuthController {
         Cookie cookie = new Cookie("refreshToken", refreshToken);
         cookie.setHttpOnly(true);
         cookie.setSecure(cookieSecure);
-        cookie.setPath("/auth");
+        cookie.setPath("/");
         cookie.setMaxAge((int) (refreshExpirationMs / 1000));
         cookie.setAttribute("SameSite", "Lax");
         response.addCookie(cookie);
@@ -106,7 +106,7 @@ public class AuthController {
         Cookie cookie = new Cookie("refreshToken", "");
         cookie.setHttpOnly(true);
         cookie.setSecure(cookieSecure);
-        cookie.setPath("/auth");
+        cookie.setPath("/");
         cookie.setMaxAge(0);
         cookie.setAttribute("SameSite", "Lax");
         response.addCookie(cookie);

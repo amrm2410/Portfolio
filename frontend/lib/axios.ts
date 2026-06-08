@@ -1,15 +1,22 @@
 import axios from 'axios'
 
+let _accessToken: string | null = null
+
+export function setAccessToken(token: string | null) {
+  _accessToken = token
+}
+
+export function getAccessToken() {
+  return _accessToken
+}
+
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   withCredentials: true,
 })
 
 api.interceptors.request.use((config) => {
-  const token = typeof window !== 'undefined'
-    ? localStorage.getItem('access_token')
-    : null
-  if (token) config.headers.Authorization = `Bearer ${token}`
+  if (_accessToken) config.headers.Authorization = `Bearer ${_accessToken}`
   return config
 })
 
@@ -25,11 +32,11 @@ api.interceptors.response.use(
           {},
           { withCredentials: true }
         )
-        localStorage.setItem('access_token', data.accessToken)
-        original.headers.Authorization = `Bearer ${data.accessToken}`
+        _accessToken = data.accessToken
+        original.headers.Authorization = `Bearer ${_accessToken}`
         return api(original)
       } catch {
-        localStorage.removeItem('access_token')
+        _accessToken = null
         window.location.href = '/login'
       }
     }
