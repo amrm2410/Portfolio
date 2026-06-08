@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 
 interface Props {
@@ -7,10 +8,23 @@ interface Props {
 }
 
 export default function GoogleButton({ action }: Props) {
+  const [pending, setPending] = useState(false)
+
+  async function handleClick() {
+    setPending(true)
+    await signIn('google', { callbackUrl: '/dashboard' })
+    setPending(false)
+  }
+
   return (
-    <button type="button" onClick={() => signIn('google', { callbackUrl: '/dashboard' })} style={btn}>
+    <button
+      type="button"
+      onClick={handleClick}
+      disabled={pending}
+      style={{ ...btn, opacity: pending ? 0.7 : 1, cursor: pending ? 'not-allowed' : 'pointer' }}
+    >
       <GoogleIcon />
-      Continue with Google
+      {pending ? 'Connecting…' : 'Continue with Google'}
     </button>
   )
 }

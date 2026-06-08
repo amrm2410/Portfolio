@@ -49,6 +49,9 @@ export default function LoginForm() {
           <p style={sub}>Sign in to your account</p>
         </div>
 
+        {params.get('error') && (
+          <StatusBanner ok={false} msg={googleAuthError(params.get('error')!)} />
+        )}
         <GoogleButton action="sign in" />
         <div style={divider}><div style={dividerLine} /><span style={dividerText}>or</span><div style={dividerLine} /></div>
 
@@ -82,6 +85,17 @@ export default function LoginForm() {
       </div>
     </div>
   )
+}
+
+function googleAuthError(code: string): string {
+  const map: Record<string, string> = {
+    OAuthCallbackError:    'Google sign in failed. Please try again.',
+    OAuthSignin:           'Could not start Google sign in.',
+    OAuthCreateAccount:    'Could not create account with Google.',
+    AccessDenied:          'Access denied. Please allow permissions and try again.',
+    Callback:              'Something went wrong during Google sign in.',
+  }
+  return map[code] ?? 'Google sign in failed. Please try again.'
 }
 
 const divider: React.CSSProperties = {

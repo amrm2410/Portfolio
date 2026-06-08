@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import api, { setAccessToken } from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
@@ -25,6 +25,7 @@ const authError = makeAuthError({ 409: 'Email or username already taken.' })
 
 export default function RegisterForm() {
   const router = useRouter()
+  const params = useSearchParams()
   const { setUser } = useAuthStore()
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
@@ -49,6 +50,9 @@ export default function RegisterForm() {
           <p style={sub}>Start learning today</p>
         </div>
 
+        {params.get('error') && (
+          <StatusBanner ok={false} msg={googleAuthError(params.get('error')!)} />
+        )}
         <GoogleButton action="sign up" />
         <div style={divider}><div style={dividerLine} /><span style={dividerText}>or</span><div style={dividerLine} /></div>
 
@@ -84,6 +88,17 @@ export default function RegisterForm() {
       </div>
     </div>
   )
+}
+
+function googleAuthError(code: string): string {
+  const map: Record<string, string> = {
+    OAuthCallbackError:    'Google sign up failed. Please try again.',
+    OAuthSignin:           'Could not start Google sign in.',
+    OAuthCreateAccount:    'Could not create account with Google.',
+    AccessDenied:          'Access denied. Please allow permissions and try again.',
+    Callback:              'Something went wrong during Google sign in.',
+  }
+  return map[code] ?? 'Google sign in failed. Please try again.'
 }
 
 const divider: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: '0.75rem', margin: '0.5rem 0' }
