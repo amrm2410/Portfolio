@@ -10,3 +10,11 @@ export { default as Footer } from './home/Footer';
 
 // Common components
 export { default as BackButton } from './common/BackButton';
+export { default as ParticlesBackground } from './common/ParticlesBackground';
+export { default as ScrollAnimations } from './common/ScrollAnimations';
+
+// Layout components
+export { default as Sidebar } from './layout/Sidebar';
+
+// Platform components
+export { default as CourseCard } from './platform/CourseCard';

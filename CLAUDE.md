@@ -24,7 +24,7 @@ cd frontend
 npm run dev
 ```
 
-Runs on `http://localhost:3000`.
+Runs on `http://localhost:3001`.
 
 ## Build
 

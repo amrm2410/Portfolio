@@ -15,7 +15,7 @@ UI/UX learning platform — 5 courses, community, calendar, leaderboard.
 ```bash
 cd frontend
 npm install
-npm run dev         # http://localhost:3000
+npm run dev         # http://localhost:3001
 ```
 
 ## Backend setup

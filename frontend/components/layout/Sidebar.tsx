@@ -49,7 +49,7 @@ export default function Sidebar() {
           {user?.avatarUrl ? (
             <Image
               src={user.avatarUrl}
-              alt={user.name}
+              alt={user.username}
               width={32}
               height={32}
               style={{ borderRadius: '50%', objectFit: 'cover', width: 32, height: 32 }}

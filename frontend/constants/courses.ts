@@ -1,0 +1,40 @@
+import type { CourseListItem } from '@/types'
+
+export const COURSES: CourseListItem[] = [
+  {
+    id: '1',
+    title: 'UX Design Fundamentals',
+    slug: 'ux-design-fundamentals',
+    tagline: 'Master the principles of user-centered design from day one',
+    level: 'BEGINNER',
+    priceCents: 4900,
+    thumbnailUrl: null,
+    lessonCount: 24,
+    durationMin: 480,
+    isPublished: true,
+  },
+  {
+    id: '2',
+    title: 'Product Design for Enterprise',
+    slug: 'product-design-enterprise',
+    tagline: 'Design complex B2B systems — workflows, tables, and approval chains',
+    level: 'INTERMEDIATE',
+    priceCents: 9900,
+    thumbnailUrl: null,
+    lessonCount: 36,
+    durationMin: 900,
+    isPublished: true,
+  },
+  {
+    id: '3',
+    title: 'Design Systems at Scale',
+    slug: 'design-systems-scale',
+    tagline: 'Build and maintain component libraries that grow with your product',
+    level: 'ADVANCED',
+    priceCents: 14900,
+    thumbnailUrl: null,
+    lessonCount: 48,
+    durationMin: 1200,
+    isPublished: true,
+  },
+]
