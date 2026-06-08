@@ -9,6 +9,7 @@ import Link from 'next/link'
 import api, { setAccessToken } from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
 import StatusBanner from '../components/StatusBanner'
+import GoogleButton from '../components/GoogleButton'
 import { makeAuthError } from '../utils/authErrors'
 import { card, logoMark, heading, sub, label, input, btn, link, fieldErr } from '../styles/authCard'
 import type { AuthResponse, RegisterRequest } from '@/types'
@@ -44,10 +45,12 @@ export default function RegisterForm() {
     <div style={{ width: '100%', maxWidth: 400 }}>
       <div style={card}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={logoMark}>AA</div>
           <h1 style={heading}>Create your account</h1>
           <p style={sub}>Start learning today</p>
         </div>
+
+        <GoogleButton action="sign up" />
+        <div style={divider}><div style={dividerLine} /><span style={dividerText}>or</span><div style={dividerLine} /></div>
 
         <form onSubmit={handleSubmit(d => mutation.mutate(d))} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div>
@@ -82,3 +85,7 @@ export default function RegisterForm() {
     </div>
   )
 }
+
+const divider: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: '0.75rem', margin: '0.5rem 0' }
+const dividerLine: React.CSSProperties = { flex: 1, height: 1, background: '#e5e7eb' }
+const dividerText: React.CSSProperties = { fontSize: '0.8125rem', color: '#94a3b8', whiteSpace: 'nowrap' }
