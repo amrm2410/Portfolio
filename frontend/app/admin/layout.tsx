@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import styles from '@/components/admin/Admin.module.css';
 
@@ -17,26 +16,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       setChecking(false);
       return;
     }
-
-    supabase.auth.getSession()
-      .then(({ data }) => {
-        if (!data.session) {
-          router.replace('/admin/login');
-        } else {
-          setChecking(false);
-        }
-      })
-      .catch(() => {
-        router.replace('/admin/login');
-      });
-
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session && !isLoginPage) {
-        router.replace('/admin/login');
-      }
-    });
-
-    return () => listener.subscription.unsubscribe();
+    const token = localStorage.getItem('admin_token');
+    if (!token) {
+      router.replace('/admin/login');
+    } else {
+      setChecking(false);
+    }
   }, [isLoginPage, router]);
 
   if (isLoginPage) {

@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import api from '@/lib/axios';
 import styles from '@/components/admin/Admin.module.css';
 
 export default function LoginPage() {
@@ -16,14 +16,13 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError('');
-
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      setError(error.message);
-      setLoading(false);
-    } else {
+    try {
+      const { data } = await api.post<{ accessToken: string }>('/admin/login', { email, password });
+      localStorage.setItem('admin_token', data.accessToken);
       router.replace('/admin/dashboard');
+    } catch {
+      setError('Invalid credentials.');
+      setLoading(false);
     }
   }
 

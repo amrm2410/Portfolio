@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import styles from './Admin.module.css';
 
 const NAV = [
@@ -18,8 +17,8 @@ const CONTENT_NAV = [
 export default function AdminSidebar() {
   const pathname = usePathname();
 
-  async function handleLogout() {
-    await supabase.auth.signOut();
+  function handleLogout() {
+    localStorage.removeItem('admin_token');
     window.location.href = '/admin/login';
   }
 

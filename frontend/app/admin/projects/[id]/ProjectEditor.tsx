@@ -3,8 +3,8 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { createProject, updateProject } from '@/lib/queries/projects';
-import { supabase, ProjectRow, CaseStudyRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { ProjectRow, CaseStudyRow } from '@/types';
 import TagInput from '@/components/admin/TagInput';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -33,7 +33,6 @@ export default function ProjectEditor() {
   const [tab, setTab] = useState<Tab>('project');
   const [form, setForm] = useState(EMPTY_PROJECT);
   const [cs, setCs] = useState(EMPTY_CS);
-  const [existingId, setExistingId] = useState<string | null>(null);
   const [csId, setCsId] = useState<string | null>(null);
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
@@ -42,31 +41,28 @@ export default function ProjectEditor() {
   useEffect(() => {
     if (isNew) return;
     async function load() {
-      const { data: p } = await supabase.from('projects').select('*').eq('id', params.id as string).single();
-      if (p) {
-        setExistingId(p.id);
-        setForm({
-          slug: p.slug, title: p.title, description: p.description ?? '',
-          category: p.category, tags: p.tags ?? [], cover_image: p.cover_image ?? '',
-          icon: p.icon ?? '', link: p.link ?? '', project_link: p.project_link ?? '',
-          has_details: p.has_details, is_featured: p.is_featured,
-          coming_soon: p.coming_soon, display_order: p.display_order,
-        });
+      const { data: p } = await api.get<ProjectRow>(`/admin/projects/${params.id}`);
+      setForm({
+        slug: p.slug, title: p.title, description: p.description ?? '',
+        category: p.category, tags: p.tags ?? [], cover_image: p.cover_image ?? '',
+        icon: p.icon ?? '', link: p.link ?? '', project_link: p.project_link ?? '',
+        has_details: p.has_details, is_featured: p.is_featured,
+        coming_soon: p.coming_soon, display_order: p.display_order,
+      });
 
-        if (p.has_details) {
-          const { data: csd } = await supabase.from('case_studies').select('*').eq('slug', p.slug).single();
-          if (csd) {
-            setCsId(csd.id);
-            setCs({
-              slug: csd.slug, title: csd.title, description: csd.description ?? '',
-              client: csd.client ?? '', role: csd.role ?? '', duration: csd.duration ?? '',
-              tags: csd.tags ?? [], cover_image: csd.cover_image ?? '',
-              date: csd.date, content: csd.content ?? '',
-              product: csd.product ?? '', users: csd.users ?? '',
-              problem: csd.problem ?? '', constraints: csd.constraints ?? '',
-              my_role: csd.my_role ?? '', outcome: csd.outcome ?? '',
-            });
-          }
+      if (p.has_details) {
+        const { data: csd } = await api.get<CaseStudyRow>(`/admin/case-studies/by-slug/${p.slug}`);
+        if (csd) {
+          setCsId(csd.id);
+          setCs({
+            slug: csd.slug, title: csd.title, description: csd.description ?? '',
+            client: csd.client ?? '', role: csd.role ?? '', duration: csd.duration ?? '',
+            tags: csd.tags ?? [], cover_image: csd.cover_image ?? '',
+            date: csd.date, content: csd.content ?? '',
+            product: csd.product ?? '', users: csd.users ?? '',
+            problem: csd.problem ?? '', constraints: csd.constraints ?? '',
+            my_role: csd.my_role ?? '', outcome: csd.outcome ?? '',
+          });
         }
       }
       setLoading(false);
@@ -86,25 +82,22 @@ export default function ProjectEditor() {
     e.preventDefault();
     setSaving(true);
     try {
-      let savedSlug = form.slug;
-
       if (isNew) {
-        const created = await createProject(form);
-        savedSlug = created.slug;
+        const { data: created } = await api.post<ProjectRow>('/admin/projects', form);
         if (form.has_details) {
-          await supabase.from('case_studies').upsert({ ...cs, slug: savedSlug }, { onConflict: 'slug' });
+          await api.post('/admin/case-studies', { ...cs, slug: created.slug });
         }
         setToast({ message: 'Project created.', type: 'success' });
         router.replace('/admin/projects');
       } else {
-        await updateProject(existingId!, form);
+        await api.put(`/admin/projects/${params.id}`, form);
         if (form.has_details) {
-          const csData = { ...cs, slug: savedSlug };
+          const csData = { ...cs, slug: form.slug };
           if (csId) {
-            await supabase.from('case_studies').update(csData).eq('id', csId);
+            await api.put(`/admin/case-studies/${csId}`, csData);
           } else {
-            const { data } = await supabase.from('case_studies').insert(csData).select().single();
-            if (data) setCsId(data.id);
+            const { data } = await api.post<CaseStudyRow>('/admin/case-studies', csData);
+            setCsId(data.id);
           }
         }
         setToast({ message: 'Saved.', type: 'success' });
@@ -116,8 +109,6 @@ export default function ProjectEditor() {
   }
 
   if (loading) return <div className={styles.loading}>Loading…</div>;
-
-  const showCsTabs = form.has_details || !isNew;
 
   return (
     <>
@@ -155,7 +146,6 @@ export default function ProjectEditor() {
 
         <form className={styles.form} onSubmit={handleSubmit}>
 
-          {/* ── PROJECT INFO ── */}
           {tab === 'project' && (
             <>
               <div className={styles.formRow}>
@@ -231,7 +221,6 @@ export default function ProjectEditor() {
             </>
           )}
 
-          {/* ── CASE STUDY META ── */}
           {tab === 'cs-meta' && (
             <>
               <div className={styles.formRow}>
@@ -275,7 +264,6 @@ export default function ProjectEditor() {
             </>
           )}
 
-          {/* ── CASE STUDY CONTENT ── */}
           {tab === 'cs-content' && (
             <div className={styles.field}>
               <label className={styles.label}>Markdown / MDX Content</label>
@@ -289,7 +277,6 @@ export default function ProjectEditor() {
             </div>
           )}
 
-          {/* ── CASE STUDY EXECUTIVE SUMMARY ── */}
           {tab === 'cs-summary' && (
             <>
               {(['product', 'users', 'problem', 'constraints', 'my_role', 'outcome'] as const).map((key) => (

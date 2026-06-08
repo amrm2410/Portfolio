@@ -3,8 +3,8 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { createCaseStudy, updateCaseStudy } from '@/lib/queries/caseStudies';
-import { supabase, CaseStudyRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { CaseStudyRow } from '@/types';
 import TagInput from '@/components/admin/TagInput';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -42,19 +42,17 @@ export default function CaseStudyEditor() {
 
   useEffect(() => {
     if (isNew) return;
-    supabase.from('case_studies').select('*').eq('id', params.id as string).single().then(({ data }) => {
-      if (data) {
-        setExistingId(data.id);
-        setForm({
-          slug: data.slug, title: data.title, description: data.description ?? '',
-          client: data.client ?? '', role: data.role ?? '', duration: data.duration ?? '',
-          tags: data.tags ?? [], cover_image: data.cover_image ?? '',
-          date: data.date, content: data.content ?? '',
-          product: data.product ?? '', users: data.users ?? '',
-          problem: data.problem ?? '', constraints: data.constraints ?? '',
-          my_role: data.my_role ?? '', outcome: data.outcome ?? '',
-        });
-      }
+    api.get<CaseStudyRow>(`/admin/case-studies/${params.id}`).then(({ data }) => {
+      setExistingId(data.id);
+      setForm({
+        slug: data.slug, title: data.title, description: data.description ?? '',
+        client: data.client ?? '', role: data.role ?? '', duration: data.duration ?? '',
+        tags: data.tags ?? [], cover_image: data.cover_image ?? '',
+        date: data.date, content: data.content ?? '',
+        product: data.product ?? '', users: data.users ?? '',
+        problem: data.problem ?? '', constraints: data.constraints ?? '',
+        my_role: data.my_role ?? '', outcome: data.outcome ?? '',
+      });
       setLoading(false);
     });
   }, [isNew, params.id]);
@@ -68,11 +66,11 @@ export default function CaseStudyEditor() {
     setSaving(true);
     try {
       if (isNew) {
-        await createCaseStudy(form);
+        await api.post('/admin/case-studies', form);
         setToast({ message: 'Case study created.', type: 'success' });
         router.replace('/admin/case-studies');
       } else {
-        await updateCaseStudy(existingId!, form);
+        await api.put(`/admin/case-studies/${existingId}`, form);
         setToast({ message: 'Saved.', type: 'success' });
       }
     } catch (err: unknown) {

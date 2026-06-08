@@ -1,8 +1,8 @@
 'use client';
 
 import { FormEvent, useEffect, useState } from 'react';
-import { getSettings, upsertSettings, getSocialLinks, deleteSocialLink } from '@/lib/queries/settings';
-import { supabase, SocialLinkRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { SocialLinkRow } from '@/types';
 import ConfirmDialog from '@/components/admin/ConfirmDialog';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -17,7 +17,10 @@ export default function SettingsPage() {
   const [newLink, setNewLink] = useState({ platform: '', url: '', icon: '' });
 
   useEffect(() => {
-    Promise.all([getSettings(), getSocialLinks()]).then(([s, l]) => {
+    Promise.all([
+      api.get<Record<string, string>>('/admin/settings'),
+      api.get<SocialLinkRow[]>('/admin/social-links'),
+    ]).then(([{ data: s }, { data: l }]) => {
       setSettings(s);
       setSocialLinks(l);
       setLoading(false);
@@ -32,7 +35,7 @@ export default function SettingsPage() {
     e.preventDefault();
     setSaving(true);
     try {
-      await upsertSettings(settings);
+      await api.put('/admin/settings', settings);
       setToast({ message: 'Settings saved.', type: 'success' });
     } catch {
       setToast({ message: 'Failed to save.', type: 'error' });
@@ -43,11 +46,13 @@ export default function SettingsPage() {
   async function addSocialLink(e: FormEvent) {
     e.preventDefault();
     try {
-      const { data } = await supabase
-        .from('social_links')
-        .insert({ platform: newLink.platform, url: newLink.url, icon: newLink.icon, display_order: socialLinks.length + 1 })
-        .select().single();
-      if (data) setSocialLinks((prev) => [...prev, data]);
+      const { data } = await api.post<SocialLinkRow>('/admin/social-links', {
+        platform: newLink.platform,
+        url: newLink.url,
+        icon: newLink.icon,
+        display_order: socialLinks.length + 1,
+      });
+      setSocialLinks((prev) => [...prev, data]);
       setNewLink({ platform: '', url: '', icon: '' });
       setToast({ message: 'Link added.', type: 'success' });
     } catch {
@@ -58,7 +63,7 @@ export default function SettingsPage() {
   async function confirmDeleteLink() {
     if (!deleting) return;
     try {
-      await deleteSocialLink(deleting.id);
+      await api.delete(`/admin/social-links/${deleting.id}`);
       setSocialLinks((prev) => prev.filter((l) => l.id !== deleting.id));
       setToast({ message: 'Link removed.', type: 'success' });
     } catch {
@@ -90,7 +95,6 @@ export default function SettingsPage() {
 
       <div className={styles.pageContent}>
         <form className={styles.form} onSubmit={handleSave}>
-          {/* Contact Info */}
           <div className={styles.card}>
             <p className={styles.label} style={{ marginBottom: 16 }}>Contact Information</p>
             <div className={styles.formRow}>
@@ -103,7 +107,6 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* Stats */}
           <div className={styles.card}>
             <p className={styles.label} style={{ marginBottom: 16 }}>Hero Stats</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
@@ -121,7 +124,6 @@ export default function SettingsPage() {
           </button>
         </form>
 
-        {/* Social Links */}
         <div className={styles.card} style={{ marginTop: 28 }}>
           <p className={styles.label} style={{ marginBottom: 16 }}>Social Links</p>
           <table className={styles.table} style={{ marginBottom: 20 }}>

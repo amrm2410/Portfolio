@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { getProjects, deleteProject } from '@/lib/queries/projects';
-import { ProjectRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { ProjectRow } from '@/types';
 import ConfirmDialog from '@/components/admin/ConfirmDialog';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -16,7 +16,8 @@ export default function ProjectsPage() {
 
   const load = useCallback(async () => {
     try {
-      setProjects(await getProjects());
+      const { data } = await api.get<ProjectRow[]>('/admin/projects');
+      setProjects(data);
     } finally {
       setLoading(false);
     }
@@ -27,7 +28,7 @@ export default function ProjectsPage() {
   async function confirmDelete() {
     if (!deleting) return;
     try {
-      await deleteProject(deleting.id);
+      await api.delete(`/admin/projects/${deleting.id}`);
       setToast({ message: 'Project deleted.', type: 'success' });
       load();
     } catch {

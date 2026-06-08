@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { supabase } from '@/lib/supabase';
+import api from '@/lib/axios';
 import ConfirmDialog from '@/components/admin/ConfirmDialog';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -22,29 +22,26 @@ export default function MessagesPage() {
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const load = useCallback(async () => {
-    const { data } = await supabase
-      .from('contact_messages')
-      .select('*')
-      .order('created_at', { ascending: false });
-    setMessages(data ?? []);
+    const { data } = await api.get<Message[]>('/admin/messages');
+    setMessages(data);
     setLoading(false);
   }, []);
 
   useEffect(() => { load(); }, [load]);
 
   async function markRead(msg: Message) {
-    await supabase.from('contact_messages').update({ is_read: true }).eq('id', msg.id);
+    await api.patch(`/admin/messages/${msg.id}`, { is_read: true });
     setMessages((prev) => prev.map((m) => m.id === msg.id ? { ...m, is_read: true } : m));
   }
 
   async function confirmDelete() {
     if (!deleting) return;
-    const { error } = await supabase.from('contact_messages').delete().eq('id', deleting.id);
-    if (error) {
-      setToast({ message: 'Failed to delete.', type: 'error' });
-    } else {
+    try {
+      await api.delete(`/admin/messages/${deleting.id}`);
       setToast({ message: 'Message deleted.', type: 'success' });
       setMessages((prev) => prev.filter((m) => m.id !== deleting.id));
+    } catch {
+      setToast({ message: 'Failed to delete.', type: 'error' });
     }
     setDeleting(null);
   }

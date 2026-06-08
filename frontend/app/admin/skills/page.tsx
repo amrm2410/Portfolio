@@ -1,8 +1,8 @@
 'use client';
 
 import { FormEvent, useEffect, useState, useCallback } from 'react';
-import { getAllSkills, createSkill, deleteSkill } from '@/lib/queries/skills';
-import { SkillRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { SkillRow } from '@/types';
 import ConfirmDialog from '@/components/admin/ConfirmDialog';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -29,7 +29,8 @@ export default function SkillsPage() {
   const [newSkill, setNewSkill] = useState({ category_id: 'design', name: '', icon_url: '' });
 
   const load = useCallback(async () => {
-    setSkills(await getAllSkills());
+    const { data } = await api.get<SkillRow[]>('/admin/skills');
+    setSkills(data);
     setLoading(false);
   }, []);
 
@@ -39,7 +40,7 @@ export default function SkillsPage() {
     e.preventDefault();
     const existing = skills.filter((s) => s.category_id === newSkill.category_id);
     try {
-      await createSkill({
+      await api.post('/admin/skills', {
         category_id: newSkill.category_id,
         category_title: CATEGORY_TITLES[newSkill.category_id],
         category_icon: CATEGORY_ICONS[newSkill.category_id],
@@ -58,7 +59,7 @@ export default function SkillsPage() {
   async function confirmDelete() {
     if (!deleting) return;
     try {
-      await deleteSkill(deleting.id);
+      await api.delete(`/admin/skills/${deleting.id}`);
       setToast({ message: 'Skill removed.', type: 'success' });
       load();
     } catch {
@@ -82,7 +83,6 @@ export default function SkillsPage() {
       </div>
 
       <div className={styles.pageContent}>
-        {/* Add skill form */}
         <div className={styles.card} style={{ marginBottom: 28 }}>
           <p className={styles.label} style={{ marginBottom: 12 }}>Add Skill</p>
           <form onSubmit={handleAdd} style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -113,7 +113,6 @@ export default function SkillsPage() {
           </form>
         </div>
 
-        {/* Skills by category */}
         {byCategory.map(({ id, title, skills: catSkills }) => (
           <div key={id} className={styles.card} style={{ marginBottom: 16 }}>
             <p className={styles.label} style={{ marginBottom: 12 }}>{title}</p>

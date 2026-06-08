@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import { getCaseStudies, deleteCaseStudy } from '@/lib/queries/caseStudies';
-import { CaseStudyRow } from '@/lib/supabase';
+import api from '@/lib/axios';
+import type { CaseStudyRow } from '@/types';
 import ConfirmDialog from '@/components/admin/ConfirmDialog';
 import Toast from '@/components/admin/Toast';
 import styles from '@/components/admin/Admin.module.css';
@@ -16,7 +16,8 @@ export default function CaseStudiesPage() {
 
   const load = useCallback(async () => {
     try {
-      setItems(await getCaseStudies());
+      const { data } = await api.get<CaseStudyRow[]>('/admin/case-studies');
+      setItems(data);
     } finally {
       setLoading(false);
     }
@@ -27,7 +28,7 @@ export default function CaseStudiesPage() {
   async function confirmDelete() {
     if (!deleting) return;
     try {
-      await deleteCaseStudy(deleting.id);
+      await api.delete(`/admin/case-studies/${deleting.id}`);
       setToast({ message: 'Case study deleted.', type: 'success' });
       load();
     } catch {
