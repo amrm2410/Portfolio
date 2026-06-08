@@ -12,10 +12,20 @@ import type { AuthResponse, RegisterRequest } from '@/types'
 
 const schema = z.object({
   username: z.string().min(3, 'At least 3 characters').max(50),
-  email: z.string().email('Invalid email'),
+  email:    z.string().email('Invalid email'),
   password: z.string().min(8, 'At least 8 characters'),
 })
 type FormValues = z.infer<typeof schema>
+
+function authError(err: unknown): string {
+  const status = (err as { response?: { status?: number; data?: { message?: string } } })?.response?.status
+  const msg    = (err as { response?: { data?: { message?: string } } })?.response?.data?.message
+  if (!status) return 'Cannot connect to server. Is the backend running?'
+  if (status === 409) return 'Email or username already taken.'
+  if (status === 400) return msg ?? 'Please check your inputs.'
+  if (status >= 500) return 'Server error. Please try again in a moment.'
+  return msg ?? 'Something went wrong.'
+}
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -47,25 +57,26 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit(d => mutation.mutate(d))} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div>
             <label style={label}>Username</label>
-            <input {...register('username')} style={input} placeholder="nour_ahmed" />
-            {errors.username && <p style={err}>{errors.username.message}</p>}
+            <input {...register('username')} style={input} placeholder="amr_ahmed" autoComplete="username" />
+            {errors.username && <p style={fieldErr}>{errors.username.message}</p>}
           </div>
 
           <div>
             <label style={label}>Email</label>
-            <input type="email" {...register('email')} style={input} placeholder="you@example.com" />
-            {errors.email && <p style={err}>{errors.email.message}</p>}
+            <input type="email" {...register('email')} style={input} placeholder="you@example.com" autoComplete="email" />
+            {errors.email && <p style={fieldErr}>{errors.email.message}</p>}
           </div>
 
           <div>
             <label style={label}>Password</label>
-            <input type="password" {...register('password')} style={input} placeholder="At least 8 characters" />
-            {errors.password && <p style={err}>{errors.password.message}</p>}
+            <input type="password" {...register('password')} style={input} placeholder="At least 8 characters" autoComplete="new-password" />
+            {errors.password && <p style={fieldErr}>{errors.password.message}</p>}
           </div>
 
-          {mutation.isError && <p style={errBox}>Something went wrong. Please try again.</p>}
+          {mutation.isError && <StatusBanner ok={false} msg={authError(mutation.error)} />}
+          {mutation.isSuccess && <StatusBanner ok={true} msg="Account created! Taking you in…" />}
 
-          <button type="submit" disabled={mutation.isPending} style={btn}>
+          <button type="submit" disabled={mutation.isPending || mutation.isSuccess} style={{ ...btn, opacity: mutation.isPending || mutation.isSuccess ? 0.7 : 1 }}>
             {mutation.isPending ? 'Creating account…' : 'Create account'}
           </button>
         </form>
@@ -79,9 +90,26 @@ export default function RegisterPage() {
   )
 }
 
+function StatusBanner({ ok, msg }: { ok: boolean; msg: string }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'flex-start', gap: '0.625rem',
+      borderRadius: 10, padding: '0.625rem 0.875rem',
+      background: ok ? '#f0fdf4' : '#fef2f2',
+      border: `1px solid ${ok ? '#bbf7d0' : '#fecaca'}`,
+      fontSize: '0.8125rem', color: ok ? '#16a34a' : '#dc2626',
+    }}>
+      <span style={{ flexShrink: 0, marginTop: 1 }}>{ok ? '✓' : '✕'}</span>
+      <span>{msg}</span>
+    </div>
+  )
+}
+
 const card: React.CSSProperties = {
-  background: '#ffffff', borderRadius: 24, padding: '2.5rem',
-  boxShadow: '0 8px 30px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.06)',
+  background: 'rgba(255,255,255,0.92)',
+  backdropFilter: 'blur(12px)',
+  borderRadius: 24, padding: '2.5rem',
+  boxShadow: '0 8px 40px rgba(0,0,0,0.1)', border: '1px solid rgba(255,255,255,0.6)',
 }
 const logoMark: React.CSSProperties = {
   width: 48, height: 48, borderRadius: 14,
@@ -95,7 +123,7 @@ const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', fo
 const input: React.CSSProperties = {
   width: '100%', boxSizing: 'border-box', border: '1px solid #e5e7eb',
   borderRadius: 12, padding: '0.625rem 0.875rem', fontSize: '0.875rem',
-  color: '#1a1a2e', background: '#fafafa', outline: 'none',
+  color: '#1a1a2e', background: 'rgba(255,255,255,0.8)', outline: 'none',
 }
 const btn: React.CSSProperties = {
   width: '100%', padding: '0.75rem', borderRadius: 12, border: 'none', cursor: 'pointer',
@@ -103,8 +131,4 @@ const btn: React.CSSProperties = {
   color: '#fff', fontWeight: 600, fontSize: '0.9375rem', transition: 'opacity 0.2s',
 }
 const link: React.CSSProperties = { color: '#6366f1', fontWeight: 500, textDecoration: 'none' }
-const err: React.CSSProperties = { fontSize: '0.75rem', color: '#ef4444', marginTop: '0.25rem' }
-const errBox: React.CSSProperties = {
-  background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10,
-  padding: '0.625rem 0.875rem', fontSize: '0.875rem', color: '#dc2626',
-}
+const fieldErr: React.CSSProperties = { fontSize: '0.75rem', color: '#ef4444', marginTop: '0.25rem' }
