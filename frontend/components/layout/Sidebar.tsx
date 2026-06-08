@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useAuthStore } from '@/store/auth'
 import {
   BookOpen, LayoutDashboard, Users, Calendar,
-  Trophy, Settings, LogOut, Flame
+  Trophy, Settings, LogOut
 } from 'lucide-react'
 
 const navItems = [
@@ -45,16 +45,6 @@ export default function Sidebar() {
 
       {/* User footer */}
       <div style={footer}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.625rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#1a1a2e' }}>
-            {user?.totalXp?.toLocaleString() ?? 0} XP
-          </span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', color: '#94a3b8' }}>
-            <Flame size={12} style={{ color: user?.streakDays ? '#f97316' : '#d1d5db' }} />
-            {user?.streakDays ?? 0}d streak
-          </span>
-        </div>
-
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {user?.avatarUrl ? (
             <Image
@@ -65,13 +55,13 @@ export default function Sidebar() {
               style={{ borderRadius: '50%', objectFit: 'cover', width: 32, height: 32 }}
             />
           ) : (
-            <div style={initials}>{user?.name?.charAt(0)?.toUpperCase() ?? '?'}</div>
+            <div style={initials}>{user?.username?.charAt(0)?.toUpperCase() ?? '?'}</div>
           )}
           <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#1a1a2e', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', margin: 0 }}>
-              {user?.name ?? 'Loading…'}
+              {user?.username ?? 'Loading…'}
             </p>
-            <p style={{ fontSize: '0.75rem', color: '#94a3b8', margin: 0 }}>Level {user?.level ?? 1}</p>
+            <p style={{ fontSize: '0.75rem', color: '#94a3b8', margin: 0 }}>{user?.role ?? 'USER'}</p>
           </div>
           <button onClick={logout} title="Log out" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8', display: 'flex', alignItems: 'center', padding: 4 }}>
             <LogOut size={15} />

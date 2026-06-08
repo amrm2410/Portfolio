@@ -6,20 +6,20 @@ import { z } from 'zod'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import api from '@/lib/axios'
+import api, { setAccessToken } from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
 import type { AuthResponse, RegisterRequest } from '@/types'
 
 const schema = z.object({
-  name:     z.string().min(2, 'Name is too short'),
-  email:    z.string().email('Invalid email'),
+  username: z.string().min(3, 'At least 3 characters').max(50),
+  email: z.string().email('Invalid email'),
   password: z.string().min(8, 'At least 8 characters'),
 })
 type FormValues = z.infer<typeof schema>
 
 export default function RegisterPage() {
   const router = useRouter()
-  const { setUser, setToken } = useAuthStore()
+  const { setUser } = useAuthStore()
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -29,8 +29,7 @@ export default function RegisterPage() {
     mutationFn: (data: RegisterRequest) =>
       api.post<AuthResponse>('/auth/register', data).then(r => r.data),
     onSuccess: ({ accessToken, user }) => {
-      localStorage.setItem('access_token', accessToken)
-      setToken(accessToken)
+      setAccessToken(accessToken)
       setUser(user)
       router.push('/dashboard')
     },
@@ -47,9 +46,9 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit(d => mutation.mutate(d))} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div>
-            <label style={label}>Full name</label>
-            <input {...register('name')} style={input} placeholder="Nour Ahmed" />
-            {errors.name && <p style={err}>{errors.name.message}</p>}
+            <label style={label}>Username</label>
+            <input {...register('username')} style={input} placeholder="nour_ahmed" />
+            {errors.username && <p style={err}>{errors.username.message}</p>}
           </div>
 
           <div>

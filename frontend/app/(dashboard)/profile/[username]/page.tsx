@@ -8,13 +8,10 @@ import api from '@/lib/axios'
 interface PublicProfile {
   id: string
   username: string
-  name: string
   bio: string | null
   avatarUrl: string | null
-  level: number
-  totalXp: number
-  role: 'LEARNER' | 'ADMIN'
-  socialLinks: { platform: string; url: string }[]
+  role: 'USER' | 'ADMIN'
+  socialLinks: Record<string, string> | null
   createdAt: string
 }
 
@@ -51,17 +48,17 @@ export default function ProfilePage() {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
           {data.avatarUrl ? (
             <Image
-              src={data.avatarUrl} alt={data.name}
+              src={data.avatarUrl} alt={data.username}
               width={72} height={72}
               style={{ borderRadius: '50%', objectFit: 'cover', width: 72, height: 72, flexShrink: 0 }}
             />
           ) : (
-            <div style={avatarFallback}>{data.name.charAt(0).toUpperCase()}</div>
+            <div style={avatarFallback}>{data.username.charAt(0).toUpperCase()}</div>
           )}
 
           <div>
-            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1a2e', margin: '0 0 0.125rem' }}>{data.name}</h1>
-            <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.625rem' }}>@{data.username}</p>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1a2e', margin: '0 0 0.125rem' }}>@{data.username}</h1>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.625rem' }}>{data.role}</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={badge}>Level {data.level}</span>
               {data.role === 'ADMIN' && (
@@ -77,40 +74,30 @@ export default function ProfilePage() {
         )}
 
         {/* Stats row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-          <StatChip label={`${data.totalXp.toLocaleString()} XP`} />
+        <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
           <span style={{ fontSize: '0.8125rem', color: '#94a3b8' }}>
-            Joined{' '}
-            {new Date(data.createdAt).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+            Joined {new Date(data.createdAt).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
           </span>
         </div>
 
         {/* Social links */}
-        {data.socialLinks.length > 0 && (
+        {data.socialLinks && Object.entries(data.socialLinks).length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-            {data.socialLinks.map((link, i) => (
+            {Object.entries(data.socialLinks).map(([platform, url]) => (
               <a
-                key={i}
-                href={link.url}
+                key={platform}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ fontSize: '0.8125rem', fontWeight: 500, color: '#6366f1', textDecoration: 'none', background: 'rgba(99,102,241,0.08)', borderRadius: 8, padding: '0.25rem 0.75rem' }}
               >
-                {link.platform}
+                {platform}
               </a>
             ))}
           </div>
         )}
       </div>
     </div>
-  )
-}
-
-function StatChip({ label }: { label: string }) {
-  return (
-    <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#6366f1', background: 'rgba(99,102,241,0.1)', borderRadius: 8, padding: '0.25rem 0.75rem' }}>
-      {label}
-    </span>
   )
 }
 

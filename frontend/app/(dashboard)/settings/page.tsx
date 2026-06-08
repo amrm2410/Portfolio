@@ -7,16 +7,17 @@ import api from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
 import type { User } from '@/store/auth'
 
-type ProfileForm = { name: string; bio: string; socialLinks: { platform: string; url: string }[] }
+
+type ProfileForm = { username: string; bio: string; socialLinks: { platform: string; url: string }[] }
 type PasswordForm = { current: string; next: string; confirm: string }
 
 export default function SettingsPage() {
   const { user, setUser } = useAuthStore()
 
   const [profile, setProfile] = useState<ProfileForm>({
-    name: user?.name ?? '',
-    bio: (user as User & { bio?: string })?.bio ?? '',
-    socialLinks: (user as User & { socialLinks?: { platform: string; url: string }[] })?.socialLinks ?? [],
+    username: user?.username ?? '',
+    bio: user?.bio ?? '',
+    socialLinks: [],
   })
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null)
   const [avatarFile, setAvatarFile]   = useState<File | null>(null)
@@ -35,7 +36,7 @@ export default function SettingsPage() {
 
   const saveProfile = useMutation({
     mutationFn: () => api.patch<User>('/users/me', {
-      name: profile.name, bio: profile.bio, socialLinks: profile.socialLinks,
+      username: profile.username, bio: profile.bio, socialLinks: profile.socialLinks,
     }).then(r => r.data),
     onSuccess: (u) => { setUser(u); setToast({ msg: 'Profile saved.', ok: true }) },
     onError:   ()  => setToast({ msg: 'Failed to save.', ok: false }),
@@ -94,8 +95,8 @@ export default function SettingsPage() {
       <section style={card}>
         <h2 style={cardTitle}>Profile</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <Field label="Full name">
-            <input style={inp} value={profile.name} onChange={e => setProfile(p => ({ ...p, name: e.target.value }))} />
+          <Field label="Username">
+            <input style={inp} value={profile.username} onChange={e => setProfile(p => ({ ...p, username: e.target.value }))} />
           </Field>
           <Field label="Bio">
             <textarea
@@ -135,7 +136,7 @@ export default function SettingsPage() {
               <Image src={avatarSrc} alt="Avatar" width={80} height={80} style={{ borderRadius: '50%', objectFit: 'cover', width: 80, height: 80 }} />
             ) : (
               <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(99,102,241,0.12)', color: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase' }}>
-                {user?.name?.charAt(0) ?? '?'}
+                {user?.username?.charAt(0)?.toUpperCase() ?? '?'}
               </div>
             )}
           </div>

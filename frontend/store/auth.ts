@@ -1,41 +1,32 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { setAccessToken } from '@/lib/axios'
+import api from '@/lib/axios'
 
 export interface User {
   id: string
-  name: string
   email: string
   username: string
   avatarUrl: string | null
-  role: 'LEARNER' | 'ADMIN'
-  totalXp: number
-  level: number
-  streakDays: number
+  bio: string | null
+  role: 'USER' | 'ADMIN'
+  socialLinks: Record<string, string> | null
+  createdAt: string
 }
 
 interface AuthState {
   user: User | null
-  accessToken: string | null
   setUser: (user: User) => void
   setToken: (token: string) => void
   logout: () => void
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      user: null,
-      accessToken: null,
-      setUser: (user) => set({ user }),
-      setToken: (token) => set({ accessToken: token }),
-      logout: () => {
-        localStorage.removeItem('access_token')
-        set({ user: null, accessToken: null })
-      },
-    }),
-    {
-      name: 'auth-storage',
-      partialize: (s) => ({ accessToken: s.accessToken }),
-    }
-  )
-)
+export const useAuthStore = create<AuthState>()((set) => ({
+  user: null,
+  setUser: (user) => set({ user }),
+  setToken: (token) => setAccessToken(token),
+  logout: () => {
+    api.post('/auth/logout').catch(() => {})
+    setAccessToken(null)
+    set({ user: null })
+  },
+}))
