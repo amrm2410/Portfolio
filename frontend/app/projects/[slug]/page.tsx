@@ -10,19 +10,15 @@ import ParticlesBackground from '@/components/common/ParticlesBackground';
 import './project-detail.css';
 
 export async function generateStaticParams() {
-  const caseStudies = getAllCaseStudies();
-  return caseStudies.map((study) => ({
-    slug: study.slug,
-  }));
+  const studies = getAllCaseStudies();
+  return studies.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudyBySlug(slug);
 
-  if (!study) {
-    return { title: 'Project Not Found' };
-  }
+  if (!study) return { title: 'Project Not Found' };
 
   return {
     title: study.frontmatter.title,
@@ -39,9 +35,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params;
   const study = getCaseStudyBySlug(slug);
 
-  if (!study) {
-    notFound();
-  }
+  if (!study) notFound();
 
   const { frontmatter, content } = study;
   const hasExecutiveSummary = frontmatter.product || frontmatter.users || frontmatter.problem || frontmatter.outcome;
@@ -52,7 +46,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <Navigation isHomePage={false} />
 
       <article className="project-detail">
-        {/* Hero */}
         <div className="bento-grid project-hero-section">
           <div className="bento-card project-hero">
             <Link href="/#projects" className="project-back-link">
@@ -60,13 +53,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </Link>
 
             <div>
-              <span className="project-client-badge">
-                {frontmatter.client}
-              </span>
+              <span className="project-client-badge">{frontmatter.client}</span>
             </div>
 
             <h1 className="project-title">{frontmatter.title}</h1>
-
             <p className="project-description">{frontmatter.description}</p>
 
             <div className="project-meta">
@@ -81,22 +71,21 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <div>
                 <div className="project-meta-label">Date</div>
                 <div className="project-meta-value">
-                  {new Date(frontmatter.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                  {frontmatter.date
+                    ? new Date(frontmatter.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                    : '—'}
                 </div>
               </div>
             </div>
 
             <div style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {frontmatter.tags.map((tag) => (
-                <span key={tag} className="project-detail-tag">
-                  {tag}
-                </span>
+                <span key={tag} className="project-detail-tag">{tag}</span>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Cover Image */}
         {frontmatter.coverImage && (
           <div className="bento-grid">
             <div className="bento-card project-cover-card">
@@ -113,7 +102,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         )}
 
-        {/* Executive Summary */}
         {hasExecutiveSummary && (
           <div className="bento-grid">
             <div className="bento-card project-summary-card">
@@ -165,7 +153,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         )}
 
-        {/* MDX Content */}
         <div className="bento-grid">
           <div className="bento-card project-content-card">
             <div className="mdx-content">
@@ -174,7 +161,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
 
-        {/* Footer Actions */}
         <div className="bento-grid">
           <div className="project-footer-actions">
             <Link href="/#projects" className="btn btn-secondary">

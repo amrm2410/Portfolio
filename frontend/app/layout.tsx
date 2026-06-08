@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
+import Providers from "./providers";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -217,7 +218,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.className} ${jetbrainsMono.variable}`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>
+          <ThemeProvider>{children}</ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

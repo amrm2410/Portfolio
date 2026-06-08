@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PROJECTS, FEATURED_SLUGS, PROJECT_CATEGORIES } from '@/constants/projects';
+import { PROJECTS, PROJECT_CATEGORIES, FEATURED_SLUGS } from '@/constants/projects';
 import './Projects.css';
 
 const GRADIENTS = [
@@ -21,17 +21,19 @@ const getSizeClass = (index: number): string => {
   return pattern[index % pattern.length];
 };
 
+const archiveProjects = PROJECTS.filter((p) => !FEATURED_SLUGS.includes(p.slug));
+
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const archiveProjects = PROJECTS.filter(p => !FEATURED_SLUGS.includes(p.slug));
+
   const filteredProjects = activeCategory === 'All'
     ? archiveProjects
-    : archiveProjects.filter(p => p.category === activeCategory);
+    : archiveProjects.filter((p) => p.category === activeCategory);
 
   const getCategoryCount = (category: string) =>
     category === 'All'
       ? archiveProjects.length
-      : archiveProjects.filter(p => p.category === category).length;
+      : archiveProjects.filter((p) => p.category === category).length;
 
   return (
     <section id="projects" className="projects bento-section">
@@ -62,7 +64,6 @@ const Projects = () => {
 
             const content = (
               <>
-                {/* Background image */}
                 {project.coverImage && (
                   <div className="project-bento-bg">
                     <Image
@@ -75,9 +76,7 @@ const Projects = () => {
                     />
                   </div>
                 )}
-                {/* Gradient overlay */}
                 <div className="project-bento-overlay"></div>
-                {/* Content */}
                 <div className="project-bento-content">
                   <div className="project-bento-top">
                     <span className="project-category-pill">{project.tags[0]}</span>
@@ -100,53 +99,27 @@ const Projects = () => {
 
             if (project.hasDetails) {
               return (
-                <Link
-                  key={project.id}
-                  href={`/projects/${project.slug}`}
-                  className={className}
-                  style={{ background: gradient }}
-                >
+                <Link key={project.id} href={`/projects/${project.slug}`} className={className} style={{ background: gradient }}>
                   {content}
                 </Link>
               );
             }
-
             if (project.link) {
               return (
-                <a
-                  key={project.id}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={className}
-                  style={{ background: gradient }}
-                >
+                <a key={project.id} href={project.link} target="_blank" rel="noopener noreferrer" className={className} style={{ background: gradient }}>
                   {content}
                 </a>
               );
             }
-
             if (project.projectLink) {
               return (
-                <a
-                  key={project.id}
-                  href={project.projectLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={className}
-                  style={{ background: gradient }}
-                >
+                <a key={project.id} href={project.projectLink} target="_blank" rel="noopener noreferrer" className={className} style={{ background: gradient }}>
                   {content}
                 </a>
               );
             }
-
             return (
-              <div
-                key={project.id}
-                className={className}
-                style={{ background: gradient }}
-              >
+              <div key={project.id} className={className} style={{ background: gradient }}>
                 {content}
               </div>
             );

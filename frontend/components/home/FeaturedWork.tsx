@@ -11,11 +11,9 @@ const FEATURED_PROJECTS = [
     summary:
       'Product design ownership across Cedar Rose\'s risk intelligence ecosystem — from building a real-time monitoring dashboard (0→1) to cross-product workflow design across internal, QA, client, and report surfaces.',
     tags: ['Risk Intelligence', 'Multi-product Ecosystem', 'Enterprise Workflows', 'Real-time Monitoring'],
-    impact: null,
     coverImage: '/project-assets/Cedar Rose/cedar-rose-logo.png',
     coverFit: 'contain' as const,
     coverBg: '#272C68',
-    fullWidth: true,
   },
   {
     slug: 'gates-crm-erp',
@@ -25,11 +23,9 @@ const FEATURED_PROJECTS = [
     summary:
       'Designed an enterprise platform unifying CRM and ERP for a real estate developer — end-to-end workflows across Sales, Customer Care, Legal, Finance/Treasury, and Procurement with SLA-driven cases and Arabic RTL support.',
     tags: ['CRM Design', 'ERP System', 'Workflows', 'RTL Support'],
-    impact: null,
     coverImage: '/project-assets/Gates Developments CRM & ERP/Cover.png',
     coverFit: 'cover' as const,
     coverBg: undefined,
-    fullWidth: true,
   },
 ];
 
@@ -47,7 +43,7 @@ const FeaturedWork = () => {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className={`featured-project-card bento-card${project.fullWidth ? ' featured-project-card-full' : ''}`}
+              className="featured-project-card bento-card featured-project-card-full"
             >
               <div className="featured-cover" style={project.coverBg ? { background: project.coverBg } : undefined}>
                 <Image
@@ -61,12 +57,6 @@ const FeaturedWork = () => {
               <div className="featured-content">
                 <div className="featured-content-top">
                   <span className="featured-client">{project.client}</span>
-                  {project.impact && (
-                    <span className="featured-impact-chip">
-                      <i className="fas fa-chart-line"></i>
-                      {project.impact}
-                    </span>
-                  )}
                 </div>
                 <h3 className="featured-title">
                   {project.title}

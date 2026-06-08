@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { SKILL_CATEGORIES } from '@/constants/skills';
 import './Skills.css';
@@ -21,9 +23,9 @@ const BADGES = [
   { name: 'Senior Ship Captain', icon: 'fas fa-anchor' },
 ];
 
-const Skills = () => {
-  const totalSkills = SKILL_CATEGORIES.reduce((sum, cat) => sum + cat.skills.length, 0);
+const totalSkills = SKILL_CATEGORIES.reduce((sum, cat) => sum + cat.skills.length, 0);
 
+const Skills = () => {
   return (
     <section id="skills" className="skills bento-section">
       <div className="bento-grid">
@@ -33,9 +35,8 @@ const Skills = () => {
         </div>
 
         <div className="skills-layout">
-          {/* Tools Card */}
           <div className="bento-card skills-card">
-            {SKILL_CATEGORIES.map(category => (
+            {SKILL_CATEGORIES.map((category) => (
               <div key={category.id} className="skills-category-group">
                 <h3 className="skills-category-label">{category.title}</h3>
                 <div className="skills-pills">
@@ -59,7 +60,6 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Competencies Card */}
           <div className="bento-card competencies-card">
             <div className="competencies-header">
               <h3 className="skills-category-label">UX Competencies</h3>
