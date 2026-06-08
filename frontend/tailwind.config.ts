@@ -13,13 +13,16 @@ const config: Config & { corePlugins?: any } = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#2D6AF6',
-          50:  '#EEF3FE',
-          100: '#C5D8FC',
-          500: '#2D6AF6',
-          600: '#1A55D9',
-          700: '#1040B2',
+          DEFAULT: '#6366f1',
+          50:  '#f5f3ff',
+          100: '#ede9fe',
+          200: '#ddd6fe',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
         },
+        page: '#f2f0ed',
+        navy: '#1a1a2e',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],

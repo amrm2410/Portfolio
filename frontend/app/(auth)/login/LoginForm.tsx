@@ -12,7 +12,7 @@ import type { AuthResponse, LoginRequest } from '@/types'
 
 const schema = z.object({
   email:    z.string().email('Invalid email'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  password: z.string().min(6, 'At least 6 characters'),
 })
 type FormValues = z.infer<typeof schema>
 
@@ -27,7 +27,7 @@ export default function LoginForm() {
 
   const mutation = useMutation({
     mutationFn: (data: LoginRequest) =>
-      api.post<AuthResponse>('/auth/login', data).then((r) => r.data),
+      api.post<AuthResponse>('/auth/login', data).then(r => r.data),
     onSuccess: ({ accessToken, user }) => {
       localStorage.setItem('access_token', accessToken)
       setToken(accessToken)
@@ -37,59 +37,86 @@ export default function LoginForm() {
   })
 
   return (
-    <div className="w-full max-w-sm">
-      <div className="mb-8 text-center">
-        <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white font-bold">
-          AA
+    <div style={{ width: '100%', maxWidth: 400 }}>
+      <div style={card}>
+        {/* Logo */}
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <div style={logoMark}>AA</div>
+          <h1 style={heading}>Welcome back</h1>
+          <p style={sub}>Sign in to your account</p>
         </div>
-        <h1 className="text-2xl font-semibold text-gray-900">Welcome back</h1>
-        <p className="mt-1 text-sm text-gray-500">Sign in to your account</p>
+
+        <form onSubmit={handleSubmit(d => mutation.mutate(d))} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div>
+            <label style={label}>Email</label>
+            <input type="email" {...register('email')} style={input} placeholder="you@example.com" />
+            {errors.email && <p style={err}>{errors.email.message}</p>}
+          </div>
+
+          <div>
+            <label style={label}>Password</label>
+            <input type="password" {...register('password')} style={input} placeholder="••••••••" />
+            {errors.password && <p style={err}>{errors.password.message}</p>}
+          </div>
+
+          {mutation.isError && <p style={errBox}>Invalid email or password.</p>}
+
+          <button type="submit" disabled={mutation.isPending} style={btn}>
+            {mutation.isPending ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+
+        <p style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.875rem', color: '#64748b' }}>
+          No account?{' '}
+          <Link href="/register" style={link}>Create one</Link>
+        </p>
+        <p style={{ marginTop: '0.75rem', textAlign: 'center', fontSize: '0.875rem' }}>
+          <Link href="/forgot-password" style={{ ...link, color: '#94a3b8' }}>Forgot password?</Link>
+        </p>
       </div>
-
-      <form onSubmit={handleSubmit((d) => mutation.mutate(d))} className="space-y-4">
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            {...register('email')}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
-            placeholder="you@example.com"
-          />
-          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Password</label>
-          <input
-            type="password"
-            {...register('password')}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
-            placeholder="••••••••"
-          />
-          {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>}
-        </div>
-
-        {mutation.isError && (
-          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
-            Invalid email or password.
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={mutation.isPending}
-          className="w-full rounded-lg bg-brand py-2 text-sm font-medium text-white transition hover:bg-brand-600 disabled:opacity-60"
-        >
-          {mutation.isPending ? 'Signing in...' : 'Sign in'}
-        </button>
-      </form>
-
-      <p className="mt-6 text-center text-sm text-gray-500">
-        No account?{' '}
-        <Link href="/register" className="font-medium text-brand hover:underline">
-          Create one
-        </Link>
-      </p>
     </div>
   )
+}
+
+const card: React.CSSProperties = {
+  background: '#ffffff',
+  borderRadius: 24,
+  padding: '2.5rem',
+  boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+  border: '1px solid rgba(0,0,0,0.06)',
+}
+const logoMark: React.CSSProperties = {
+  width: 48, height: 48,
+  borderRadius: 14,
+  background: 'linear-gradient(145deg, #1a1a2e, #16213e, #0f3460)',
+  color: '#fff',
+  fontWeight: 700,
+  fontSize: '1rem',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: '1rem',
+}
+const heading: React.CSSProperties = { fontSize: '1.5rem', fontWeight: 700, color: '#1a1a2e', margin: '0 0 0.25rem' }
+const sub: React.CSSProperties = { fontSize: '0.875rem', color: '#64748b', margin: 0 }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: '#1a1a2e', marginBottom: '0.375rem' }
+const input: React.CSSProperties = {
+  width: '100%', boxSizing: 'border-box',
+  border: '1px solid #e5e7eb', borderRadius: 12,
+  padding: '0.625rem 0.875rem', fontSize: '0.875rem',
+  color: '#1a1a2e', background: '#fafafa', outline: 'none',
+}
+const btn: React.CSSProperties = {
+  width: '100%', padding: '0.75rem',
+  borderRadius: 12, border: 'none', cursor: 'pointer',
+  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  color: '#fff', fontWeight: 600, fontSize: '0.9375rem',
+  transition: 'opacity 0.2s',
+}
+const link: React.CSSProperties = { color: '#6366f1', fontWeight: 500, textDecoration: 'none' }
+const err: React.CSSProperties = { fontSize: '0.75rem', color: '#ef4444', marginTop: '0.25rem' }
+const errBox: React.CSSProperties = {
+  background: '#fef2f2', border: '1px solid #fecaca',
+  borderRadius: 10, padding: '0.625rem 0.875rem',
+  fontSize: '0.875rem', color: '#dc2626',
 }

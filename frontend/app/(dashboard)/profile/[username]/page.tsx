@@ -29,7 +29,7 @@ export default function ProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="flex h-64 items-center justify-center text-sm text-gray-400">
+      <div style={{ display: 'flex', height: 256, alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '0.875rem' }}>
         Loading…
       </div>
     )
@@ -37,42 +37,35 @@ export default function ProfilePage() {
 
   if (isError || !data) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center gap-2">
-        <p className="text-sm text-gray-500">User not found.</p>
+      <div style={{ display: 'flex', height: 256, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+        <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>User not found.</p>
       </div>
     )
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-8">
-      <div className="rounded-xl border border-gray-200 bg-white p-6">
+    <div style={{ maxWidth: 672, margin: '0 auto', padding: '2rem 1.5rem' }}>
+      {/* Profile card */}
+      <div style={card}>
         {/* Header */}
-        <div className="flex items-start gap-4">
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
           {data.avatarUrl ? (
             <Image
-              src={data.avatarUrl}
-              alt={data.name}
-              width={72}
-              height={72}
-              className="h-[72px] w-[72px] rounded-full object-cover"
+              src={data.avatarUrl} alt={data.name}
+              width={72} height={72}
+              style={{ borderRadius: '50%', objectFit: 'cover', width: 72, height: 72, flexShrink: 0 }}
             />
           ) : (
-            <div className="flex h-[72px] w-[72px] flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700 text-2xl font-semibold uppercase">
-              {data.name.charAt(0)}
-            </div>
+            <div style={avatarFallback}>{data.name.charAt(0).toUpperCase()}</div>
           )}
 
           <div>
-            <h1 className="text-xl font-semibold text-gray-900">{data.name}</h1>
-            <p className="text-sm text-gray-500">@{data.username}</p>
-            <div className="mt-2 flex items-center gap-2">
-              <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-700">
-                Level {data.level}
-              </span>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1a2e', margin: '0 0 0.125rem' }}>{data.name}</h1>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.625rem' }}>@{data.username}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={badge}>Level {data.level}</span>
               {data.role === 'ADMIN' && (
-                <span className="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-700">
-                  Admin
-                </span>
+                <span style={{ ...badge, background: 'rgba(168,85,247,0.1)', color: '#9333ea' }}>Admin</span>
               )}
             </div>
           </div>
@@ -80,31 +73,28 @@ export default function ProfilePage() {
 
         {/* Bio */}
         {data.bio && (
-          <p className="mt-5 text-sm text-gray-600 leading-relaxed">{data.bio}</p>
+          <p style={{ marginTop: '1.25rem', fontSize: '0.875rem', color: '#64748b', lineHeight: 1.6 }}>{data.bio}</p>
         )}
 
-        {/* Stats */}
-        <div className="mt-5 flex items-center gap-5 text-xs text-gray-500">
-          <span className="font-medium text-gray-700">{data.totalXp.toLocaleString()} XP</span>
-          <span>
+        {/* Stats row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+          <StatChip label={`${data.totalXp.toLocaleString()} XP`} />
+          <span style={{ fontSize: '0.8125rem', color: '#94a3b8' }}>
             Joined{' '}
-            {new Date(data.createdAt).toLocaleDateString('en-GB', {
-              month: 'long',
-              year: 'numeric',
-            })}
+            {new Date(data.createdAt).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
           </span>
         </div>
 
         {/* Social links */}
         {data.socialLinks.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-3 border-t border-gray-100 pt-5">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
             {data.socialLinks.map((link, i) => (
               <a
                 key={i}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-medium text-brand hover:underline"
+                style={{ fontSize: '0.8125rem', fontWeight: 500, color: '#6366f1', textDecoration: 'none', background: 'rgba(99,102,241,0.08)', borderRadius: 8, padding: '0.25rem 0.75rem' }}
               >
                 {link.platform}
               </a>
@@ -114,4 +104,30 @@ export default function ProfilePage() {
       </div>
     </div>
   )
+}
+
+function StatChip({ label }: { label: string }) {
+  return (
+    <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#6366f1', background: 'rgba(99,102,241,0.1)', borderRadius: 8, padding: '0.25rem 0.75rem' }}>
+      {label}
+    </span>
+  )
+}
+
+const card: React.CSSProperties = {
+  background: '#ffffff', borderRadius: 20,
+  border: '1px solid rgba(0,0,0,0.06)',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+  padding: '1.75rem',
+}
+const avatarFallback: React.CSSProperties = {
+  width: 72, height: 72, borderRadius: '50%', flexShrink: 0,
+  background: 'rgba(99,102,241,0.12)', color: '#6366f1',
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase',
+}
+const badge: React.CSSProperties = {
+  borderRadius: 20, padding: '0.125rem 0.625rem',
+  fontSize: '0.75rem', fontWeight: 500,
+  background: 'rgba(99,102,241,0.1)', color: '#6366f1',
 }

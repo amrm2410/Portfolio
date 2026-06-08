@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useAuthStore } from '@/store/auth'
-import { cn } from '@/lib/utils'
 import {
   BookOpen, LayoutDashboard, Users, Calendar,
   Trophy, Settings, LogOut, Flame
@@ -24,28 +23,19 @@ export default function Sidebar() {
   const { user, logout } = useAuthStore()
 
   return (
-    <aside className="flex h-full w-64 flex-col border-r border-gray-200 bg-white">
-      <div className="flex items-center gap-2 px-6 py-5 border-b border-gray-100">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white font-bold text-sm">
-          AA
-        </div>
-        <span className="font-semibold text-gray-900 text-sm">Design Academy</span>
+    <aside style={sidebar}>
+      {/* Brand */}
+      <div style={brandRow}>
+        <div style={logoMark}>AA</div>
+        <span style={{ fontWeight: 600, color: '#1a1a2e', fontSize: '0.875rem' }}>Design Academy</span>
       </div>
 
-      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
+      {/* Nav */}
+      <nav style={{ flex: 1, overflowY: 'auto', padding: '0.75rem 0.75rem', display: 'flex', flexDirection: 'column', gap: 2 }}>
         {navItems.map(({ href, label, icon: Icon }) => {
           const active = pathname === href || pathname.startsWith(href + '/')
           return (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                active
-                  ? 'bg-brand-50 text-brand-700'
-                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-              )}
-            >
+            <Link key={href} href={href} style={active ? navActive : navIdle}>
               <Icon size={16} />
               {label}
             </Link>
@@ -53,43 +43,85 @@ export default function Sidebar() {
         })}
       </nav>
 
-      <div className="border-t border-gray-100 p-4">
-        <div className="mb-3 flex items-center justify-between text-xs text-gray-500">
-          <span className="font-medium text-gray-700">
+      {/* User footer */}
+      <div style={footer}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.625rem' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#1a1a2e' }}>
             {user?.totalXp?.toLocaleString() ?? 0} XP
           </span>
-          <span className="flex items-center gap-1">
-            <Flame size={12} className={user?.streakDays ? 'text-orange-500' : 'text-gray-300'} />
+          <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', color: '#94a3b8' }}>
+            <Flame size={12} style={{ color: user?.streakDays ? '#f97316' : '#d1d5db' }} />
             {user?.streakDays ?? 0}d streak
           </span>
         </div>
-        <div className="flex items-center gap-3">
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {user?.avatarUrl ? (
             <Image
               src={user.avatarUrl}
               alt={user.name}
               width={32}
               height={32}
-              className="h-8 w-8 rounded-full object-cover"
+              style={{ borderRadius: '50%', objectFit: 'cover', width: 32, height: 32 }}
             />
           ) : (
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-700 text-xs font-semibold uppercase">
-              {user?.name?.charAt(0) ?? '?'}
-            </div>
+            <div style={initials}>{user?.name?.charAt(0)?.toUpperCase() ?? '?'}</div>
           )}
-          <div className="flex-1 min-w-0">
-            <p className="truncate text-sm font-medium text-gray-900">{user?.name ?? 'Loading...'}</p>
-            <p className="text-xs text-gray-500">Level {user?.level ?? 1}</p>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#1a1a2e', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', margin: 0 }}>
+              {user?.name ?? 'Loading…'}
+            </p>
+            <p style={{ fontSize: '0.75rem', color: '#94a3b8', margin: 0 }}>Level {user?.level ?? 1}</p>
           </div>
-          <button
-            onClick={logout}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
-            title="Log out"
-          >
+          <button onClick={logout} title="Log out" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8', display: 'flex', alignItems: 'center', padding: 4 }}>
             <LogOut size={15} />
           </button>
         </div>
       </div>
     </aside>
   )
+}
+
+const sidebar: React.CSSProperties = {
+  display: 'flex', flexDirection: 'column',
+  height: '100%', width: 256,
+  background: '#ffffff',
+  borderRight: '1px solid rgba(0,0,0,0.07)',
+}
+const brandRow: React.CSSProperties = {
+  display: 'flex', alignItems: 'center', gap: '0.625rem',
+  padding: '1.25rem 1.5rem',
+  borderBottom: '1px solid rgba(0,0,0,0.06)',
+}
+const logoMark: React.CSSProperties = {
+  width: 32, height: 32, borderRadius: 10,
+  background: 'linear-gradient(145deg, #1a1a2e, #16213e, #0f3460)',
+  color: '#fff', fontWeight: 700, fontSize: '0.75rem',
+  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+}
+const navBase: React.CSSProperties = {
+  display: 'flex', alignItems: 'center', gap: '0.625rem',
+  borderRadius: 10, padding: '0.5rem 0.75rem',
+  fontSize: '0.8125rem', fontWeight: 500,
+  textDecoration: 'none', transition: 'background 0.15s',
+}
+const navActive: React.CSSProperties = {
+  ...navBase,
+  background: 'rgba(99,102,241,0.1)',
+  color: '#6366f1',
+}
+const navIdle: React.CSSProperties = {
+  ...navBase,
+  color: '#64748b',
+}
+const footer: React.CSSProperties = {
+  borderTop: '1px solid rgba(0,0,0,0.06)',
+  padding: '1rem',
+}
+const initials: React.CSSProperties = {
+  width: 32, height: 32, borderRadius: '50%',
+  background: 'rgba(99,102,241,0.12)',
+  color: '#6366f1', fontSize: '0.75rem', fontWeight: 700,
+  display: 'flex', alignItems: 'center', justifyContent: 'center',
+  flexShrink: 0, textTransform: 'uppercase',
 }

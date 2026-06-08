@@ -7,9 +7,6 @@ import api from '@/lib/axios'
 import { useAuthStore } from '@/store/auth'
 import type { User } from '@/store/auth'
 
-const INPUT = 'w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20'
-const BTN = 'rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-600 disabled:opacity-60'
-
 type ProfileForm = { name: string; bio: string; socialLinks: { platform: string; url: string }[] }
 type PasswordForm = { current: string; next: string; confirm: string }
 
@@ -38,9 +35,7 @@ export default function SettingsPage() {
 
   const saveProfile = useMutation({
     mutationFn: () => api.patch<User>('/users/me', {
-      name: profile.name,
-      bio:  profile.bio,
-      socialLinks: profile.socialLinks,
+      name: profile.name, bio: profile.bio, socialLinks: profile.socialLinks,
     }).then(r => r.data),
     onSuccess: (u) => { setUser(u); setToast({ msg: 'Profile saved.', ok: true }) },
     onError:   ()  => setToast({ msg: 'Failed to save.', ok: false }),
@@ -54,8 +49,7 @@ export default function SettingsPage() {
     },
     onSuccess: ({ avatarUrl }) => {
       if (user) setUser({ ...user, avatarUrl })
-      setAvatarFile(null)
-      setAvatarPreview(null)
+      setAvatarFile(null); setAvatarPreview(null)
       setToast({ msg: 'Avatar updated.', ok: true })
     },
     onError: () => setToast({ msg: 'Upload failed.', ok: false }),
@@ -73,123 +67,96 @@ export default function SettingsPage() {
     r.onload = e => setAvatarPreview(e.target?.result as string)
     r.readAsDataURL(file)
   }
-
   function handleDrop(e: React.DragEvent) {
     e.preventDefault(); setDragging(false)
     const f = e.dataTransfer.files[0]
     if (f?.type.startsWith('image/')) pickFile(f)
   }
-
-  function addLink()       { setProfile(p => ({ ...p, socialLinks: [...p.socialLinks, { platform: '', url: '' }] })) }
+  function addLink() { setProfile(p => ({ ...p, socialLinks: [...p.socialLinks, { platform: '', url: '' }] })) }
   function removeLink(i: number) { setProfile(p => ({ ...p, socialLinks: p.socialLinks.filter((_, x) => x !== i) })) }
   function setLink(i: number, k: 'platform' | 'url', v: string) {
     setProfile(p => ({ ...p, socialLinks: p.socialLinks.map((l, x) => x === i ? { ...l, [k]: v } : l) }))
   }
-
   function submitPw(e: React.FormEvent) {
     e.preventDefault()
     if (pw.next !== pw.confirm) { setPwError('Passwords do not match.'); return }
     if (pw.next.length < 8)    { setPwError('Must be at least 8 characters.'); return }
-    setPwError('')
-    changePw.mutate()
+    setPwError(''); changePw.mutate()
   }
 
   const avatarSrc = avatarPreview ?? user?.avatarUrl
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-8">
-      <h1 className="mb-8 text-2xl font-semibold text-gray-900">Settings</h1>
+    <div style={{ maxWidth: 672, margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1a1a2e', marginBottom: '1.75rem' }}>Settings</h1>
 
-      {/* ── Profile ── */}
-      <section className="mb-6 rounded-xl border border-gray-200 bg-white p-6">
-        <h2 className="mb-5 text-base font-semibold text-gray-900">Profile</h2>
-        <div className="space-y-4">
-          <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">Full name</label>
-            <input className={INPUT} value={profile.name} onChange={e => setProfile(p => ({ ...p, name: e.target.value }))} />
-          </div>
-          <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">Bio</label>
+      {/* Profile card */}
+      <section style={card}>
+        <h2 style={cardTitle}>Profile</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <Field label="Full name">
+            <input style={inp} value={profile.name} onChange={e => setProfile(p => ({ ...p, name: e.target.value }))} />
+          </Field>
+          <Field label="Bio">
             <textarea
-              className={`${INPUT} resize-none`}
-              rows={3}
+              style={{ ...inp, resize: 'none' }} rows={3}
               placeholder="Tell people about yourself…"
               value={profile.bio}
               onChange={e => setProfile(p => ({ ...p, bio: e.target.value }))}
             />
-          </div>
-
+          </Field>
           <div>
-            <div className="mb-2 flex items-center justify-between">
-              <label className="text-sm font-medium text-gray-700">Social links</label>
-              <button type="button" onClick={addLink} className="text-xs font-medium text-brand hover:underline">+ Add</button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <span style={labelStyle}>Social links</span>
+              <button type="button" onClick={addLink} style={{ fontSize: '0.75rem', fontWeight: 500, color: '#6366f1', background: 'none', border: 'none', cursor: 'pointer' }}>+ Add</button>
             </div>
-            <div className="space-y-2">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {profile.socialLinks.map((link, i) => (
-                <div key={i} className="flex gap-2">
-                  <input
-                    className={`${INPUT} w-32 flex-none`}
-                    placeholder="Platform"
-                    value={link.platform}
-                    onChange={e => setLink(i, 'platform', e.target.value)}
-                  />
-                  <input
-                    className={`${INPUT} flex-1`}
-                    placeholder="https://…"
-                    value={link.url}
-                    onChange={e => setLink(i, 'url', e.target.value)}
-                  />
-                  <button type="button" onClick={() => removeLink(i)} className="px-2 text-gray-400 hover:text-red-500 transition-colors">✕</button>
+                <div key={i} style={{ display: 'flex', gap: '0.5rem' }}>
+                  <input style={{ ...inp, width: 128, flexShrink: 0 }} placeholder="Platform" value={link.platform} onChange={e => setLink(i, 'platform', e.target.value)} />
+                  <input style={{ ...inp, flex: 1 }} placeholder="https://…" value={link.url} onChange={e => setLink(i, 'url', e.target.value)} />
+                  <button type="button" onClick={() => removeLink(i)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8', fontSize: '0.875rem', padding: '0 0.5rem' }}>✕</button>
                 </div>
               ))}
             </div>
           </div>
-
-          <button onClick={() => saveProfile.mutate()} disabled={saveProfile.isPending} className={BTN}>
+          <button onClick={() => saveProfile.mutate()} disabled={saveProfile.isPending} style={btn}>
             {saveProfile.isPending ? 'Saving…' : 'Save profile'}
           </button>
         </div>
       </section>
 
-      {/* ── Avatar ── */}
-      <section className="mb-6 rounded-xl border border-gray-200 bg-white p-6">
-        <h2 className="mb-5 text-base font-semibold text-gray-900">Profile photo</h2>
-        <div className="flex items-start gap-6">
-          <div className="flex-shrink-0">
+      {/* Avatar card */}
+      <section style={{ ...card, marginTop: '1.25rem' }}>
+        <h2 style={cardTitle}>Profile photo</h2>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+          <div style={{ flexShrink: 0 }}>
             {avatarSrc ? (
-              <Image src={avatarSrc} alt="Avatar" width={80} height={80} className="h-20 w-20 rounded-full object-cover" />
+              <Image src={avatarSrc} alt="Avatar" width={80} height={80} style={{ borderRadius: '50%', objectFit: 'cover', width: 80, height: 80 }} />
             ) : (
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-100 text-brand-700 text-2xl font-semibold uppercase">
+              <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(99,102,241,0.12)', color: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 700, textTransform: 'uppercase' }}>
                 {user?.name?.charAt(0) ?? '?'}
               </div>
             )}
           </div>
-
-          <div className="flex-1">
+          <div style={{ flex: 1 }}>
             <div
-              role="button"
-              tabIndex={0}
-              className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-6 text-center transition-colors ${dragging ? 'border-brand bg-brand-50' : 'border-gray-300 hover:border-brand hover:bg-gray-50'}`}
+              role="button" tabIndex={0}
+              style={{ ...dropZone, ...(dragging ? { borderColor: '#6366f1', background: 'rgba(99,102,241,0.05)' } : {}) }}
               onClick={() => fileRef.current?.click()}
               onKeyDown={e => e.key === 'Enter' && fileRef.current?.click()}
               onDragOver={e => { e.preventDefault(); setDragging(true) }}
               onDragLeave={() => setDragging(false)}
               onDrop={handleDrop}
             >
-              <p className="text-sm text-gray-600">
-                <span className="font-medium text-brand">Click to upload</span> or drag and drop
+              <p style={{ fontSize: '0.875rem', color: '#64748b', margin: 0 }}>
+                <span style={{ color: '#6366f1', fontWeight: 500 }}>Click to upload</span> or drag and drop
               </p>
-              <p className="mt-1 text-xs text-gray-400">PNG, JPG — up to 5 MB</p>
+              <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.25rem' }}>PNG, JPG — up to 5 MB</p>
             </div>
-            <input
-              ref={fileRef}
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={e => { const f = e.target.files?.[0]; if (f) pickFile(f) }}
-            />
+            <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={e => { const f = e.target.files?.[0]; if (f) pickFile(f) }} />
             {avatarFile && (
-              <button onClick={() => uploadAvatar.mutate()} disabled={uploadAvatar.isPending} className={`mt-3 ${BTN}`}>
+              <button onClick={() => uploadAvatar.mutate()} disabled={uploadAvatar.isPending} style={{ ...btn, marginTop: '0.75rem', width: 'auto', padding: '0.5rem 1rem' }}>
                 {uploadAvatar.isPending ? 'Uploading…' : 'Upload photo'}
               </button>
             )}
@@ -197,39 +164,66 @@ export default function SettingsPage() {
         </div>
       </section>
 
-      {/* ── Password ── */}
-      <section className="rounded-xl border border-gray-200 bg-white p-6">
-        <h2 className="mb-5 text-base font-semibold text-gray-900">Change password</h2>
-        <form onSubmit={submitPw} className="space-y-4">
+      {/* Password card */}
+      <section style={{ ...card, marginTop: '1.25rem' }}>
+        <h2 style={cardTitle}>Change password</h2>
+        <form onSubmit={submitPw} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {(['current', 'next', 'confirm'] as const).map((k) => (
-            <div key={k}>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                {k === 'current' ? 'Current password' : k === 'next' ? 'New password' : 'Confirm new password'}
-              </label>
-              <input
-                type="password"
-                className={INPUT}
-                value={pw[k]}
-                onChange={e => setPw(p => ({ ...p, [k]: e.target.value }))}
-                required
-              />
-            </div>
+            <Field key={k} label={k === 'current' ? 'Current password' : k === 'next' ? 'New password' : 'Confirm new password'}>
+              <input type="password" style={inp} value={pw[k]} onChange={e => setPw(p => ({ ...p, [k]: e.target.value }))} required />
+            </Field>
           ))}
-          {pwError && <p className="text-sm text-red-500">{pwError}</p>}
+          {pwError && <p style={{ fontSize: '0.8125rem', color: '#ef4444' }}>{pwError}</p>}
           {changePw.isError && !pwError && (
-            <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">Incorrect current password.</p>
+            <p style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, padding: '0.625rem 0.875rem', fontSize: '0.875rem', color: '#dc2626' }}>
+              Incorrect current password.
+            </p>
           )}
-          <button type="submit" disabled={changePw.isPending} className={BTN}>
+          <button type="submit" disabled={changePw.isPending} style={btn}>
             {changePw.isPending ? 'Changing…' : 'Change password'}
           </button>
         </form>
       </section>
 
       {toast && (
-        <div className={`fixed bottom-6 right-6 z-50 rounded-lg px-4 py-3 text-sm font-medium shadow-lg animate-fade-in ${toast.ok ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`}>
+        <div style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 50, borderRadius: 12, padding: '0.75rem 1.25rem', fontSize: '0.875rem', fontWeight: 500, boxShadow: '0 8px 24px rgba(0,0,0,0.15)', background: toast.ok ? '#16a34a' : '#dc2626', color: '#fff' }}>
           {toast.msg}
         </div>
       )}
     </div>
   )
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <label style={labelStyle}>{label}</label>
+      {children}
+    </div>
+  )
+}
+
+const card: React.CSSProperties = {
+  background: '#ffffff', borderRadius: 20,
+  border: '1px solid rgba(0,0,0,0.06)',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+  padding: '1.5rem',
+}
+const cardTitle: React.CSSProperties = { fontSize: '0.9375rem', fontWeight: 600, color: '#1a1a2e', margin: '0 0 1.25rem' }
+const labelStyle: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: '#1a1a2e', marginBottom: '0.375rem' }
+const inp: React.CSSProperties = {
+  width: '100%', boxSizing: 'border-box', border: '1px solid #e5e7eb',
+  borderRadius: 10, padding: '0.625rem 0.875rem', fontSize: '0.875rem',
+  color: '#1a1a2e', background: '#fafafa', outline: 'none',
+}
+const btn: React.CSSProperties = {
+  width: '100%', padding: '0.6875rem', borderRadius: 10, border: 'none', cursor: 'pointer',
+  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  color: '#fff', fontWeight: 600, fontSize: '0.875rem',
+}
+const dropZone: React.CSSProperties = {
+  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+  borderRadius: 12, border: '2px dashed #e5e7eb',
+  padding: '1.5rem', textAlign: 'center', cursor: 'pointer',
+  transition: 'border-color 0.15s, background 0.15s',
 }

@@ -9,8 +9,7 @@ import api from '@/lib/axios'
 function ResetPasswordForm() {
   const router = useRouter()
   const token  = useSearchParams().get('token')
-
-  const [pw, setPw]       = useState({ next: '', confirm: '' })
+  const [pw, setPw] = useState({ next: '', confirm: '' })
   const [error, setError] = useState('')
 
   const mutation = useMutation({
@@ -20,25 +19,27 @@ function ResetPasswordForm() {
 
   if (!token) {
     return (
-      <div className="w-full max-w-sm text-center">
-        <p className="text-sm text-gray-500">Invalid or missing reset link.</p>
-        <Link href="/forgot-password" className="mt-4 inline-block text-sm font-medium text-brand hover:underline">
-          Request a new one
-        </Link>
+      <div style={{ width: '100%', maxWidth: 400 }}>
+        <div style={{ ...card, textAlign: 'center' }}>
+          <p style={{ color: '#64748b', fontSize: '0.875rem' }}>Invalid or missing reset link.</p>
+          <Link href="/forgot-password" style={{ ...link, display: 'inline-block', marginTop: '1rem' }}>Request a new one</Link>
+        </div>
       </div>
     )
   }
 
   if (mutation.isSuccess) {
     return (
-      <div className="w-full max-w-sm text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-          <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
+      <div style={{ width: '100%', maxWidth: 400 }}>
+        <div style={{ ...card, textAlign: 'center' }}>
+          <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#f0fdf4', border: '1px solid #bbf7d0', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#16a34a" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h1 style={heading}>Password reset</h1>
+          <p style={{ ...sub, marginTop: '0.5rem' }}>Redirecting you to login…</p>
         </div>
-        <h1 className="text-xl font-semibold text-gray-900">Password reset</h1>
-        <p className="mt-2 text-sm text-gray-500">Redirecting you to login…</p>
       </div>
     )
   }
@@ -52,64 +53,74 @@ function ResetPasswordForm() {
   }
 
   return (
-    <div className="w-full max-w-sm">
-      <div className="mb-8 text-center">
-        <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-white font-bold">
-          AA
+    <div style={{ width: '100%', maxWidth: 400 }}>
+      <div style={card}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <div style={logoMark}>AA</div>
+          <h1 style={heading}>Reset password</h1>
+          <p style={sub}>Choose a new password for your account</p>
         </div>
-        <h1 className="text-2xl font-semibold text-gray-900">Reset password</h1>
-        <p className="mt-1 text-sm text-gray-500">Choose a new password for your account</p>
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div>
+            <label style={label}>New password</label>
+            <input type="password" value={pw.next} onChange={e => setPw(p => ({ ...p, next: e.target.value }))} style={input} placeholder="At least 8 characters" required autoFocus />
+          </div>
+          <div>
+            <label style={label}>Confirm password</label>
+            <input type="password" value={pw.confirm} onChange={e => setPw(p => ({ ...p, confirm: e.target.value }))} style={input} placeholder="Repeat your password" required />
+          </div>
+
+          {error && <p style={{ fontSize: '0.8125rem', color: '#ef4444' }}>{error}</p>}
+          {mutation.isError && !error && (
+            <p style={errBox}>
+              Link expired.{' '}
+              <Link href="/forgot-password" style={link}>Request a new one.</Link>
+            </p>
+          )}
+
+          <button type="submit" disabled={mutation.isPending} style={btn}>
+            {mutation.isPending ? 'Resetting…' : 'Reset password'}
+          </button>
+        </form>
       </div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">New password</label>
-          <input
-            type="password"
-            value={pw.next}
-            onChange={e => setPw(p => ({ ...p, next: e.target.value }))}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
-            placeholder="At least 8 characters"
-            required
-            autoFocus
-          />
-        </div>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Confirm password</label>
-          <input
-            type="password"
-            value={pw.confirm}
-            onChange={e => setPw(p => ({ ...p, confirm: e.target.value }))}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
-            placeholder="Repeat your password"
-            required
-          />
-        </div>
-
-        {error && <p className="text-sm text-red-500">{error}</p>}
-        {mutation.isError && !error && (
-          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
-            Link expired.{' '}
-            <Link href="/forgot-password" className="font-medium underline">Request a new one.</Link>
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={mutation.isPending}
-          className="w-full rounded-lg bg-brand py-2 text-sm font-medium text-white transition hover:bg-brand-600 disabled:opacity-60"
-        >
-          {mutation.isPending ? 'Resetting…' : 'Reset password'}
-        </button>
-      </form>
     </div>
   )
 }
 
 export default function ResetPasswordPage() {
   return (
-    <Suspense fallback={<div className="text-sm text-gray-400">Loading…</div>}>
+    <Suspense fallback={<div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Loading…</div>}>
       <ResetPasswordForm />
     </Suspense>
   )
+}
+
+const card: React.CSSProperties = {
+  background: '#ffffff', borderRadius: 24, padding: '2.5rem',
+  boxShadow: '0 8px 30px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.06)',
+}
+const logoMark: React.CSSProperties = {
+  width: 48, height: 48, borderRadius: 14,
+  background: 'linear-gradient(145deg, #1a1a2e, #16213e, #0f3460)',
+  color: '#fff', fontWeight: 700, fontSize: '1rem',
+  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem',
+}
+const heading: React.CSSProperties = { fontSize: '1.5rem', fontWeight: 700, color: '#1a1a2e', margin: '0 0 0.25rem' }
+const sub: React.CSSProperties = { fontSize: '0.875rem', color: '#64748b', margin: 0 }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: '#1a1a2e', marginBottom: '0.375rem' }
+const input: React.CSSProperties = {
+  width: '100%', boxSizing: 'border-box', border: '1px solid #e5e7eb',
+  borderRadius: 12, padding: '0.625rem 0.875rem', fontSize: '0.875rem',
+  color: '#1a1a2e', background: '#fafafa', outline: 'none',
+}
+const btn: React.CSSProperties = {
+  width: '100%', padding: '0.75rem', borderRadius: 12, border: 'none', cursor: 'pointer',
+  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+  color: '#fff', fontWeight: 600, fontSize: '0.9375rem', transition: 'opacity 0.2s',
+}
+const link: React.CSSProperties = { color: '#6366f1', fontWeight: 500, textDecoration: 'none' }
+const errBox: React.CSSProperties = {
+  background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10,
+  padding: '0.625rem 0.875rem', fontSize: '0.875rem', color: '#dc2626',
 }
