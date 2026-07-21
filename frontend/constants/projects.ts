@@ -18,17 +18,30 @@ export const FEATURED_SLUGS = ['cedar-rose', 'gates-crm-erp'];
 export const PROJECT_CATEGORIES = ['All', 'Enterprise', 'UX Case Study', 'Landing Page', 'E-commerce', 'Mobile Apps', 'Websites'];
 
 export const PROJECTS: Project[] = [
-  // Featured Projects
+  // Archive order: Syarah, Enterprise Design System, Teleco first
   {
-    id: 1,
-    slug: 'cedar-rose',
-    icon: 'fas fa-shield-alt',
-    title: 'Cedar Rose — Product Design',
-    description: 'Product design ownership across Cedar Rose\'s risk intelligence ecosystem — from 0→1 dashboard design to cross-product workflow ownership.',
-    tags: ['Risk Intelligence', 'Multi-product Ecosystem', 'Enterprise Workflows', 'Real-time Monitoring'],
-    category: 'Enterprise',
-    hasDetails: true,
-    coverImage: '/project-assets/Cedar Rose/cedar-rose-logo.png'
+    id: 3,
+    slug: 'syarah',
+    icon: 'fas fa-car',
+    title: 'Syarah',
+    description: 'Behind the Wheel of Trust - Comprehensive UX case study for automotive marketplace platform.',
+    tags: ['UX Case Study', 'Automotive', 'User Research'],
+    category: 'UX Case Study',
+    hasDetails: false,
+    coverImage: 'https://i.ibb.co/5xjh1p3V/Screenshot-2025-11-27-153745.png',
+    projectLink: 'https://www.behance.net/gallery/237435523/Behind-the-Wheel-of-Trust-Syarah-App-UX-Case-Study'
+  },
+  {
+    id: 22,
+    slug: 'enterprise-design-system',
+    icon: 'fas fa-layer-group',
+    title: 'Enterprise Design System',
+    description: 'One token foundation, 40+ production components, and the governance that keeps an enterprise ERP/CRM coherent at scale.',
+    tags: ['Design Systems', 'Component Library', 'Governance', 'Enterprise UX'],
+    category: 'UX Case Study',
+    hasDetails: false,
+    coverImage: '/project-assets/Enterprise Design System/slide-01.png',
+    projectLink: 'https://www.behance.net/gallery/251583567/Enterprise-Design-System'
   },
   {
     id: 2,
@@ -42,17 +55,18 @@ export const PROJECTS: Project[] = [
     coverImage: 'https://i.ibb.co/rK1vGMgR/Screenshot-2025-11-27-153244.png',
     link: 'https://telco-eg.com/'
   },
+
+  // Featured Projects
   {
-    id: 3,
-    slug: 'syarah',
-    icon: 'fas fa-car',
-    title: 'Syarah',
-    description: 'Behind the Wheel of Trust - Comprehensive UX case study for automotive marketplace platform.',
-    tags: ['UX Case Study', 'Automotive', 'User Research'],
-    category: 'UX Case Study',
-    hasDetails: false,
-    coverImage: 'https://i.ibb.co/5xjh1p3V/Screenshot-2025-11-27-153745.png',
-    projectLink: 'https://www.behance.net/gallery/237435523/Behind-the-Wheel-of-Trust-Syarah-App-UX-Case-Study'
+    id: 1,
+    slug: 'cedar-rose',
+    icon: 'fas fa-shield-alt',
+    title: 'Cedar Rose — Product Design',
+    description: 'Product design ownership across Cedar Rose\'s risk intelligence ecosystem — from 0→1 dashboard design to cross-product workflow ownership.',
+    tags: ['Risk Intelligence', 'Multi-product Ecosystem', 'Enterprise Workflows', 'Real-time Monitoring'],
+    category: 'Enterprise',
+    hasDetails: true,
+    coverImage: '/project-assets/Cedar Rose/cedar-rose-logo.png'
   },
 
   // Featured Projects (continued)
@@ -87,7 +101,8 @@ export const PROJECTS: Project[] = [
     tags: ['Social Commerce', 'Marketplace', 'App Store', 'Google Play'],
     category: 'E-commerce',
     hasDetails: false,
-    coverImage: '/project-assets/Swapop/image.png'
+    coverImage: '/project-assets/Swapop/image.png',
+    link: 'https://play.google.com/store/apps/details?id=swapop.app'
   },
   {
     id: 7,
