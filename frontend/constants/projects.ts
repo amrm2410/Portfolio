@@ -18,7 +18,19 @@ export const FEATURED_SLUGS = ['cedar-rose', 'gates-crm-erp'];
 export const PROJECT_CATEGORIES = ['All', 'Enterprise', 'UX Case Study', 'Landing Page', 'E-commerce', 'Mobile Apps', 'Websites'];
 
 export const PROJECTS: Project[] = [
-  // Archive order: Syarah, Enterprise Design System, Teleco first
+  // Archive order: Finance Tracker, Syarah, Enterprise Design System, Teleco first
+  {
+    id: 23,
+    slug: 'finance-tracker',
+    icon: 'fas fa-wallet',
+    title: 'Finance Tracker',
+    description: 'A personal finance app rebuilt around what you\'ll do next, not what you already spent — mobile product design case study.',
+    tags: ['Product Design', 'Mobile App', 'FinTech', 'UI/UX Design'],
+    category: 'Mobile Apps',
+    hasDetails: false,
+    coverImage: '/project-assets/Finance Tracker/slide-01.png',
+    projectLink: 'https://www.behance.net/gallery/253351083/Finance-Tracker-UIUX-Design'
+  },
   {
     id: 3,
     slug: 'syarah',
