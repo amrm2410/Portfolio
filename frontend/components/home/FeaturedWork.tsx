@@ -43,6 +43,7 @@ const FeaturedWork = () => {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
+              prefetch={false}
               className="featured-project-card bento-card featured-project-card-full"
             >
               <div className="featured-cover" style={project.coverBg ? { background: project.coverBg } : undefined}>

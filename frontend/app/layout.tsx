@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
-import Providers from "./providers";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -218,9 +218,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.className} ${jetbrainsMono.variable}`}>
-        <Providers>
-          <ThemeProvider>{children}</ThemeProvider>
-        </Providers>
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "yv1tn3br1u");`}
+        </Script>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

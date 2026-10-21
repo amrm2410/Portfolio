@@ -56,6 +56,18 @@ export const PROJECTS: Project[] = [
     projectLink: 'https://www.behance.net/gallery/251583567/Enterprise-Design-System'
   },
   {
+    id: 24,
+    slug: 'gathern-design-system',
+    icon: 'fas fa-layer-group',
+    title: 'Gathern Design System',
+    description: 'Design system and design tokens case study for Gathern — a scalable token foundation and component library built with a cross-functional design team.',
+    tags: ['Design Systems', 'Design Tokens', 'Component Library', 'UI/UX Design'],
+    category: 'UX Case Study',
+    hasDetails: false,
+    coverImage: '/project-assets/Gathern/Screenshot 2026-09-13 114225.png',
+    projectLink: 'https://www.behance.net/gallery/254798215/Gather-N-Design-System-Design-Tokens-Case-Study'
+  },
+  {
     id: 2,
     slug: 'teleco',
     icon: 'fas fa-network-wired',

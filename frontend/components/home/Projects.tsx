@@ -99,7 +99,7 @@ const Projects = () => {
 
             if (project.hasDetails) {
               return (
-                <Link key={project.id} href={`/projects/${project.slug}`} className={className} style={{ background: gradient }}>
+                <Link key={project.id} href={`/projects/${project.slug}`} prefetch={false} className={className} style={{ background: gradient }}>
                   {content}
                 </Link>
               );
