@@ -18,17 +18,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amrabbas.com"),
+  metadataBase: new URL("https://amr-uiux.site"),
   title: {
-    default: "Amr Abbas | Senior Product Designer - B2B SaaS & Enterprise UX",
+    default: "Amr Abbas | Senior Product Designer - B2B SaaS, Enterprise & AI UX",
     template: "%s | Amr Abbas",
   },
   description:
-    "Amr Abbas - Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows. I turn complex operational processes into fast, low-error, scalable UX. 25+ products shipped.",
+    "Senior Product Designer in B2B SaaS & enterprise UX. I turn complex workflows into scalable UX and design AI features people trust. 25+ products shipped.",
   keywords: [
     "Amr Abbas",
     "Product Designer",
     "Senior Product Designer",
+    "AI Product Designer",
+    "AI UX Design",
+    "Designing for AI",
+    "Human-in-the-loop UX",
+    "Generative AI UX",
     "B2B SaaS Designer",
     "Enterprise UX",
     "UX Designer Egypt",
@@ -58,25 +63,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://amrabbas.com",
+    url: "https://amr-uiux.site",
     siteName: "Amr Abbas Portfolio",
-    title: "Amr Abbas - Senior Product Designer | B2B SaaS & Enterprise UX",
+    title: "Amr Abbas | Senior Product Designer - B2B SaaS, Enterprise & AI UX",
     description:
-      "Senior Product Designer specializing in B2B SaaS and enterprise workflows. 4+ years turning complex processes into scalable UX. 25+ products shipped.",
+      "Senior Product Designer in B2B SaaS & enterprise UX. I turn complex workflows into scalable UX and design AI features people trust. 25+ products shipped.",
     images: [
       {
         url: "/preview.jpg",
         width: 1200,
         height: 630,
-        alt: "Amr Abbas - UI/UX Designer Portfolio",
+        alt: "Amr Abbas — Product Designer, B2B SaaS, Enterprise & AI UX",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abbas - Senior Product Designer | B2B SaaS & Enterprise UX",
+    title: "Amr Abbas | Senior Product Designer - B2B SaaS, Enterprise & AI UX",
     description:
-      "Senior Product Designer specializing in B2B SaaS and enterprise workflows. 4+ years, 25+ products shipped.",
+      "Senior Product Designer in B2B SaaS & enterprise UX. I turn complex workflows into scalable UX and design AI features people trust. 25+ products shipped.",
     images: ["/preview.jpg"],
   },
   manifest: "/manifest.json",
@@ -121,7 +126,7 @@ export default function RootLayout({
           }}
         />
         {/* LLMs.txt discovery for AI crawlers */}
-        <link rel="alternate" type="text/plain" href="https://amrabbas.com/llms.txt" title="LLM-friendly content" />
+        <link rel="alternate" type="text/plain" href="https://amr-uiux.site/llms.txt" title="LLM-friendly content" />
         {/* Font Awesome CDN */}
         <link
           rel="stylesheet"
@@ -140,8 +145,8 @@ export default function RootLayout({
               name: "Amr Abbas",
               jobTitle: "Senior Product Designer",
               description:
-                "Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows. Turning complex operational processes into fast, low-error, scalable UX.",
-              url: "https://amrabbas.com",
+                "Senior Product Designer with 4+ years in B2B SaaS and enterprise UX. Turns complex workflows into scalable UX and designs AI features people trust.",
+              url: "https://amr-uiux.site",
               email: "amrm241020@gmail.com",
               address: {
                 "@type": "PostalAddress",
@@ -154,6 +159,8 @@ export default function RootLayout({
               ],
               knowsAbout: [
                 "Product Design",
+                "AI Product Design",
+                "Human-in-the-loop UX",
                 "B2B SaaS",
                 "Enterprise UX",
                 "Dashboard Design",
@@ -207,7 +214,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Amr Abbas Portfolio",
-              url: "https://amrabbas.com",
+              url: "https://amr-uiux.site",
               description: "Portfolio of Amr Abbas - Senior Product Designer",
               author: {
                 "@type": "Person",

@@ -88,6 +88,7 @@ const Navigation = ({ isHomePage = true }: NavigationProps) => {
               <>
                 <li><a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')}>Home</a></li>
                 <li><a href="#about" onClick={(e) => handleSmoothScroll(e, '#about')}>About</a></li>
+                <li><a href="#process" onClick={(e) => handleSmoothScroll(e, '#process')}>Process</a></li>
                 <li><a href="#skills" onClick={(e) => handleSmoothScroll(e, '#skills')}>Skills</a></li>
                 <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, '#projects')}>Projects</a></li>
               </>
@@ -95,6 +96,7 @@ const Navigation = ({ isHomePage = true }: NavigationProps) => {
               <>
                 <li><Link href="/#home">Home</Link></li>
                 <li><Link href="/#about">About</Link></li>
+                <li><Link href="/#process">Process</Link></li>
                 <li><Link href="/#skills">Skills</Link></li>
                 <li><Link href="/#projects">Projects</Link></li>
               </>

@@ -38,6 +38,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://amrabbas.com/sitemap.xml',
+    sitemap: 'https://amr-uiux.site/sitemap.xml',
   };
 }

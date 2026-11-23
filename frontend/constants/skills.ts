@@ -24,6 +24,18 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ]
   },
   {
+    id: 'ai',
+    icon: 'https://cdn.simpleicons.org/claude',
+    title: 'AI & Prototyping',
+    skills: [
+      { name: 'Claude', icon: 'https://cdn.simpleicons.org/claude' },
+      { name: 'Claude Code', icon: 'https://cdn.simpleicons.org/claude' },
+      { name: 'Lovable', icon: '/icons/lovable.svg' },
+      { name: 'Figma Make', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'AI Agents', icon: '/icons/ai-agents.svg' }
+    ]
+  },
+  {
     id: 'analytics',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     title: 'Analytics & Data',
@@ -61,4 +73,4 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 ];
 
 export const TECH_SECTION_TITLE = 'Skills & Tools';
-export const TECH_SECTION_SUBTITLE = 'The tools and technologies I use to bring ideas to life';
+export const TECH_SECTION_SUBTITLE = 'The tools I use to design, prototype and ship, with AI in the loop';

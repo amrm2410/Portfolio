@@ -25,8 +25,9 @@ const Hero = () => {
               <span className="hero-gradient-text">scalable UX</span>
             </h1>
             <p className="hero-tagline">
-              4+ years specializing in B2B SaaS &amp; enterprise products &mdash;
-              dashboards, approvals, data-heavy tables, and design systems.
+              4+ years specializing in B2B SaaS &amp; enterprise products: dashboards, approvals,
+              data-heavy tables and design systems. I design AI features people can trust, and use
+              AI across my process to prototype and ship faster.
             </p>
             <div className="cta-buttons">
               <a href="/AmrAbbas_UI_UX_CV.pdf" download="AmrAbbas_UI_UX_CV.pdf" className="btn btn-primary">
@@ -70,7 +71,7 @@ const Hero = () => {
           <span className="info-emoji">&#x1F3AF;</span>
           <div className="info-content">
             <span className="info-label">Focus</span>
-            <span className="info-value">B2B SaaS &middot; Enterprise UX</span>
+            <span className="info-value">AI-enabled B2B SaaS</span>
           </div>
         </div>
       </div>

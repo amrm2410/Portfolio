@@ -14,18 +14,22 @@ const About = () => {
             <span className="about-card-emoji">&#x1F9D1;&#x200D;&#x1F4BB;</span>
             <h3 className="bio-title">Who I Am</h3>
             <p className="bio-specialization">
-              Specializing in: Dashboards, data-heavy tables, approval workflows, form systems, and design systems for enterprise SaaS.
+              Specializing in: AI features, dashboards, approval workflows, data-heavy tables, and design systems for enterprise SaaS.
             </p>
             <p className="bio-text">
-              I&apos;m a Senior Product Designer with 4+ years specializing in B2B SaaS and enterprise workflows &mdash; dashboards, reporting, approvals, and data-heavy tables.
+              I&apos;m a Senior Product Designer with 4+ years in B2B SaaS and enterprise workflows, and I now focus on bringing AI into those products in ways people trust.
             </p>
             <p className="bio-text">
-              I turn complex operational processes into fast, low-error, scalable UX through strong problem framing, structured research, and tight collaboration with engineering.
+              Enterprise users can&apos;t afford a model that&apos;s confidently wrong. I design AI features around that: clear sources, visible confidence, easy correction, and approval steps where a person makes the final call.
             </p>
             <p className="bio-text">
               Experienced in shipping end-to-end product features, building design systems, and improving usability under real constraints &mdash; legacy systems, permissions, compliance, and data quality.
             </p>
             <div className="bio-highlights">
+              <div className="highlight-item">
+                <i className="fas fa-check-circle"></i>
+                <span>Shipped AI features in production at Cedar Rose, Gates Developments and Swapop</span>
+              </div>
               <div className="highlight-item">
                 <i className="fas fa-check-circle"></i>
                 <span>25+ products shipped end-to-end</span>
@@ -46,6 +50,13 @@ const About = () => {
             <span className="about-card-emoji">&#x1F680;</span>
             <h3 className="expertise-title">Core Strengths</h3>
             <div className="expertise-list">
+              <div className="expertise-item">
+                <div className="expertise-bullet"></div>
+                <div className="expertise-details">
+                  <h4>AI Product Design</h4>
+                  <p>Designing for unpredictable output: streaming and loading states, sources and confidence, error recovery, and human-in-the-loop review.</p>
+                </div>
+              </div>
               <div className="expertise-item">
                 <div className="expertise-bullet"></div>
                 <div className="expertise-details">
@@ -78,7 +89,7 @@ const About = () => {
                 <div className="expertise-bullet"></div>
                 <div className="expertise-details">
                   <h4>How I Work</h4>
-                  <p>Tight loops with engineering, async documentation, Figma-to-code handoff specs, and iterative QA reviews.</p>
+                  <p>Tight loops with engineering, and an AI-native workflow: prototyping with Lovable and Claude, and building with Claude Code, so ideas get tested as working products, not just mockups.</p>
                 </div>
               </div>
             </div>

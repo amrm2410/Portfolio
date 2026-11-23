@@ -4,7 +4,7 @@ import { getAllCaseStudies } from '@/lib/mdx';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://amrabbas.com';
+  const baseUrl = 'https://amr-uiux.site';
   const caseStudies = getAllCaseStudies();
 
   const projectUrls = caseStudies.map((study) => ({

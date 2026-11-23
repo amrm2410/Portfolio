@@ -1,0 +1,351 @@
+/* Process Section - Flow Diagram
+   Desktop: 3 nodes per row joined by arrows, an elbow connector from node 3
+   down to node 4, and an "iterate" return arrow under the second row
+   (validation back to design, see PROCESS_LOOP).
+   Mobile: a single vertical flow. */
+
+.process {
+    --process-line: var(--text-tertiary);
+    --process-loop: var(--accent-primary);
+    --process-arrow-col: 48px;
+    --process-turn-row: 64px;
+    --process-return-row: 56px;
+    --process-stroke: 2px;
+}
+
+/* Connector pieces are pseudo-elements, which the global box-sizing reset
+   doesn't reach; without this the elbow borders sit 2px below the straight lines. */
+.process-diagram *::before,
+.process-diagram *::after {
+    box-sizing: border-box;
+}
+
+.process-diagram {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns:
+        1fr var(--process-arrow-col)
+        1fr var(--process-arrow-col)
+        1fr;
+    grid-template-rows: auto var(--process-turn-row) auto var(--process-return-row);
+}
+
+/* Nodes */
+.process-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+
+.process-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0.85rem;
+    border: 1.5px solid var(--accent-primary);
+    border-radius: 50%;
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+.process-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.process-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+/* Straight arrow between nodes in a row */
+.process-arrow {
+    position: relative;
+}
+
+.process-arrow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    right: 10px;
+    height: var(--process-stroke);
+    transform: translateY(-50%);
+    background: var(--process-line);
+}
+
+.process-arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid var(--process-line);
+}
+
+/* Elbow connector between rows, plus the iteration loop */
+.process-turn {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr;
+}
+
+.process-turn > span {
+    grid-row: 1;
+    position: relative;
+}
+
+/* Leaves the bottom of node 3 and turns left */
+.process-turn-out {
+    grid-column: 5;
+}
+
+.process-turn-out::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: calc(50% + var(--process-stroke));
+    border-right: var(--process-stroke) solid var(--process-line);
+    border-bottom: var(--process-stroke) solid var(--process-line);
+    border-bottom-right-radius: 10px;
+}
+
+/* Runs left under node 2 */
+.process-turn-across {
+    grid-column: 2 / 5;
+}
+
+.process-turn-across::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: var(--process-stroke);
+    background: var(--process-line);
+}
+
+/* Turns down into the top of node 4 */
+.process-turn-in {
+    grid-column: 1;
+}
+
+.process-turn-in::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(50% - var(--process-stroke) / 2);
+    right: 0;
+    bottom: 7px;
+    border-left: var(--process-stroke) solid var(--process-line);
+    border-top: var(--process-stroke) solid var(--process-line);
+    border-top-left-radius: 10px;
+}
+
+.process-turn-in::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid var(--process-line);
+}
+
+/* Iteration loop: return arrow under the second row,
+   from the bottom of the validation node back up into the design node */
+.process-return {
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 1fr;
+}
+
+.process-return > span {
+    grid-row: 1;
+    position: relative;
+}
+
+/* Leaves the bottom of the "from" node and turns left */
+.process-return-from {
+    grid-column: -2 / -1;
+}
+
+.process-return-from::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: calc(50% + var(--process-stroke));
+    border-right: var(--process-stroke) solid var(--process-loop);
+    border-bottom: var(--process-stroke) solid var(--process-loop);
+    border-bottom-right-radius: 10px;
+}
+
+/* Runs left between the two nodes */
+.process-return-across {
+    grid-column: 2 / -2;
+}
+
+.process-return-across::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: var(--process-stroke);
+    background: var(--process-loop);
+}
+
+.process-return-label {
+    position: absolute;
+    top: calc(50% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--process-loop);
+}
+
+/* Turns up into the bottom of the "to" node */
+.process-return-to {
+    grid-column: 1;
+}
+
+.process-return-to::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: calc(65% - var(--process-stroke) / 2);
+    right: 0;
+    height: calc(50% - 7px + var(--process-stroke));
+    border-left: var(--process-stroke) solid var(--process-loop);
+    border-bottom: var(--process-stroke) solid var(--process-loop);
+    border-bottom-left-radius: 10px;
+}
+
+.process-return-to::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 65%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 7px solid var(--process-loop);
+}
+
+/* Loop note: read by screen readers on desktop, shown on mobile */
+.process-loop-note {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.process-loop-note i {
+    color: var(--process-loop);
+}
+
+/* Tablet: tighter arrows */
+@media (max-width: 1024px) {
+    .process {
+        --process-arrow-col: 36px;
+    }
+
+    .process-node {
+        padding: 1.25rem 1rem;
+    }
+}
+
+/* Mobile: vertical flow */
+@media (max-width: 768px) {
+    .process-diagram {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+    }
+
+    .process-arrow,
+    .process-turn {
+        display: block;
+        position: relative;
+        height: 32px;
+    }
+
+    .process-turn > span,
+    .process-return {
+        display: none;
+    }
+
+    .process-arrow::before,
+    .process-turn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 8px;
+        left: calc(50% - var(--process-stroke) / 2);
+        right: auto;
+        width: var(--process-stroke);
+        height: auto;
+        transform: none;
+        background: var(--process-line);
+    }
+
+    .process-arrow::after,
+    .process-turn::after {
+        content: '';
+        position: absolute;
+        top: auto;
+        bottom: 2px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid var(--process-line);
+        border-bottom: 0;
+    }
+
+    .process-node {
+        padding: 1.25rem;
+    }
+
+    .process-loop-note {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0.25rem 0 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono), 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+}
