@@ -1,18 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Outfit, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+// Fonts are self-hosted (Latin subset, variable weight) instead of using
+// next/font/google: Google Fonts sometimes serves `/l/font?kit=...&skey=...`
+// URLs to build servers, which Turbopack's Google font loader can't resolve.
+const outfit = localFont({
+  src: "./fonts/outfit-latin-variable.woff2",
+  weight: "300 800",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono-latin-variable.woff2",
+  weight: "300 500",
   display: "swap",
   variable: "--font-mono",
 });
